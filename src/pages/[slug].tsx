@@ -6,6 +6,7 @@ import BatchComponent from "../components/clp/batch/Batch.component";
 import ReviewsComponent from "../components/clp/reviews/Reviews.component";
 import OtherCityLink from "../components/clp/OtherCityLinks/OtherCity.component";
 import ICE from "../components/clp/ICE/ICE.component";
+import FAQ from "../components/clp/FAQ/FAQ.component";
 
 type Props = {
   data: {
@@ -26,11 +27,7 @@ const CoursePage = ({ data, errors }: Props) => {
 
   return (
     <ClpLayout>
-      <h1> {data.course?.title}</h1>
-
-      <BatchComponent course={data.course} batches={[]} />
-
-      <ReviewsComponent reviews={data.reviews} />
+      <FAQ />
       <ICE />
       <OtherCityLink />
     </ClpLayout>

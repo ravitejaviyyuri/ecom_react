@@ -25,6 +25,10 @@ img {
   display: block;
 }
 
+.nav-pills .nav-link.active {
+  background-color: #0052cc;
+}
+
 .duq-transition-enter,
 .duq-transition-appear {
   transform: translateY(404px);

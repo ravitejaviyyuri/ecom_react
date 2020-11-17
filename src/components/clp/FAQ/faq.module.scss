@@ -1,0 +1,40 @@
+.faq_section {
+  padding: 60px 0px;
+  background-color: #f4f5f7;
+}
+
+.heading {
+  font-size: 30px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.27;
+  letter-spacing: normal;
+  text-align: center;
+  color: #192f60;
+  width: 100%;
+}
+
+.selector_container {
+  display: flex;
+  padding: 4px 5px 4px 5px;
+  border-radius: 25px;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.12);
+  background-color: #ffffff;
+  margin-top: 40px;
+}
+
+.nav_link {
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #192f60;
+  border-radius: 21px !important;
+  &:hover {
+    color: #192f60;
+  }
+}
