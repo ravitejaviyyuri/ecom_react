@@ -11,6 +11,11 @@ const options = [
 const customStyles = {
   option: (provided: any, state: { isSelected: any }) => ({
     ...provided,
+    fontSize: "14px",
+    "@media only screen and (max-width: 767px)": {
+      ...provided["@media only screen and (max-width: 767px)"],
+      fontSize: "12px",
+    },
   }),
   control: (provided: any, state: any) => ({
     ...provided,
@@ -21,7 +26,17 @@ const customStyles = {
     const opacity = state.isDisabled ? 0.5 : 1;
     const transition = "opacity 300ms";
 
-    return { ...provided, color: "#ffffff", opacity, transition };
+    return {
+      ...provided,
+      color: "#ffffff",
+      fontSize: "14px",
+      "@media only screen and (max-width: 767px)": {
+        ...provided["@media only screen and (max-width: 767px)"],
+        fontSize: "12px",
+      },
+      opacity,
+      transition,
+    };
   },
 };
 
@@ -49,6 +64,7 @@ const CountrySelect = () => {
       <Select
         options={options}
         styles={customStyles}
+        defaultValue={{ label: "India", value: "india" }}
         components={{
           IndicatorSeparator: () => null,
           DropdownIndicator,

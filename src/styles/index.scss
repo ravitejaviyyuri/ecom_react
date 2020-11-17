@@ -24,3 +24,20 @@ img {
   max-width: 100%;
   display: block;
 }
+
+.duq-transition-enter,
+.duq-transition-appear {
+  transform: translateY(400px);
+}
+.duq-transition-enter-active,
+.duq-transition-appear-active {
+  transform: translateY(0px);
+  transition: all 600ms;
+}
+.duq-transition-exit {
+  transform: translateY(0px);
+}
+.duq-transition-exit-active {
+  transform: translateY(400px);
+  transition: all 600ms;
+}

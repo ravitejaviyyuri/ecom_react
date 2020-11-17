@@ -1,6 +1,7 @@
-import Head from 'next/head'
-import Footer from '../shared/Footer/Footer.component'
-import Navbar from '../shared/Navbar.component'
+import Head from "next/head";
+import Footer from "../shared/Footer/Footer.component";
+import Navbar from "../shared/Navbar.component";
+import DUQ from "../shared/DUQ.component"
 
 function ClpLayout(props: any) {
   return (
@@ -9,13 +10,11 @@ function ClpLayout(props: any) {
         <title>Edureka - Devpops</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-
-      <Navbar/>
-
-      <div className="container-fluid">{props.children}</div>
-
-      <Footer/>
+      <Navbar />
+      {props.children}
+      <Footer />
+      <DUQ />
     </div>
-  )
+  );
 }
-export default ClpLayout
+export default ClpLayout;
