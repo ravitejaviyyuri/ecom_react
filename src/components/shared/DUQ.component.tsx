@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import CountryCodeSelect from "./CountryCodeSelect.component";
 import styles from "./duq.module.scss";
 
 const DUQ = () => {
@@ -59,10 +60,11 @@ const DUQ = () => {
               </div>
             </div>
             <Form className={styles.form}>
-              <Form.Group controlId="duqFormPhoneNumber">
+              <Form.Group controlId="duqFormPhoneNumber" className="position-relative">
                 <Form.Label className={styles.label}>Phone Number</Form.Label>
+                <CountryCodeSelect className={styles.code_select} />
                 <Form.Control
-                  className={styles.input}
+                  className={`${styles.input} ${styles.phone_input}`}
                   type="tel"
                   placeholder="Enter Phone Number*"
                 />

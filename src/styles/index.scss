@@ -27,7 +27,7 @@ img {
 
 .duq-transition-enter,
 .duq-transition-appear {
-  transform: translateY(400px);
+  transform: translateY(404px);
 }
 .duq-transition-enter-active,
 .duq-transition-appear-active {
@@ -38,6 +38,6 @@ img {
   transform: translateY(0px);
 }
 .duq-transition-exit-active {
-  transform: translateY(400px);
+  transform: translateY(404px);
   transition: all 600ms;
 }

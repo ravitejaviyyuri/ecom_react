@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Footer from "../shared/Footer/Footer.component";
 import Navbar from "../shared/Navbar.component";
-import DUQ from "../shared/DUQ.component"
+import DUQ from "../shared/DUQ.component";
+import ResponsiveFooter from "../shared/Footer/ResponsiveFooter.component";
 
 function ClpLayout(props: any) {
   return (
@@ -13,7 +14,8 @@ function ClpLayout(props: any) {
       <Navbar />
       {props.children}
       <Footer />
-      <DUQ />
+      {process.browser && window.innerWidth < 767 && <ResponsiveFooter />}
+      {process.browser && window.innerWidth > 767 && <DUQ />}
     </div>
   );
 }

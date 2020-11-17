@@ -62,6 +62,7 @@ const CountrySelect = () => {
     <div className={styles.country_select_section}>
       <span className={styles.label}>Country</span>
       <Select
+        instanceId="country-select"
         options={options}
         styles={customStyles}
         defaultValue={{ label: "India", value: "india" }}

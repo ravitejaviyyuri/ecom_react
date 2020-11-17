@@ -3,13 +3,13 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import styles from "./footer.module.scss";
-import TrendingCertificationCourses from "./TrendingCertificationCourses";
-import TrendingMasterCourses from "./TrendingMasterCourses";
-import EdurekaLinks from "./EdurekaLinks";
-import WorkWithUs from "./WorkWithUs";
-import Support from "./Support";
-import Sitemaps from "./Sitemaps";
-import CountrySelect from "./CountrySelect";
+import TrendingCertificationCourses from "./TrendingCertificationCourses.component";
+import TrendingMasterCourses from "./TrendingMasterCourses.component";
+import EdurekaLinks from "./EdurekaLinks.component";
+import WorkWithUs from "./WorkWithUs.component";
+import Support from "./Support.component";
+import Sitemaps from "./Sitemaps.component";
+import CountrySelect from "./CountrySelect.component";
 
 const Footer = () => {
   return (
