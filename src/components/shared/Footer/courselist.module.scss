@@ -1,0 +1,35 @@
+.heading {
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: #f4f5f7;
+  margin-top: 0;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    font-size: 12px;
+  }
+}
+
+.list {
+  list-style: none;
+  padding-left: 0;
+  li {
+    a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 2.29;
+      letter-spacing: normal;
+      text-align: left;
+      color: #98a2ba;
+      @media only screen and (max-width: 767px) and (min-width: 300px) {
+        font-size: 12px;
+      }
+    }
+  }
+}

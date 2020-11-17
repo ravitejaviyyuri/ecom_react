@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Footer from '../shared/Footer.component'
+import Footer from '../shared/Footer/Footer.component'
 import Navbar from '../shared/Navbar.component'
 
 function ClpLayout(props: any) {
