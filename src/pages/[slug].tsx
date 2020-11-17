@@ -25,7 +25,7 @@ const CoursePage = ({ data, errors }: Props) => {
 
   return (
     <ClpLayout>
-        <h1 className="{styles.heading1}"> {data.course?.title}</h1>
+        <h1> {data.course?.title}</h1>
 
         <BatchComponent course={data.course} batches = {[]}/>
 
