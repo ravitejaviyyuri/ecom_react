@@ -10,8 +10,11 @@ const OpenForm = () => {
     <div className={styles.open_form}>
       <div className={styles.heading}>Be future ready, start learning</div>
       <Form className="mt-4">
-        <Form.Row>
-          <Form.Group as={Col} className="position-relative mb-0 mr-2">
+        <Form.Row className={styles.form_row}>
+          <Form.Group
+            as={Col}
+            className={`position-relative ${styles.form_group}`}
+          >
             <Form.Label className={styles.label}>Phone Number</Form.Label>
             <CountryCodeSelect className={styles.code_select} />
             <Form.Control
@@ -20,7 +23,10 @@ const OpenForm = () => {
               placeholder="Enter Phone Number*"
             />
           </Form.Group>
-          <Form.Group as={Col} className="position-relative mb-0 mr-2">
+          <Form.Group
+            as={Col}
+            className={`position-relative ${styles.form_group}`}
+          >
             <Form.Label className={styles.label}>Email Id</Form.Label>
             <Form.Control
               className={styles.input}

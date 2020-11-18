@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -34,6 +34,16 @@ const advantageData = [
 ];
 
 const EdurekaAdvantage = () => {
+  const [isMob, setMob] = useState(false);
+  useEffect(() => {
+    if (process.browser) {
+      if (window.innerWidth < 768) {
+        setMob(true);
+      } else {
+        setMob(false);
+      }
+    }
+  }, []);
   return (
     <section className={styles.advantage_section}>
       <Container className={styles.container}>
@@ -176,11 +186,11 @@ const EdurekaAdvantage = () => {
             className={`${styles.cell} ${styles.light_green}`}
           ></Col>
         </Row>
-        <div className={styles.open_form_container}>
-          <OpenForm />
-          <img src="/be_future.png" alt="be future" />
-        </div>
       </Container>
+      <div className={styles.open_form_container}>
+        <OpenForm />
+        <img src={isMob ? `/future2.png` : `future1.png`} alt="be future" />
+      </div>
     </section>
   );
 };

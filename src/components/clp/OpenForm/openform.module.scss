@@ -5,17 +5,24 @@
   border-radius: 6px;
   box-shadow: 0 3px 40px 0 rgba(0, 12, 105, 0.06);
   position: relative;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    width: auto;
+  }
   &::before {
     content: "";
     display: inline-block;
     height: 7px;
-    width: 980px;
+    width: 100%;
     position: absolute;
     top: 0;
     right: 0;
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
     background-image: linear-gradient(to right, #2d81f7, #6fe5be 99%);
+    @media only screen and (max-width: 767px) and (min-width: 300px) {
+      background-image: none;
+      background-color: #6c63ff;
+    }
   }
 }
 
@@ -28,6 +35,10 @@
   letter-spacing: normal;
   text-align: left;
   color: #192f60;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    width: 50%;
+    font-size: 20px;
+  }
 }
 
 .label {
@@ -61,7 +72,7 @@
 .code_select {
   height: 42px;
   top: 29px;
-  left: 6px;
+  left: 1px;
 }
 
 .submit {
@@ -81,5 +92,25 @@
   &:active,
   &:focus {
     background-color: #0052cc;
+  }
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    width: 100%;
+    margin-top: 12px;
+  }
+}
+
+.form_row {
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    flex-direction: column;
+  }
+}
+
+.form_group {
+  margin-right: 20px;
+  margin-bottom: 0;
+  padding: 0 !important;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    margin-right: 0;
+    margin-bottom: 8px;
   }
 }
