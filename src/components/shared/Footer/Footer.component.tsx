@@ -40,9 +40,14 @@ const Footer = () => {
           <Col className="px-4 p-md-0" xs={12} sm={12} md={5}>
             <TrendingMasterCourses />
           </Col>
-          <Col className="px-4 p-md-0" xs={12} sm={12} md={2}>
-            <img src="" alt=""/>
-            <img src="" alt=""/>
+          <Col
+            className={`px-4 p-md-0 ${styles.store_section}`}
+            xs={12}
+            sm={12}
+            md={2}
+          >
+            <img src="/ios.svg" alt="" />
+            <img src="/android.svg" alt="" />
           </Col>
         </Row>
         <Row className={styles.about_section}>

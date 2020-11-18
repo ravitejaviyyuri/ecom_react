@@ -1,0 +1,61 @@
+.rating_row {
+  margin-top: 100px;
+  padding: 0 100px;
+  align-items: center;
+  justify-content: center;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    margin-top: 25px;
+    padding: 0 60px;
+  }
+}
+
+.rating_section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    justify-content: flex-start;
+  }
+}
+
+.col {
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    margin-bottom: 35px;
+    padding: 0;
+  }
+}
+
+.col:last-child {
+  margin-bottom: 0;
+}
+
+.rating_col {
+  font-size: 30px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #192f60;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.max_rating {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.total_reviews {
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #5a6484;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    text-align: left;
+  }
+}

@@ -28,6 +28,25 @@
   }
 }
 
+.store_section {
+  display: flex;
+  flex-direction: column;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    flex-direction: row;
+  }
+  img {
+    width: 199px;
+    height: 62px;
+    margin-bottom: 30px;
+    @media only screen and (max-width: 767px) and (min-width: 300px) {
+      width: 143px;
+      height: 45px;
+      margin-bottom: 0;
+      margin-right: 15px;
+    }
+  }
+}
+
 .about_section {
   padding: 50px 0px;
   border-top: solid 1px #273d6e;
