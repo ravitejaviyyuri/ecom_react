@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import Accordion from "./FAQAccordion.component";
+import OpenForm from "../OpenForm/OpenForm.component";
 import styles from "./faq.module.scss";
 
 const faq1 = [
@@ -99,7 +100,7 @@ const ICE = () => {
                     <div className={styles.selector_container}>
                       <Nav.Item>
                         <Nav.Link className={styles.nav_link} eventKey="first">
-                          Course Specific Queries
+                          Course Specific
                         </Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
@@ -110,8 +111,8 @@ const ICE = () => {
                     </div>
                   </Nav>
                 </Col>
-                <Col sm={12} className="mt-5">
-                  <Tab.Content>
+                <Col sm={12} className={styles.tab_col}>
+                  <Tab.Content className={styles.tab_content}>
                     <Tab.Pane eventKey="first">
                       <Accordion faq={faq1} />
                     </Tab.Pane>
@@ -123,6 +124,11 @@ const ICE = () => {
               </Row>
             </Tab.Container>
           </Col>
+          {process.browser && window.innerWidth > 767 && (
+            <Col className="d-flex justify-content-center mt-5">
+              <OpenForm />
+            </Col>
+          )}
         </Row>
       </Container>
     </section>

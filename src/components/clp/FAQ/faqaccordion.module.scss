@@ -5,6 +5,9 @@
   background-color: #ffffff;
   margin-bottom: 15px;
   border: none;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    margin-bottom: 5px;
+  }
 }
 
 .accordion_header {
@@ -23,6 +26,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    font-size: 14px;
+    padding: 30px 25px;
+  }
 }
 
 .accordion_body {
@@ -36,6 +43,11 @@
   letter-spacing: normal;
   text-align: left;
   color: #5a6484;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    font-size: 13px;
+    padding: 30px 35px;
+    padding-top: 5px;
+  }
 }
 
 .active {
@@ -43,23 +55,23 @@
 }
 
 .open {
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-    -webkit-transition: 0.4s;
-    -moz-transition: 0.4s;
-    -ms-transition: 0.4s;
-    -o-transition: 0.4s;
-    transition: 0.4s;
-  }
-  
-  .closed {
-    transition: 0.4s;
-    -webkit-transition: 0.4s;
-    -moz-transition: 0.4s;
-    -ms-transition: 0.4s;
-    -o-transition: 0.4s;
-    transition: 0.4s;
-  }
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.closed {
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
