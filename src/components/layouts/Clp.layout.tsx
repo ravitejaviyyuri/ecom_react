@@ -1,10 +1,21 @@
 import Head from "next/head";
+import React, { useState, useEffect } from "react";
 import Footer from "../shared/Footer/Footer.component";
 import Navbar from "../shared/Navbar.component";
 import DUQ from "../shared/DUQ.component";
 import ResponsiveFooter from "../shared/Footer/ResponsiveFooter.component";
 
 function ClpLayout(props: any) {
+  const [isMob, setMob] = useState(false);
+  useEffect(() => {
+    if (process.browser) {
+      if (window.innerWidth < 768) {
+        setMob(true);
+      } else {
+        setMob(false);
+      }
+    }
+  }, []);
   return (
     <div>
       <Head>
@@ -14,8 +25,7 @@ function ClpLayout(props: any) {
       <Navbar />
       {props.children}
       <Footer />
-      {process.browser && window.innerWidth < 767 && <ResponsiveFooter />}
-      {process.browser && window.innerWidth > 767 && <DUQ />}
+      {isMob ? <ResponsiveFooter /> : <DUQ />}
     </div>
   );
 }

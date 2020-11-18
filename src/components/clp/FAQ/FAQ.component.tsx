@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -84,6 +84,16 @@ const faq2 = [
 ];
 
 const ICE = () => {
+  const [isMob, setMob] = useState(false);
+  useEffect(() => {
+    if (process.browser) {
+      if (window.innerWidth < 768) {
+        setMob(true);
+      } else {
+        setMob(false);
+      }
+    }
+  }, []);
   return (
     <section className={styles.faq_section}>
       <Container>
@@ -124,7 +134,7 @@ const ICE = () => {
               </Row>
             </Tab.Container>
           </Col>
-          {process.browser && window.innerWidth > 767 && (
+          {isMob ? null : (
             <Col className="d-flex justify-content-center mt-5">
               <OpenForm />
             </Col>
