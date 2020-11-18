@@ -2,11 +2,11 @@ import { GetServerSideProps } from "next";
 import { getCourse } from "../api/services/course.service";
 import { Course } from "../interfaces/course";
 import ClpLayout from "../components/layouts/Clp.layout";
-import BatchComponent from "../components/clp/batch/Batch.component";
 import Reviews from "../components/clp/Review/Reviews.component";
 import OtherCityLink from "../components/clp/OtherCityLinks/OtherCity.component";
 import ICE from "../components/clp/ICE/ICE.component";
 import FAQ from "../components/clp/FAQ/FAQ.component";
+import EdurekaAdvantage from "../components/clp/Advantage/EdurekaAdvantage.component";
 
 type Props = {
   data: {
@@ -27,6 +27,7 @@ const CoursePage = ({ data, errors }: Props) => {
 
   return (
     <ClpLayout>
+      <EdurekaAdvantage />
       <Reviews />
       <FAQ />
       <ICE />

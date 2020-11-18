@@ -46,8 +46,8 @@ const Footer = () => {
             sm={12}
             md={2}
           >
-            <img src="/ios.svg" alt="" />
-            <img src="/android.svg" alt="" />
+            <img src="/ios.svg" alt="app_store" />
+            <img src="/android.svg" alt="play_store" />
           </Col>
         </Row>
         <Row className={styles.about_section}>

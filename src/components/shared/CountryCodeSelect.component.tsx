@@ -5,7 +5,7 @@ const CountryCodeSelect = (props: any) => {
   return (
     <div className={`${styles.country_select} ${props.className}`}>
       <div>
-        <select name="countryPrefix" id="country-prefix">
+        <select name="countryPrefix">
           <option value="">IN - India</option>
           <option value="">US - India</option>
           <option value="">UK - India</option>

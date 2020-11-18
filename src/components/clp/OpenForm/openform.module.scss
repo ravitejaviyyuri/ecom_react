@@ -4,6 +4,7 @@
   padding: 50px 40px 30px;
   border-radius: 6px;
   box-shadow: 0 3px 40px 0 rgba(0, 12, 105, 0.06);
+  position: relative;
   &::before {
     content: "";
     display: inline-block;
@@ -11,7 +12,7 @@
     width: 980px;
     position: absolute;
     top: 0;
-    right: 80px;
+    right: 0;
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
     background-image: linear-gradient(to right, #2d81f7, #6fe5be 99%);
