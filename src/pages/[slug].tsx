@@ -7,6 +7,7 @@ import OtherCityLink from "../components/clp/OtherCityLinks/OtherCity.component"
 import ICE from "../components/clp/ICE/ICE.component";
 import FAQ from "../components/clp/FAQ/FAQ.component";
 import EdurekaAdvantage from "../components/clp/Advantage/EdurekaAdvantage.component";
+import Certification from "../components/clp/Certification/Certification.component";
 
 type Props = {
   data: {
@@ -27,6 +28,7 @@ const CoursePage = ({ data, errors }: Props) => {
 
   return (
     <ClpLayout>
+      <Certification />
       <EdurekaAdvantage />
       <Reviews />
       <FAQ />
