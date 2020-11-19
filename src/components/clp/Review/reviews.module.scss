@@ -35,9 +35,10 @@
 }
 
 .tab_col {
-  margin-top: 40px;
+  margin-top: 0px;
   @media only screen and (max-width: 767px) and (min-width: 300px) {
     padding: 25px;
+    padding-top: 0;
   }
 }
 

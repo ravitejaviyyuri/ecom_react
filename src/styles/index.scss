@@ -1,5 +1,8 @@
 @import "../assets/fonts/style.scss";
 @import "~bootstrap/scss/bootstrap";
+@import "~swiper/swiper.scss";
+@import "~swiper/components/pagination/pagination.scss";
+@import "~swiper/components/navigation/navigation.scss";
 
 html,
 body {
@@ -44,4 +47,13 @@ img {
 .duq-transition-exit-active {
   transform: translateY(414px);
   transition: all 400ms;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #192f60 !important;
+}
+
+.swiper-button-disabled {
+  opacity: 1 !important;
+  color: #aebad5 !important;
 }

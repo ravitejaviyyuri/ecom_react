@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -10,6 +10,12 @@ import VideoReviews from "./VideoReview.component";
 import Ratings from "./Ratings.component";
 
 const Reviews = () => {
+  const [activeTab, setActive] = useState<string>("testimonial");
+
+  const handleClick = (tab: string) => {
+    setActive(tab);
+  };
+
   return (
     <section className={styles.review_section}>
       <Container>
@@ -27,12 +33,24 @@ const Reviews = () => {
                   >
                     <div className={styles.selector_container}>
                       <Nav.Item>
-                        <Nav.Link className={styles.nav_link} eventKey="first">
+                        <Nav.Link
+                          className={styles.nav_link}
+                          eventKey="first"
+                          onClick={() => {
+                            handleClick("testimonial");
+                          }}
+                        >
                           Testimonials
                         </Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link className={styles.nav_link} eventKey="second">
+                        <Nav.Link
+                          className={styles.nav_link}
+                          eventKey="second"
+                          onClick={() => {
+                            handleClick("video");
+                          }}
+                        >
                           Video Reviews
                         </Nav.Link>
                       </Nav.Item>
@@ -42,10 +60,10 @@ const Reviews = () => {
                 <Col sm={12} className={styles.tab_col}>
                   <Tab.Content className={styles.tab_content}>
                     <Tab.Pane eventKey="first">
-                      <Testimonials />
+                      <Testimonials activeTab={activeTab} />
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
-                      <VideoReviews />
+                      <VideoReviews activeTab={activeTab}/>
                     </Tab.Pane>
                   </Tab.Content>
                 </Col>
