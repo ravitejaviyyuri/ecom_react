@@ -31,17 +31,17 @@ img {
 
 .duq-transition-enter,
 .duq-transition-appear {
-  transform: translateY(404px);
+  transform: translateY(414px);
 }
 .duq-transition-enter-active,
 .duq-transition-appear-active {
   transform: translateY(0px);
-  transition: all 600ms;
+  transition: all 400ms;
 }
 .duq-transition-exit {
   transform: translateY(0px);
 }
 .duq-transition-exit-active {
-  transform: translateY(404px);
-  transition: all 600ms;
+  transform: translateY(414px);
+  transition: all 400ms;
 }
