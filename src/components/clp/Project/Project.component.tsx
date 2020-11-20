@@ -18,19 +18,19 @@ const projectArray = [
     desc:
       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care.",
   },
-//   {
-//     name: "Uber Supply-Demand Gap 3",
-//     desc:
-//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care.",
-//   },
-//   {
-//     name: "Uber Supply-Demand Gap 4",
-//     desc:
-//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care.",
-//   },
+  {
+    name: "Uber Supply-Demand Gap 3",
+    desc:
+      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care.",
+  },
+  {
+    name: "Uber Supply-Demand Gap 4",
+    desc:
+      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care.",
+  },
 ];
 
-const EdurekaAdvantage = () => {
+const IndustryProjects = () => {
   const ref = useRef<any>(null);
   const [isMob, setMob] = useState(false);
   const cardNumber: number = projectArray.length;
@@ -134,4 +134,4 @@ const EdurekaAdvantage = () => {
   );
 };
 
-export default EdurekaAdvantage;
+export default IndustryProjects;

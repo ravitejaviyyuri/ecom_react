@@ -78,7 +78,7 @@ const params = {
   shouldSwiperUpdate: true,
 };
 
-const Testimonials = (props: any) => {
+const VideoReviews = (props: any) => {
   const ref = useRef<any>(null);
 
   useEffect(() => {
@@ -158,4 +158,4 @@ const Testimonials = (props: any) => {
   );
 };
 
-export default Testimonials;
+export default VideoReviews;

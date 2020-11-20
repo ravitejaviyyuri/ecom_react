@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import styles from "./certification.module.scss";
 
-const EdurekaAdvantage = () => {
+const Certification = () => {
   const [isMob, setMob] = useState(false);
   useEffect(() => {
     if (process.browser) {
@@ -87,4 +87,4 @@ const EdurekaAdvantage = () => {
   );
 };
 
-export default EdurekaAdvantage;
+export default Certification;

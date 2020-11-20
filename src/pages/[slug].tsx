@@ -9,6 +9,7 @@ import FAQ from "../components/clp/FAQ/FAQ.component";
 import EdurekaAdvantage from "../components/clp/Advantage/EdurekaAdvantage.component";
 import Certification from "../components/clp/Certification/Certification.component";
 import Projects from "../components/clp/Project/Project.component";
+import Curriculum from "../components/clp/Curriculum/Curriculum.component";
 
 type Props = {
   data: {
@@ -29,6 +30,7 @@ const CoursePage = ({ data, errors }: Props) => {
 
   return (
     <ClpLayout>
+      <Curriculum />
       <Projects />
       <Certification />
       <EdurekaAdvantage />

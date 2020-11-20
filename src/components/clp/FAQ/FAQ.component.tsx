@@ -83,7 +83,7 @@ const faq2 = [
   },
 ];
 
-const ICE = () => {
+const FAQ = () => {
   const [isMob, setMob] = useState(false);
   useEffect(() => {
     if (process.browser) {
@@ -145,4 +145,4 @@ const ICE = () => {
   );
 };
 
-export default ICE;
+export default FAQ;

@@ -1,0 +1,256 @@
+.accordion_card {
+  padding: 0px;
+  border-radius: 6px !important;
+  box-shadow: 0 3px 50px 0 rgba(0, 12, 105, 0.03);
+  background-color: #ffffff;
+  margin-bottom: 15px;
+  border: none;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    margin-bottom: 5px;
+  }
+}
+
+.accordion_header {
+  border: none;
+  background-color: #ffffff;
+  padding: 26px 35px;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  text-align: left;
+  color: #192f60;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    font-size: 16px;
+    padding: 16px 25px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.header_title {
+  width: 65%;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    width: 90%;
+  }
+}
+
+.header_right_section {
+  display: flex;
+  align-items: center;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    margin-top: 5px;
+  }
+}
+
+.header_topics {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #5a6484;
+  margin-right: 40px;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    font-size: 10px;
+  }
+  svg {
+    margin-right: 10px;
+    @media only screen and (max-width: 767px) and (min-width: 300px) {
+      height: 8px;
+      margin-right: 5px;
+    }
+  }
+}
+
+.header_assignments {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #5a6484;
+  margin-right: 40px;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    font-size: 10px;
+  }
+  svg {
+    margin-right: 10px;
+    @media only screen and (max-width: 767px) and (min-width: 300px) {
+      height: 10px;
+      margin-right: 8px;
+    }
+  }
+}
+
+.accordion_body {
+  padding: 30px 35px;
+  padding-top: 20px;
+  border-top: solid 1px #eff2f5;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: left;
+  color: #5a6484;
+  background-color: #fafbfc;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    font-size: 13px;
+    padding: 30px 25px;
+    padding-top: 25px;
+  }
+}
+
+.topics_col {
+  h6 {
+    font-size: 15px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192f60;
+    @media only screen and (max-width: 767px) and (min-width: 300px) {
+      font-size: 12px;
+    }
+  }
+  ul {
+    padding-left: 20px;
+    li {
+      font-family: Poppins;
+      font-size: 15px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 2.27;
+      letter-spacing: normal;
+      text-align: left;
+      color: #5a6484;
+      @media only screen and (max-width: 767px) and (min-width: 300px) {
+        font-size: 12px;
+      }
+    }
+    @media only screen and (max-width: 767px) and (min-width: 300px) {
+      padding-left: 15px;
+    }
+  }
+}
+
+.caret_icon {
+  height: 20px;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    position: absolute;
+    right: 20px;
+    top: 38%;
+  }
+}
+.active {
+  font-weight: 600;
+}
+
+.open {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.closed {
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.exp_skill_card {
+  border-radius: 6px;
+  background-color: #daedfa;
+  padding: 20px;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    margin-top: 15px;
+  }
+  h6 {
+    font-size: 15px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192f60;
+    margin-bottom: 20px;
+    @media only screen and (max-width: 767px) and (min-width: 300px) {
+      font-size: 12px;
+    }
+  }
+  div {
+    display: flex;
+    align-items: center;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 15px;
+    li {
+      font-size: 12px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.83;
+      letter-spacing: normal;
+      text-align: left;
+      color: #2b4a91;
+    }
+  }
+}
+
+.preview {
+  padding: 4px 8px;
+  border-radius: 3px;
+  border: solid 1px #1546eb;
+  font-size: 11px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #1546eb;
+  white-space: nowrap;
+  margin-left: 5px;
+  cursor: pointer;
+  svg {
+    height: 14px;
+    margin-right: 3px;
+    @media only screen and (max-width: 767px) and (min-width: 300px) {
+      height: 12px;
+    }
+  }
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+}
