@@ -1,0 +1,24 @@
+.scrollup_container {
+  position: fixed;
+  top: 150px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.scrollup_btn {
+  border-radius: 3px;
+  box-shadow: 0 0 20px 0 rgba(0, 12, 105, 0.03);
+  background-color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #192f60;
+  padding: 10px 20px;
+  cursor: pointer;
+}

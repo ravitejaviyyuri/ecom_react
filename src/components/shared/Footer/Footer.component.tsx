@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -10,10 +10,36 @@ import WorkWithUs from "./WorkWithUs.component";
 import Support from "./Support.component";
 import Sitemaps from "./Sitemaps.component";
 import CountrySelect from "./CountrySelect.component";
+import ScrollUp from "../ScrollUp.component";
 
 const Footer = () => {
+  const [scrollPos, setScrollPos] = useState<number>(0);
+  const [showScrollTop, setshowScrollTop] = useState<boolean>(false);
+
+  const handleScroll = () => {
+    if (window.scrollY !== 0) {
+      setScrollPos(window.scrollY);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (process.browser) {
+      if (scrollPos > document.body.scrollHeight - 2000) {
+        setshowScrollTop(true);
+      } else {
+        setshowScrollTop(false);
+      }
+    }
+  }, [scrollPos]);
+
   return (
     <section className={styles.footer_section}>
+      {showScrollTop && <ScrollUp />}
       <Container>
         <Row>
           <Col className={styles.logo}>

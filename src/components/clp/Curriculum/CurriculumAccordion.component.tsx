@@ -136,10 +136,7 @@ const CurriculumAccordion = (props: any) => {
                         return (
                           <li key={index}>
                             {value}
-                            <span
-                              className={styles.preview}
-                              onClick={props.handleShow}
-                            >
+                            <span className={styles.preview}>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 1024 1024"
@@ -155,7 +152,7 @@ const CurriculumAccordion = (props: any) => {
                         );
                       })}
                     </ul>
-                    {!isMob && <DownloadButton />}
+                    {!isMob && <DownloadButton onClick={props.handleShow} />}
                   </Col>
                   <Col xs={12} sm={12} md={7} className={styles.exp_skill_col}>
                     <Row className={styles.exp_skill_row}>
@@ -187,7 +184,7 @@ const CurriculumAccordion = (props: any) => {
                           </div>
                         </div>
                       </Col>
-                      {isMob && <DownloadButton />}
+                      {isMob && <DownloadButton onClick={props.handleShow} />}
                     </Row>
                   </Col>
                 </Row>

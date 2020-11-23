@@ -2,9 +2,9 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import styles from "./downloadbutton.module.scss";
 
-const DownloadSyllabus = () => {
+const DownloadSyllabus = (props: any) => {
   return (
-    <Button className={styles.download_syllabus_btn}>
+    <Button onClick={props.onClick} className={styles.download_syllabus_btn}>
       <span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
