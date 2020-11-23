@@ -136,7 +136,10 @@ const CurriculumAccordion = (props: any) => {
                         return (
                           <li key={index}>
                             {value}
-                            <span className={styles.preview}>
+                            <span
+                              className={styles.preview}
+                              onClick={props.handleShow}
+                            >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 1024 1024"

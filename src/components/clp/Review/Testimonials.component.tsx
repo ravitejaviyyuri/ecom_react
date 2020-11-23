@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Swiper, Navigation, Pagination } from "swiper";
 import ReactIdSwiperCustom from "react-id-swiper/lib/ReactIdSwiper.custom";
 import styles from "./testimonials.module.scss";
+import TestimoniaPopup from "./TestimonialPopup.component";
 
 const testimonialReviews = [
   {
@@ -64,7 +65,7 @@ const params = {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
         />
       </svg>
@@ -81,7 +82,7 @@ const params = {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
         />
       </svg>
@@ -108,6 +109,10 @@ const params = {
 
 const Testimonials = (props: any) => {
   const ref = useRef<any>(null);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     if (ref.current !== null && ref.current.swiper !== null) {
@@ -145,7 +150,7 @@ const Testimonials = (props: any) => {
                   </div>
                   <div className={styles.card_body}>{value.review}</div>
                   <div className={styles.card_footer}>
-                    <span> READ MORE</span>
+                    <span onClick={handleShow}>READ MORE</span>
                     <svg
                       version="1.1"
                       xmlns="http://www.w3.org/2000/svg"
@@ -167,6 +172,8 @@ const Testimonials = (props: any) => {
           })}
         </ReactIdSwiperCustom>
       </Row>
+
+      <TestimoniaPopup show={show} handleClose={handleClose} />
     </div>
   );
 };

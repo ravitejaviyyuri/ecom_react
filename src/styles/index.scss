@@ -52,3 +52,8 @@ img {
 .swiper-pagination-bullet-active {
   background-color: #192f60 !important;
 }
+
+.modal-backdrop.show {
+  opacity: 0.9;
+  background-color: #192f60;
+}

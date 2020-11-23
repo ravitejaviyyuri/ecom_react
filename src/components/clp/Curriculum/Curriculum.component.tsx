@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import styles from "./curriculum.module.scss";
 import CurriculumAccordion from "./CurriculumAccordion.component";
+import DownloadCurriculum from "./DownloadCurriculum.component";
 
 const curriculumData = [
   {
@@ -561,6 +562,10 @@ const curriculumData = [
 const Curriculum = () => {
   const [isMob, setMob] = useState(false);
   const [expand, setExpand] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleClick = () => {
     setExpand(!expand);
@@ -625,11 +630,14 @@ const Curriculum = () => {
                   </g>
                 </g>
               </svg>
-              <span>Download Syllabus</span>
+              <span onClick={handleShow}>Download Syllabus</span>
             </div>
           </div>
           <Col xs={12} className={styles.curriculum_accor_col}>
-            <CurriculumAccordion curriculum={curriculumData} />
+            <CurriculumAccordion
+              curriculum={curriculumData}
+              handleShow={handleShow}
+            />
           </Col>
         </Row>
       </Container>
@@ -654,6 +662,7 @@ const Curriculum = () => {
           </svg>
         </div>
       </div>
+      <DownloadCurriculum show={show} handleClose={handleClose} />
     </section>
   );
 };

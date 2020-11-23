@@ -1,0 +1,128 @@
+.modal_dialog {
+  width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    width: 335px;
+  }
+}
+
+.modal_content {
+  border-radius: 6px;
+}
+
+.close_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  height: 37px;
+  width: 37px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  svg {
+    height: 13px;
+    width: 13px;
+  }
+}
+
+.modal_body {
+  padding: 30px;
+  padding-top: 37px;
+  position: relative;
+  &::before {
+    content: "";
+    display: inline-block;
+    height: 7px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    background-image: linear-gradient(to right, #2d81f7, #6fe5be 99%);
+  }
+}
+
+.heading {
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #192f60;
+}
+
+.form {
+  margin-top: 28px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+  color: #3a5075;
+}
+
+.input {
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #9ba5ba;
+  height: 44px;
+}
+
+.code_select {
+  height: 42px;
+  top: 30px;
+  left: 1px;
+}
+
+.phone_input {
+  padding-left: 90px;
+}
+
+.submit {
+  border-radius: 6px;
+  box-shadow: 0 3px 20px 0 rgba(0, 12, 105, 0.03);
+  background-color: #0052cc;
+  color: #ffffff;
+  width: 100%;
+  padding: 10px 0px;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #0052cc;
+  }
+}
+
+.info {
+  font-size: 10px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: left;
+  color: #7182a8;
+  margin-top: 25px;
+  display: flex;
+  svg {
+    height: 15px;
+    width: 15px;
+    margin-right: 9px;
+  }
+}
