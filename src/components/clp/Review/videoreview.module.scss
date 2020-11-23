@@ -104,8 +104,17 @@
 .next_btn {
   top: auto;
   bottom: 0;
-  right: 370px;
-  color: #192f60;
+  right: 350px;
+  height: auto;
+  width: auto;
+  font-weight: 600;
+  font-size: 40px;
+  &::after {
+    display: none;
+  }
+  svg {
+    color: #192f60;
+  }
   @media only screen and (max-width: 767px) and (min-width: 300px) {
     display: none;
   }
@@ -114,8 +123,17 @@
 .prev_btn {
   top: auto;
   bottom: 0;
-  left: 370px;
-  color: #192f60;
+  left: 350px;
+  height: auto;
+  width: auto;
+  font-weight: 600;
+  font-size: 40px;
+  &::after {
+    display: none;
+  }
+  svg {
+    color: #192f60;
+  }
   @media only screen and (max-width: 767px) and (min-width: 300px) {
     display: none;
   }
