@@ -78,17 +78,25 @@
   }
 }
 
-
+.swiper_container {
+  margin-left: auto;
+  margin-right: auto;
+  position: initial;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+}
 
 .pagination {
-  bottom: 0;
+  bottom: -70px !important;
 }
 
 .bullet {
   width: 49px;
   height: 6px;
   border-radius: 3px;
-  background-color: #aebad5;
+  background-color: #ffffff;
   opacity: 1;
   @media only screen and (max-width: 767px) and (min-width: 300px) {
     width: 14px;
@@ -99,8 +107,8 @@
 
 .next_btn {
   top: auto;
-  bottom: 0;
-  right: 350px;
+  bottom: -80px;
+  right: 200px;
   height: auto;
   width: auto;
   font-weight: 600;
@@ -109,7 +117,7 @@
     display: none;
   }
   svg {
-    color: #192f60;
+    color: #3184ff;
   }
   @media only screen and (max-width: 767px) and (min-width: 300px) {
     display: none;
@@ -118,8 +126,8 @@
 
 .prev_btn {
   top: auto;
-  bottom: 0;
-  left: 350px;
+  bottom: -80px;
+  left: 200px;
   height: auto;
   width: auto;
   font-weight: 600;
@@ -128,7 +136,7 @@
     display: none;
   }
   svg {
-    color: #192f60;
+    color: #3184ff;
   }
   @media only screen and (max-width: 767px) and (min-width: 300px) {
     display: none;

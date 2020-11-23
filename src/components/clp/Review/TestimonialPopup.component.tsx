@@ -1,6 +1,4 @@
-import React, { useEffect, useRef } from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import { Swiper, Navigation, Pagination } from "swiper";
 import ReactIdSwiperCustom from "react-id-swiper/lib/ReactIdSwiper.custom";
@@ -98,13 +96,6 @@ const params = {
 };
 
 const TestimonialPopup = (props: any) => {
-  const ref = useRef<any>(null);
-
-  //   useEffect(() => {
-  //     if (ref.current !== null && ref.current.swiper !== null) {
-  //       ref.current.swiper.update();
-  //     }
-  //   }, [props.activeTab]);
   return (
     <Modal
       show={props.show}
@@ -112,6 +103,7 @@ const TestimonialPopup = (props: any) => {
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      className="testimonial_readmore_modal"
     >
       <Modal.Body className={styles.modal_body}>
         <div className={styles.close_btn} onClick={props.handleClose}>

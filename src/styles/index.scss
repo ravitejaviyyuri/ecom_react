@@ -53,6 +53,17 @@ img {
   background-color: #192f60 !important;
 }
 
+.testimonial_readmore_modal .swiper-pagination-bullet-active {
+  background-color: #3184ff !important;
+}
+
+.testimonial_readmore_modal .swiper-button-disabled {
+  opacity: 1 !important;
+  svg {
+    color: #ffffff;
+  }
+}
+
 .modal-backdrop.show {
   opacity: 0.9;
   background-color: #192f60;
