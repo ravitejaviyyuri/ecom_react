@@ -1,5 +1,8 @@
 .modal_body {
   padding: 50px;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    padding: 36px;
+  }
 }
 
 .close_btn {
@@ -90,6 +93,9 @@
 
 .pagination {
   bottom: -70px !important;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    bottom: -40px !important;
+  }
 }
 
 .bullet {

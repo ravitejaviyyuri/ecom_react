@@ -4,9 +4,15 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import styles from "./certification.module.scss";
+import CertificateZoomModal from "./CertificateZoomModal.component";
 
 const Certification = () => {
   const [isMob, setMob] = useState(false);
+  const [isZoomModal, setZoomModal] = useState(false);
+
+  const handleClose = () => setZoomModal(false);
+  const handleShow = () => setZoomModal(true);
+
   useEffect(() => {
     if (process.browser) {
       if (window.innerWidth < 768) {
@@ -18,6 +24,9 @@ const Certification = () => {
   }, []);
   return (
     <section className={styles.certification_section}>
+      {isZoomModal && (
+        <CertificateZoomModal show={isZoomModal} handleClose={handleClose} />
+      )}
       <Container>
         <Row className={styles.row}>
           <Col xs={12} sm={12} md={6}>
@@ -47,8 +56,11 @@ const Certification = () => {
                 Big Data Hadoop Certification
               </div>
             )}
-            <img src="" alt="Sample Certificate" />
-            <div className={styles.zoom}>
+            <img
+              src="https://d1jnx9ba8s6j9r.cloudfront.net/imgver.1606136770/img/certibackgrounds/sample_crt.png"
+              alt="Sample Certificate"
+            />
+            <div className={styles.zoom} onClick={handleShow}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="21.29"
