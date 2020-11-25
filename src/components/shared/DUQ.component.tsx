@@ -1,15 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import CountryCodeSelect from "./CountryCodeSelect.component";
 import styles from "./duq.module.scss";
 
-const DUQ = () => {
+const DUQ = (props: any) => {
   const [isOpen, setOpen] = useState(false);
+  const [isMob, setMob] = useState(false);
+
+  useEffect(() => {
+    if (process.browser) {
+      if (window.innerWidth < 768) {
+        setMob(true);
+        setOpen(true);
+      } else {
+        setMob(false);
+      }
+    }
+  }, []);
 
   const handleClick = () => {
     setOpen(!isOpen);
+    if (isMob) {
+      props.setDUQ(false);
+    }
   };
 
   return (
@@ -60,7 +75,10 @@ const DUQ = () => {
               </div>
             </div>
             <Form className={styles.form}>
-              <Form.Group controlId="duqFormPhoneNumber" className="position-relative">
+              <Form.Group
+                controlId="duqFormPhoneNumber"
+                className="position-relative"
+              >
                 <Form.Label className={styles.label}>Phone Number</Form.Label>
                 <CountryCodeSelect className={styles.code_select} />
                 <Form.Control
