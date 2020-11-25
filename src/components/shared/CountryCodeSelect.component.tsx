@@ -1,17 +1,87 @@
 import React from "react";
+import Select, { components } from "react-select";
 import styles from "./countrycodeselect.module.scss";
+
+const customStyles = {
+  option: (provided: any, state: { isSelected: any }) => ({
+    ...provided,
+    fontSize: "14px",
+    "@media only screen and (max-width: 767px)": {
+      ...provided["@media only screen and (max-width: 767px)"],
+      fontSize: "14px",
+    },
+  }),
+  control: (provided: any, state: any) => ({
+    ...provided,
+    backgroundColor: "transparent",
+    border: "none",
+    boxShadow: "none",
+    width: 55,
+    "&:hover": {
+      border: "none",
+    },
+  }),
+  singleValue: (provided: any, state: { isDisabled: any }) => {
+    const opacity = state.isDisabled ? 0.5 : 1;
+    const transition = "opacity 300ms";
+
+    return {
+      ...provided,
+      color: "#192f60",
+      fontSize: "14px",
+      padding: 0,
+      "@media only screen and (max-width: 767px)": {
+        ...provided["@media only screen and (max-width: 767px)"],
+        fontSize: "14px",
+      },
+      opacity,
+      transition,
+    };
+  },
+  valueContainer: (provided: any, state: any) => ({
+    ...provided,
+    padding: 0,
+  }),
+};
+
+const options = [
+  { value: "india", label: "IN" },
+  { value: "us", label: "US" },
+  { value: "uk", label: "UK" },
+];
+
+const DropdownIndicator = (props: any) => {
+  return (
+    <components.DropdownIndicator {...props}>
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        width="10"
+        height="6"
+        viewBox="0 0 1024 1024"
+      >
+        <title></title>
+        <g id="icomoon-ignore"></g>
+        <path fill="#005fff" d="M0 232.727h980.247l-493.382 513.862z"></path>
+      </svg>
+    </components.DropdownIndicator>
+  );
+};
 
 const CountryCodeSelect = (props: any) => {
   return (
     <div className={`${styles.country_select} ${props.className}`}>
       <div>
-        <select name="countryPrefix">
-          <option value="">IN - India</option>
-          <option value="">US - India</option>
-          <option value="">UK - India</option>
-          <option value="">IN - India</option>
-          <option value="">IN - India</option>
-        </select>
+        <Select
+          instanceId="country-code-select"
+          options={options}
+          styles={customStyles}
+          defaultValue={{ label: "IN", value: "india" }}
+          components={{
+            IndicatorSeparator: () => null,
+            DropdownIndicator,
+          }}
+        />
       </div>
       <span>+91</span>
     </div>
