@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import styles from "./curriculum.module.scss";
 import CurriculumAccordion from "./CurriculumAccordion.component";
 import DownloadCurriculum from "./DownloadCurriculum.component";
+import WatchVideoPopup from "../WatchVideoPopup/WatchVideoPopup.component";
 
 const curriculumData = [
   {
@@ -320,10 +321,13 @@ const curriculumData = [
 const Curriculum = () => {
   const [isMob, setMob] = useState(false);
   const [expand, setExpand] = useState(false);
-  const [show, setShow] = useState(false);
+  const [showDownloadSyllabus, setDownloadSyllabus] = useState(false);
+  const [showWatchVideo, setWatchVideo] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleCloseDownloadSyllabus = () => setDownloadSyllabus(false);
+  const handleShowDownloadSyllabus = () => setDownloadSyllabus(true);
+  const handleCloseWatchVideo = () => setWatchVideo(false);
+  const handleShowWatchVideo = () => setWatchVideo(true);
 
   const handleClick = () => {
     setExpand(!expand);
@@ -388,13 +392,16 @@ const Curriculum = () => {
                   </g>
                 </g>
               </svg>
-              <span onClick={handleShow}>Download Syllabus</span>
+              <span onClick={handleShowDownloadSyllabus}>
+                Download Syllabus
+              </span>
             </div>
           </div>
           <Col xs={12} className={styles.curriculum_accor_col}>
             <CurriculumAccordion
               curriculum={curriculumData}
-              handleShow={handleShow}
+              handleShowDownloadSyllabus={handleShowDownloadSyllabus}
+              handleShowWatchVideo={handleShowWatchVideo}
             />
           </Col>
         </Row>
@@ -420,7 +427,14 @@ const Curriculum = () => {
           </svg>
         </div>
       </div>
-      <DownloadCurriculum show={show} handleClose={handleClose} />
+      <DownloadCurriculum
+        show={showDownloadSyllabus}
+        handleClose={handleCloseDownloadSyllabus}
+      />
+      <WatchVideoPopup
+        show={showWatchVideo}
+        handleClose={handleCloseWatchVideo}
+      />
     </section>
   );
 };
