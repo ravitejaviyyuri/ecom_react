@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -9,7 +9,7 @@ import WatchVideoPopup from "../WatchVideoPopup/WatchVideoPopup.component";
 
 const curriculumData = [
   {
-    title: "Overview of Devops",
+    title: "Overview of Devops 1",
     nooftopics: 3,
     noofassignments: 5,
     topics: [
@@ -31,7 +31,7 @@ const curriculumData = [
     ],
   },
   {
-    title: "Overview of Devops",
+    title: "Overview of Devops 2",
     nooftopics: 3,
     noofassignments: 5,
     topics: [
@@ -53,7 +53,7 @@ const curriculumData = [
     ],
   },
   {
-    title: "Overview of Devops",
+    title: "Overview of Devops 3",
     nooftopics: 3,
     noofassignments: 5,
     topics: [
@@ -75,7 +75,7 @@ const curriculumData = [
     ],
   },
   {
-    title: "Overview of Devops",
+    title: "Overview of Devops 4",
     nooftopics: 3,
     noofassignments: 5,
     topics: [
@@ -97,7 +97,7 @@ const curriculumData = [
     ],
   },
   {
-    title: "Overview of Devops",
+    title: "Overview of Devops 5",
     nooftopics: 3,
     noofassignments: 5,
     topics: [
@@ -119,7 +119,7 @@ const curriculumData = [
     ],
   },
   {
-    title: "Overview of Devops",
+    title: "Overview of Devops 6",
     nooftopics: 3,
     noofassignments: 5,
     topics: [
@@ -141,7 +141,7 @@ const curriculumData = [
     ],
   },
   {
-    title: "Overview of Devops",
+    title: "Overview of Devops 7",
     nooftopics: 3,
     noofassignments: 5,
     topics: [
@@ -163,139 +163,7 @@ const curriculumData = [
     ],
   },
   {
-    title: "Overview of Devops",
-    nooftopics: 3,
-    noofassignments: 5,
-    topics: [
-      "What is version control Preview",
-      "What is Git",
-      "Why Git for your organization Preview Install",
-      "Common commands in Git",
-      "Working with Remote Repositories",
-    ],
-    handson: [
-      "Installing Ansible Configuring Ansible Role",
-      "Write Playbooks",
-      "Execute adhoc commands",
-    ],
-    skills: [
-      "Statistics & Optimisation",
-      "Predictive Modelling",
-      "Business Problem Solving",
-    ],
-  },
-  {
-    title: "Overview of Devops",
-    nooftopics: 3,
-    noofassignments: 5,
-    topics: [
-      "What is version control Preview",
-      "What is Git",
-      "Why Git for your organization Preview Install",
-      "Common commands in Git",
-      "Working with Remote Repositories",
-    ],
-    handson: [
-      "Installing Ansible Configuring Ansible Role",
-      "Write Playbooks",
-      "Execute adhoc commands",
-    ],
-    skills: [
-      "Statistics & Optimisation",
-      "Predictive Modelling",
-      "Business Problem Solving",
-    ],
-  },
-  {
-    title: "Overview of Devops",
-    nooftopics: 3,
-    noofassignments: 5,
-    topics: [
-      "What is version control Preview",
-      "What is Git",
-      "Why Git for your organization Preview Install",
-      "Common commands in Git",
-      "Working with Remote Repositories",
-    ],
-    handson: [
-      "Installing Ansible Configuring Ansible Role",
-      "Write Playbooks",
-      "Execute adhoc commands",
-    ],
-    skills: [
-      "Statistics & Optimisation",
-      "Predictive Modelling",
-      "Business Problem Solving",
-    ],
-  },
-  {
-    title: "Overview of Devops",
-    nooftopics: 3,
-    noofassignments: 5,
-    topics: [
-      "What is version control Preview",
-      "What is Git",
-      "Why Git for your organization Preview Install",
-      "Common commands in Git",
-      "Working with Remote Repositories",
-    ],
-    handson: [
-      "Installing Ansible Configuring Ansible Role",
-      "Write Playbooks",
-      "Execute adhoc commands",
-    ],
-    skills: [
-      "Statistics & Optimisation",
-      "Predictive Modelling",
-      "Business Problem Solving",
-    ],
-  },
-  {
-    title: "Overview of Devops",
-    nooftopics: 3,
-    noofassignments: 5,
-    topics: [
-      "What is version control Preview",
-      "What is Git",
-      "Why Git for your organization Preview Install",
-      "Common commands in Git",
-      "Working with Remote Repositories",
-    ],
-    handson: [
-      "Installing Ansible Configuring Ansible Role",
-      "Write Playbooks",
-      "Execute adhoc commands",
-    ],
-    skills: [
-      "Statistics & Optimisation",
-      "Predictive Modelling",
-      "Business Problem Solving",
-    ],
-  },
-  {
-    title: "Overview of Devops",
-    nooftopics: 3,
-    noofassignments: 5,
-    topics: [
-      "What is version control Preview",
-      "What is Git",
-      "Why Git for your organization Preview Install",
-      "Common commands in Git",
-      "Working with Remote Repositories",
-    ],
-    handson: [
-      "Installing Ansible Configuring Ansible Role",
-      "Write Playbooks",
-      "Execute adhoc commands",
-    ],
-    skills: [
-      "Statistics & Optimisation",
-      "Predictive Modelling",
-      "Business Problem Solving",
-    ],
-  },
-  {
-    title: "Overview of Devops",
+    title: "Overview of Devops 8",
     nooftopics: 3,
     noofassignments: 5,
     topics: [
@@ -320,6 +188,7 @@ const curriculumData = [
 
 const Curriculum = () => {
   const [isMob, setMob] = useState(false);
+  const [showExpand, setShowExpand] = useState(false);
   const [expand, setExpand] = useState(false);
   const [showDownloadSyllabus, setDownloadSyllabus] = useState(false);
   const [showWatchVideo, setWatchVideo] = useState(false);
@@ -402,31 +271,36 @@ const Curriculum = () => {
               curriculum={curriculumData}
               handleShowDownloadSyllabus={handleShowDownloadSyllabus}
               handleShowWatchVideo={handleShowWatchVideo}
+              setShowExpand={setShowExpand}
             />
           </Col>
         </Row>
       </Container>
-      <div className={styles.expand}>
-        <div className={styles.circle} onClick={handleClick}>
-          <svg
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            width="1024"
-            height="1024"
-            viewBox="0 0 1024 1024"
-            className={`${styles.expand_icon} ${
-              expand ? styles.open : styles.closed
-            }`}
-          >
-            <title></title>
-            <g id="icomoon-ignore"></g>
-            <path
-              fill="#0849a7"
-              d="M994.485 295.755l-497.544 497.544-496.941-497.544 84.932-84.932 412.009 412.009 412.009-412.009 85.534 84.932z"
-            ></path>
-          </svg>
+
+      {showExpand && (
+        <div className={styles.expand}>
+          <div className={styles.circle} onClick={handleClick}>
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="1024"
+              height="1024"
+              viewBox="0 0 1024 1024"
+              className={`${styles.expand_icon} ${
+                expand ? styles.open : styles.closed
+              }`}
+            >
+              <title></title>
+              <g id="icomoon-ignore"></g>
+              <path
+                fill="#0849a7"
+                d="M994.485 295.755l-497.544 497.544-496.941-497.544 84.932-84.932 412.009 412.009 412.009-412.009 85.534 84.932z"
+              ></path>
+            </svg>
+          </div>
         </div>
-      </div>
+      )}
+
       <DownloadCurriculum
         show={showDownloadSyllabus}
         handleClose={handleCloseDownloadSyllabus}

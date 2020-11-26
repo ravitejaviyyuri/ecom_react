@@ -122,7 +122,7 @@ const Testimonials = (props: any) => {
   return (
     <div>
       <Row>
-        <ReactIdSwiperCustom {...params}>
+        <ReactIdSwiperCustom ref={ref} {...params}>
           {testimonialReviews.map((value: any, index: number) => {
             return (
               <Col key={index} xs={12} sm={12} md={12} lg={4}>

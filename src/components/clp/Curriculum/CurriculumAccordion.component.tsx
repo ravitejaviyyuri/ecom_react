@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Accordion from "react-bootstrap/Accordion";
@@ -7,6 +7,7 @@ import styles from "./curriculumaccordion.module.scss";
 import DownloadButton from "./DownloadSyllabus.component";
 
 const CurriculumAccordion = (props: any) => {
+  const ref = useRef<any>(null);
   const [activeId, setActiveId] = useState("0");
   const [isMob, setMob] = useState(false);
 
@@ -28,8 +29,30 @@ const CurriculumAccordion = (props: any) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (ref.current !== null) {
+      if (process.browser) {
+        setTimeout(() => {
+          if (isMob) {
+            if (ref.current.getBoundingClientRect().height > 1125) {
+              props.setShowExpand(true);
+            } else {
+              props.setShowExpand(false);
+            }
+          } else {
+            if (ref.current.getBoundingClientRect().height > 1050) {
+              props.setShowExpand(true);
+            } else {
+              props.setShowExpand(false);
+            }
+          }
+        }, 400);
+      }
+    }
+  }, [activeId]);
+
   return (
-    <Accordion defaultActiveKey={activeId}>
+    <Accordion ref={ref} defaultActiveKey={activeId}>
       {props.curriculum.map((value: any, index: number) => {
         return (
           <Card key={String(index)} className={styles.accordion_card}>
