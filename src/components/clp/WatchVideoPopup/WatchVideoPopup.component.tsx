@@ -57,12 +57,7 @@ const WatchVideoPopup = (props: any) => {
               loading="lazy"
             /> */}
             {isMob && <h3>DevOps Certification Training</h3>}
-            <img
-              src="/clp-video-thumbnail.png"
-              alt=""
-              width="100%"
-              height="100%"
-            />
+            <img src="/clp-video-thumbnail.png" alt="" width="100%" />
             <span className={styles.youtube_logo}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
