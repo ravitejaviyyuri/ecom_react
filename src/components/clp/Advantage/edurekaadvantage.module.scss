@@ -154,13 +154,16 @@
     margin-left: 15px;
     margin-right: 15px;
   }
-  img {
-    position: absolute;
-    right: 75px;
-    top: 20px;
-    @media only screen and (max-width: 767px) and (min-width: 300px) {
-      right: 30px;
-      top: 30px;
-    }
+}
+
+.img {
+  position: absolute;
+  right: 75px;
+  top: 20px;
+  @media only screen and (max-width: 767px) and (min-width: 300px) {
+    width: 116px;
+    height: 88px;
+    right: 30px;
+    top: 30px;
   }
 }

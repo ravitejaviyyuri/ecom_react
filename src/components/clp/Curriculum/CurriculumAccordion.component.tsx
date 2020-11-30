@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Accordion from "react-bootstrap/Accordion";
@@ -190,7 +191,16 @@ const CurriculumAccordion = (props: any) => {
                         <div className={`${styles.exp_skill_card}`}>
                           <h6>HANDS ON</h6>
                           <div>
-                            <img src="/curriculum_img.png" alt="" />
+                            <div>
+                              <Image
+                                width={63}
+                                height={76}
+                                loading="lazy"
+                                src="/curriculum_img.png"
+                                alt="curriculum"
+                                layout="fixed"
+                              />
+                            </div>
                             <ul>
                               {value.handson.map(
                                 (value: any, index: number) => {
@@ -205,7 +215,16 @@ const CurriculumAccordion = (props: any) => {
                         <div className={`${styles.exp_skill_card}`}>
                           <h6>SKILLS YOU WILL LEARN</h6>
                           <div>
-                            <img src="/curriculum_img.png" alt="" />
+                            <div>
+                              <Image
+                                width={63}
+                                height={76}
+                                loading="lazy"
+                                src="/curriculum_img.png"
+                                alt="curriculum"
+                                layout="fixed"
+                              />
+                            </div>
                             <ul>
                               {value.skills.map((value: any, index: number) => {
                                 return <li key={index}>{value}</li>;

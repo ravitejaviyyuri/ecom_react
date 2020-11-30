@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -189,7 +190,15 @@ const EdurekaAdvantage = () => {
       </Container>
       <div className={styles.open_form_container}>
         <OpenForm />
-        <img src={isMob ? `/future2.png` : `future1.png`} alt="be future" />
+        <div className={styles.img}>
+          <Image
+            width={132}
+            height={95}
+            loading="lazy"
+            src={isMob ? `/future2.png` : `/future1.png`}
+            alt="be future"
+          />
+        </div>
       </div>
     </section>
   );

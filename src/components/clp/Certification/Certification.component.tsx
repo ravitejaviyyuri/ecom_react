@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -40,11 +41,51 @@ const Certification = () => {
               companies like
             </div>
             <div className={styles.icons}>
-              <img src="/microsoft_cl.svg" alt="Microsoft Color Logo" />
-              <img src="/google_cl.svg" alt="Google Color Logo" />
-              <img src="/citi_cl.svg" alt="Citi Color Logo" />
-              <img src="/facebook_cl.svg" alt="Facebook Color Logo" />
-              <img src="/flipkart_cl.svg" alt="Flipkart Color Logo" />
+              <div className={styles.img}>
+                <Image
+                  width={161}
+                  height={34}
+                  loading="lazy"
+                  src="/microsoft_cl.svg"
+                  alt="Microsoft Color Logo"
+                />
+              </div>
+              <div className={styles.img}>
+                <Image
+                  width={104}
+                  height={34}
+                  loading="lazy"
+                  src="/google_cl.svg"
+                  alt="Google Color Logo"
+                />
+              </div>
+              <div className={styles.img}>
+                <Image
+                  width={58}
+                  height={34}
+                  loading="lazy"
+                  src="/citi_cl.svg"
+                  alt="Citi Color Logo"
+                />
+              </div>
+              <div className={styles.img}>
+                <Image
+                  width={130}
+                  height={25}
+                  loading="lazy"
+                  src="/facebook_cl.svg"
+                  alt="Facebook Color Logo"
+                />
+              </div>
+              <div className={styles.img}>
+                <Image
+                  width={136}
+                  height={36}
+                  loading="lazy"
+                  src="/flipkart_cl.svg"
+                  alt="Flipkart Color Logo"
+                />
+              </div>
             </div>
             <Button className={styles.sample_certificate_btn}>
               GET A SAMPLE CERTIFICATE
