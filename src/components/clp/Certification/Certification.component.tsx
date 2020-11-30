@@ -6,13 +6,18 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import styles from "./certification.module.scss";
 import CertificateZoomModal from "./CertificateZoomModal.component";
+import SampleCertificateModal from "./SampleCertificateModal.component";
 
 const Certification = () => {
   const [isMob, setMob] = useState(false);
   const [isZoomModal, setZoomModal] = useState(false);
+  const [isSampleCertificateModal, setSampleCertificateModal] = useState(false);
 
   const handleClose = () => setZoomModal(false);
   const handleShow = () => setZoomModal(true);
+
+  const handleSampleCertificateClose = () => setSampleCertificateModal(false);
+  const handleSampleCertificateShow = () => setSampleCertificateModal(true);
 
   useEffect(() => {
     if (process.browser) {
@@ -27,6 +32,12 @@ const Certification = () => {
     <section className={styles.certification_section}>
       {isZoomModal && (
         <CertificateZoomModal show={isZoomModal} handleClose={handleClose} />
+      )}
+      {isSampleCertificateModal && (
+        <SampleCertificateModal
+          show={isSampleCertificateModal}
+          handleClose={handleSampleCertificateClose}
+        />
       )}
       <Container>
         <Row className={styles.row}>
@@ -87,7 +98,10 @@ const Certification = () => {
                 />
               </div>
             </div>
-            <Button className={styles.sample_certificate_btn}>
+            <Button
+              className={styles.sample_certificate_btn}
+              onClick={handleSampleCertificateShow}
+            >
               GET A SAMPLE CERTIFICATE
             </Button>
           </Col>
