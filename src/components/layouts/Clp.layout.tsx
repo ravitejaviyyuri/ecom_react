@@ -4,9 +4,12 @@ import Footer from "../shared/Footer/Footer.component";
 import Navbar from "../shared/Navbar.component";
 import DUQ from "../shared/DUQ.component";
 import ResponsiveFooter from "../shared/Footer/ResponsiveFooter.component";
+import ExitIntentPopup from "../clp/ExitIntent/ExitIntent.component";
 
 function ClpLayout(props: any) {
   const [isMob, setMob] = useState(false);
+  const [showExitIntent, setExitIntent] = useState(false);
+
   useEffect(() => {
     if (process.browser) {
       if (window.innerWidth < 768) {
@@ -24,6 +27,12 @@ function ClpLayout(props: any) {
       </Head>
       <Navbar />
       {props.children}
+      <ExitIntentPopup
+        show={showExitIntent}
+        handleClose={() => {
+          setExitIntent(false);
+        }}
+      />
       <Footer />
       {isMob ? <ResponsiveFooter /> : <DUQ />}
     </div>

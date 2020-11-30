@@ -74,7 +74,7 @@ const SampleCertitficateModal = (props: any) => {
           <div>
             <div className={styles.heading}>Sample Certificate</div>
             <Form className={styles.form}>
-              <Form.Group controlId="duqFormEmail">
+              <Form.Group controlId="sampleCertificateName">
                 <Form.Label className={styles.label}>Name</Form.Label>
                 <Form.Control
                   className={styles.input}
@@ -82,7 +82,7 @@ const SampleCertitficateModal = (props: any) => {
                   placeholder="Enter your name"
                 />
               </Form.Group>
-              <Form.Group controlId="duqFormEmail">
+              <Form.Group controlId="sampleCertificateEmail">
                 <Form.Label className={styles.label}>Email Id</Form.Label>
                 <Form.Control
                   className={styles.input}
@@ -91,7 +91,7 @@ const SampleCertitficateModal = (props: any) => {
                 />
               </Form.Group>
               <Form.Group
-                controlId="downloadSampleCetificate"
+                controlId="sampleCertificatePhone"
                 className="position-relative"
               >
                 <Form.Label className={styles.label}>Phone Number</Form.Label>
