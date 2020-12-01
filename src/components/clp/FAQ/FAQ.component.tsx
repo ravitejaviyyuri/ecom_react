@@ -7,83 +7,88 @@ import Nav from "react-bootstrap/Nav";
 import Accordion from "./FAQAccordion.component";
 import OpenForm from "../OpenForm/OpenForm.component";
 import styles from "./faq.module.scss";
+import FAQAccordion from "./FAQAccordion.component";
+import {SectionDetails } from './../../../interfaces/course';
 
-const faq1 = [
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-];
-const faq2 = [
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-];
+// const faq1 = [
+//   {
+//     question: "What are the system requirements for this course?",
+//     answer:
+//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
+//   },
+//   {
+//     question: "What are the system requirements for this course?",
+//     answer:
+//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
+//   },
+//   {
+//     question: "What are the system requirements for this course?",
+//     answer:
+//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
+//   },
+//   {
+//     question: "What are the system requirements for this course?",
+//     answer:
+//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
+//   },
+//   {
+//     question: "What are the system requirements for this course?",
+//     answer:
+//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
+//   },
+//   {
+//     question: "What are the system requirements for this course?",
+//     answer:
+//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
+//   },
+//   {
+//     question: "What are the system requirements for this course?",
+//     answer:
+//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
+//   },
+// ];
+// const faq2 = [
+//   {
+//     question: "What are the system requirements for this course?",
+//     answer:
+//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
+//   },
+//   {
+//     question: "What are the system requirements for this course?",
+//     answer:
+//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
+//   },
+//   {
+//     question: "What are the system requirements for this course?",
+//     answer:
+//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
+//   },
+//   {
+//     question: "What are the system requirements for this course?",
+//     answer:
+//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
+//   },
+//   {
+//     question: "What are the system requirements for this course?",
+//     answer:
+//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
+//   },
+//   {
+//     question: "What are the system requirements for this course?",
+//     answer:
+//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
+//   },
+//   {
+//     question: "What are the system requirements for this course?",
+//     answer:
+//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
+//   },
+// ];
+type Props = {
+  course_sections: any
+}
 
-const FAQ = () => {
+const FAQ = ({course_sections}: Props) => {
   const [isMob, setMob] = useState(false);
   useEffect(() => {
     if (process.browser) {
@@ -94,6 +99,10 @@ const FAQ = () => {
       }
     }
   }, []);
+     let course_subsection = course_sections[16].section_details[0].subsection_content;
+     let course_related = JSON.parse(course_subsection);
+     let general = JSON.parse(course_sections[16].section_details[1].subsection_content);
+     
   return (
     <section className={styles.faq_section}>
       <Container>
@@ -124,10 +133,10 @@ const FAQ = () => {
                 <Col sm={12} className={styles.tab_col}>
                   <Tab.Content className={styles.tab_content}>
                     <Tab.Pane eventKey="first">
-                      <Accordion faq={faq1} />
+                      <Accordion faq={course_related[0].queries} />
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
-                      <Accordion faq={faq2} />
+                      <Accordion faq={general[0].queries} />
                     </Tab.Pane>
                   </Tab.Content>
                 </Col>

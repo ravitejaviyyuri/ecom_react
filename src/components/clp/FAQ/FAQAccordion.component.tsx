@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import styles from "./faqaccordion.module.scss";
-
 const FAQAccordion = (props: any) => {
   const [activeId, setActiveId] = useState("0");
   const toggleActive = (id: any) => {

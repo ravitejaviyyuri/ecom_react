@@ -35,7 +35,8 @@ const CoursePage = ({ data, errors }: Props) => {
       <Certification />
       <EdurekaAdvantage />
       <Reviews />
-      <FAQ />
+      {console.log(data.course.course_sections)};
+      <FAQ  course_sections = {data.course.course_sections}/>
       <ICE />
       <OtherCityLink />
     </ClpLayout>
@@ -47,10 +48,10 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const slug = params?.slug;
 
     const course: Course = await getCourse(String(slug));
+    console.log(course);
 
     const reviews = ["review 1", "review 2", "review 3", "review 4"];
 
-    // Pass data to the page via props
     return {
       props: {
         data: {
