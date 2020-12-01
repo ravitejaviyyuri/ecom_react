@@ -3,8 +3,12 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import styles from "./ice.module.scss";
+type Props = {
+  course_sections: any
+}
+const ICE = ({course_sections}: Props) => {
 
-const ICE = () => {
+  let ice_content = JSON.parse(course_sections[20].section_details[0].subsection_content);
   return (
     <section className={styles.ice_section}>
       <Container>
@@ -12,10 +16,9 @@ const ICE = () => {
           <Col className={styles.ice_card}>
             <Row className={styles.row}>
               <Col className={styles.details_section}>
-                <div className={styles.heading}>Edureka ICE</div>
+                <div className={styles.heading}>{course_sections[20].section_title}</div>
                 <div className={styles.info}>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et.
+                  {ice_content[0].icedescription}
                 </div>
                 <ul className={styles.list}>
                   <li>
@@ -34,7 +37,8 @@ const ICE = () => {
                         />
                       </svg>
                     </div>
-                    Immersive Classroom experience
+                  {ice_content[0].Bullets[0]}
+
                   </li>
                   <li>
                     <div>
@@ -52,7 +56,7 @@ const ICE = () => {
                         />
                       </svg>
                     </div>
-                    Instant doubt clearing
+                    {ice_content[0].Bullets[1]}
                   </li>
                   <li>
                     <div>
@@ -70,7 +74,7 @@ const ICE = () => {
                         />
                       </svg>
                     </div>
-                    Instructor-led Sessions
+                    {ice_content[0].Bullets[2]}
                   </li>
                 </ul>
               </Col>

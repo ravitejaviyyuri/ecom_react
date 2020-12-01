@@ -37,7 +37,7 @@ const CoursePage = ({ data, errors }: Props) => {
       <Reviews />
       {console.log(data.course.course_sections)};
       <FAQ  course_sections = {data.course.course_sections}/>
-      <ICE />
+      <ICE  course_sections = {data.course.course_sections}/>
       <OtherCityLink />
     </ClpLayout>
   );
