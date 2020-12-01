@@ -33,9 +33,9 @@ const CoursePage = ({ data, errors }: Props) => {
       <Curriculum />
       <Projects />
       <Certification />
-      <EdurekaAdvantage />
+      <EdurekaAdvantage course_sections = {data.course.course_sections[19]} />
       <Reviews />
-      {console.log(data.course.course_sections)};
+      {console.log(data.course.course_sections[19])};
       <FAQ  course_sections = {data.course.course_sections}/>
       <ICE  course_sections = {data.course.course_sections}/>
       <OtherCityLink />

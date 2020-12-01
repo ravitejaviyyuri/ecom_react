@@ -4,36 +4,17 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import styles from "./edurekaadvantage.module.scss";
 import OpenForm from "../OpenForm/OpenForm.component";
-
-const advantageData = [
-  {
-    title: "Live and interactive classroom experience",
-    others: "Recorded videos without any interaction with the instructor",
-    edureka: "Live instructor-led online classes by industry experts",
-  },
-  {
-    title: "Live and interactive classroom experience",
-    others: "Recorded videos without any interaction with the instructor",
-    edureka: "Live instructor-led online classes by industry experts",
-  },
-  {
-    title: "Live and interactive classroom experience",
-    others: "Recorded videos without any interaction with the instructor",
-    edureka: "Live instructor-led online classes by industry experts",
-  },
-  {
-    title: "Live and interactive classroom experience",
-    others: "Recorded videos without any interaction with the instructor",
-    edureka: "Live instructor-led online classes by industry experts",
-  },
-  {
-    title: "Live and interactive classroom experience",
-    others: "Recorded videos without any interaction with the instructor",
-    edureka: "Live instructor-led online classes by industry experts",
-  },
-];
-
-const EdurekaAdvantage = () => {
+type Props = {
+  course_sections: any;
+}
+// const advantageData = [
+//   {
+//     title: "Live and interactive classroom experience",
+//     others: "Recorded videos without any interaction with the instructor",
+//     edureka: "Live instructor-led online classes by industry experts",
+//   },
+ 
+const EdurekaAdvantage = ({course_sections}: Props) => {
   const [isMob, setMob] = useState(false);
   useEffect(() => {
     if (process.browser) {
@@ -44,12 +25,14 @@ const EdurekaAdvantage = () => {
       }
     }
   }, []);
+  let section_data = JSON.parse(course_sections.section_details[0].subsection_content)
+  console.log(section_data[1].Bullets[0]);
   return (
     <section className={styles.advantage_section}>
       <Container className={styles.container}>
         <Row>
           <Col xs={12} className={styles.heading}>
-            The Edureka Advantage
+            {course_sections.section_title}
           </Col>
         </Row>
         <Row className="m-0">
@@ -60,7 +43,7 @@ const EdurekaAdvantage = () => {
             className={`${styles.header} ${styles.blue}`}
           >
             {" "}
-            WHAT I NEED
+            {section_data[0].description}
           </Col>
           <Col
             xs={6}
@@ -68,7 +51,7 @@ const EdurekaAdvantage = () => {
             md={4}
             className={`${styles.header} ${styles.red}`}
           >
-            WHAT OTHERS OFFERS
+            {section_data[1].description}
           </Col>
           <Col
             xs={6}
@@ -76,10 +59,10 @@ const EdurekaAdvantage = () => {
             md={4}
             className={`${styles.header} ${styles.green}`}
           >
-            EDUREKA ADVANTAGE
+            {section_data[2].description}
           </Col>
         </Row>
-        {advantageData.map((value: any, index: number) => {
+        {section_data[0].Bullets.map((value: any, index: number) => {
           return (
             <Row key={index} className={styles.cell_row}>
               <Col xs={12} sm={12} md={4} className={styles.cell}>
@@ -119,7 +102,7 @@ const EdurekaAdvantage = () => {
                     </g>
                   </svg>
                 </div>
-                <div className={styles.title_text}>{value.title}</div>
+                <div className={styles.title_text}>{section_data[0].Bullets[index]}</div>
               </Col>
               <Col
                 xs={6}
@@ -143,7 +126,7 @@ const EdurekaAdvantage = () => {
                     />
                   </svg>
                 </div>
-                <div className={styles.text}>{value.others}</div>
+                <div className={styles.text}>{section_data[1].Bullets[index]}</div>
               </Col>
               <Col
                 xs={6}
@@ -166,7 +149,7 @@ const EdurekaAdvantage = () => {
                     />
                   </svg>
                 </div>
-                <div className={styles.text}>{value.edureka}</div>
+                <div className={styles.text}>{section_data[2].Bullets[index]}</div>
               </Col>
             </Row>
           );
