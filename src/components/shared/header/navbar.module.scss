@@ -1,56 +1,98 @@
-.header_new{
-    padding: 14px 48px;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.01);
-    a{
-        svg {
-            width: 129px;
-            color: #0052cc;
-        }
+.header_new {
+  padding: 14px 48px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.01);
+  .edu_logo {
+    margin-right: 35px;
+  }
+  a {
+    svg {
+      width: 129px;
+      color: #0052cc;
     }
-    .search_bx{
-        background-color: #f4f5f7;
-        color: #5a6484;
-        font-size: 14px;
-        cursor: pointer;
-        line-height: 1.5;
-        display: flex;
-        align-items: center;
-        border-radius: 20px;
-        padding: 10px 15px;
-        width: 358px;
-        svg{
-            width: 20px;
-            margin-right: 5px;
-        }
+  }
+  .search_click_bx {
+    margin-right: auto;
+  }
+  .search_bx {
+    background-color: #f4f5f7;
+    color: #5a6484;
+    font-size: 14px;
+    cursor: pointer;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 10px 15px;
+    width: 358px;
+    svg {
+      width: 20px;
+      margin-right: 5px;
     }
-    .responsive_ham{
-        margin-right: 14px;
-        margin-top: 8px;
-        cursor: pointer;
-        display: none;
-        img{
-            min-width:15px;
-            width: 15px;
-        }
+  }
+  .conatct_bx {
+    display: none;
+  }
+  .responsive_ham {
+    margin-right: 14px;
+    margin-top: 8px;
+    cursor: pointer;
+    display: none;
+    img {
+      min-width: 15px;
+      width: 15px;
     }
+  }
 }
-@media only screen and (max-width: 767px) and (min-width: 300px)  {
-    .header_new{
-        padding: 5px 10px;
-        .edu_logo{
-            svg{
-                width: 90px;
-            }
-        }
-        .search_click_bx{
-            .search_bx{
-                display: none;
-            }
-        }
-        .responsive_ham{
-            margin-right: 10px;
-            margin-top: 2px;
-            display: inline-block;
-        }
+
+@media only screen and (max-width: 767px) and (min-width: 300px) {
+  .header_new {
+    padding: 5px 10px;
+    .edu_logo {
+      margin-right: 0;
+      svg {
+        width: 90px;
+      }
     }
+    .search_click_bx {
+      margin-left: auto;
+      margin-right: 11px;
+      .search_bx {
+        width: auto;
+        padding: 8px;
+        svg {
+          margin: 0;
+        }
+        span {
+          display: none;
+        }
+      }
+    }
+    .conatct_bx {
+      display: block;
+      svg {
+        width: auto;
+      }
+      a {
+        color: #192f60;
+      }
+      padding: 8px;
+      border-radius: 19px;
+      border: solid 1px #eff1f3;
+      background-color: #fafbfc;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.53;
+      color: #192f60;
+      cursor: pointer;
+      svg {
+        fill: #bdc2cf;
+        margin-right: 3px;
+      }
+    }
+    .responsive_ham {
+      margin-right: 10px;
+      margin-top: 2px;
+      display: inline-block;
+    }
+  }
 }
