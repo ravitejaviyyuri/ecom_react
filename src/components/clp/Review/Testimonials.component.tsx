@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Swiper, Navigation, Pagination } from "swiper";
@@ -128,7 +129,14 @@ const Testimonials = (props: any) => {
               <Col key={index} xs={12} sm={12} md={12} lg={4}>
                 <div className={styles.card}>
                   <div className={styles.card_header}>
-                    <img src="/avatar.png" alt="avatar" />
+                    <Image
+                      src="/avatar.png"
+                      alt="avatar"
+                      width={58}
+                      height={58}
+                      loading="lazy"
+                      layout="fixed"
+                    />
                     <div className={styles.details}>
                       <span>{value.name}</span>
                       <a href="">

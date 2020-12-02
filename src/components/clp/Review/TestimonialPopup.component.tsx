@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Modal from "react-bootstrap/Modal";
 import { Swiper, Navigation, Pagination } from "swiper";
 import ReactIdSwiperCustom from "react-id-swiper/lib/ReactIdSwiper.custom";
@@ -127,7 +128,14 @@ const TestimonialPopup = (props: any) => {
             return (
               <div key={index} className={styles.card}>
                 <div className={styles.card_header}>
-                  <img src="/avatar.png" alt="avatar" />
+                  <Image
+                    src="/avatar.png"
+                    alt="avatar"
+                    width={58}
+                    height={58}
+                    loading="lazy"
+                    layout="fixed"
+                  />
                   <div className={styles.details}>
                     <span>{value.name}</span>
                     <a href="">

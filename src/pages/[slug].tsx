@@ -11,6 +11,12 @@ import Certification from "../components/clp/Certification/Certification.compone
 import Projects from "../components/clp/Project/Project.component";
 import Curriculum from "../components/clp/Curriculum/Curriculum.component";
 import {sectionsMapping} from "../utils/section_mapping";
+import BatchComponent from "../components/clp/batch/Batch.component";
+import Breadcrumb from "../components/shared/breadcrumb/Breadcrumb.component";
+import CourseTitle from "../components/clp/course_title/Title.component";
+import VideoInfo from "../components/clp/video_info/VideoInfo.component";
+import LearningByEdureka from "../components/clp/learning_by_edureka/LearnEdu.component";
+import KnowYourCourse from "../components/clp/know_your_course/KnowYourCourse.component";
 
 type Props = {
   data: {
@@ -31,6 +37,13 @@ const CoursePage = ({ data, errors }: Props) => {
 
   return (
     <ClpLayout>
+     
+      <Breadcrumb />
+      <CourseTitle />
+      <VideoInfo />
+      <LearningByEdureka />
+      <BatchComponent />
+      <KnowYourCourse />
       <Curriculum course_section = {data.course.course_sections.clp_curriuculum_section}/>
       <Projects course_section = {data.course.course_sections.clp_project}/>
       <Certification />

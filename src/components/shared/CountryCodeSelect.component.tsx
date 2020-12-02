@@ -62,7 +62,7 @@ const DropdownIndicator = (props: any) => {
       >
         <title></title>
         <g id="icomoon-ignore"></g>
-        <path fill="#005fff" d="M0 232.727h980.247l-493.382 513.862z"></path>
+        <path fill="#192f60" d="M0 232.727h980.247l-493.382 513.862z"></path>
       </svg>
     </components.DropdownIndicator>
   );

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -72,8 +73,20 @@ const Footer = () => {
             sm={12}
             md={2}
           >
-            <img src="/ios.svg" alt="app_store" />
-            <img src="/android.svg" alt="play_store" />
+            <Image
+              src="/ios.svg"
+              width={200}
+              height={60}
+              loading="lazy"
+              alt="app_store"
+            />
+            <Image
+              src="/android.svg"
+              width={200}
+              height={60}
+              loading="lazy"
+              alt="play_store"
+            />
           </Col>
         </Row>
         <Row className={styles.about_section}>

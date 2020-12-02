@@ -48,16 +48,14 @@ const WatchVideoPopup = (props: any) => {
         )}
         <Row className={styles.row}>
           <Col xs={12} sm={12} md={8} className={styles.left_section}>
-            {/* <Image
-              src="/clp-video-thumbnail.png"
-              alt="thumbnail"
-              width="1000%"
-              height="100%"
-              layout="responsive"
-              loading="lazy"
-            /> */}
             {isMob && <h3>DevOps Certification Training</h3>}
-            <img src="/clp-video-thumbnail.png" alt="" width="100%" />
+            <Image
+              src="/clp-video-thumbnail.png"
+              alt=""
+              width={665}
+              height={409}
+              loading="lazy"
+            />
             <span className={styles.youtube_logo}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

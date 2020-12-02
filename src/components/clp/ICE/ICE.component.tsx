@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -79,7 +80,13 @@ const ICE = ({course_sections}: Props) => {
                 </ul>
               </Col>
               <Col className={styles.img_section}>
-                <img src="/ice-img.png" alt="ICE-img" />
+                <Image
+                  src="/ice-img.png"
+                  alt="ICE-img"
+                  width={522}
+                  height={351}
+                  loading="lazy"
+                />
               </Col>
             </Row>
           </Col>

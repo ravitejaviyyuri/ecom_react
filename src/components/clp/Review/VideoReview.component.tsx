@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Swiper, Navigation, Pagination } from "swiper";
@@ -130,7 +131,13 @@ const VideoReviews = (props: any) => {
               <Col key={index} xs={12} sm={12} md={12} lg={4}>
                 <div className={styles.card}>
                   <div className={styles.card_header}>
-                    <img src="/review.png" alt="thumbnail" />
+                    <Image
+                      src="/review.png"
+                      alt="thumbnail"
+                      width={302}
+                      height={168}
+                      loading="lazy"
+                    />
                     <div className={styles.details}>
                       <span className={styles.name}>{value.name}</span>
                       <span className={styles.company_name}>
