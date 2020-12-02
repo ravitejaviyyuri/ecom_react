@@ -1,0 +1,72 @@
+.batchtable_section{
+    label{
+        width: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        height: 80px;
+        border-bottom: solid 1px #e4ebee;
+        cursor: pointer;
+        input[type="radio"] {
+            /* remove standard background appearance */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            /* create custom radiobutton appearance */
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            padding: 3px;
+            /* background-color only for content */
+            background-clip: content-box;
+            border: 1px solid #adadad;
+            background-color: #ffffff;
+            border-radius: 50%;
+            outline: none;
+            margin: 0 30px;
+          }
+          
+          /* appearance for checked radiobutton */
+          input[type="radio"]:checked {
+            background-color: #1546eb;
+            border-color:#1546eb;
+            outline: none;
+          }
+        .date_day{
+            width: 188px;
+            .date{
+                font-size: 20px;
+                font-weight: 600;
+                color: #192f60;
+            }
+            .week{
+                padding: 4px 4px 3px 7px;
+                background-color: rgba(255, 171, 1, 0.2);
+                font-size: 10px;
+                font-weight: 500;
+                line-height: 1.3;
+                color: #a36d00;
+                width: 61px;
+                display: inline-block;
+                margin-left: 9px;
+            }
+        }
+        .time_week{
+            .dayweek{
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 0.94;
+                color: #192f60;
+                margin-right: 35px;
+            }
+            .time{
+                font-size: 16px;
+                line-height: 0.94;
+                color: #192f60;
+            }
+        }
+    }
+}
+
+
+

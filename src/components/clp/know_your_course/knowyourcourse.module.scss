@@ -1,0 +1,165 @@
+.padding_r_30{
+    padding-right: 40px;
+}
+.padding_l_30{
+    padding-left: 40px;
+}
+.kw_course_section{
+    background-color: #fafbfc;
+    padding: 72px 0;
+    .section_title{
+        font-size: 30px;
+        font-weight: 600;
+        text-align: center;
+        color: #192f60;
+        margin-bottom: 40px;
+    }
+    .kw_course_card{
+        padding: 48px 44px 165px 49px;
+        box-shadow: 0 0 40px 0 rgba(0, 12, 105, 0.03);
+        background-color: #ffffff;
+        .learn_bx{
+            .image_info{
+                border-radius: 6px;
+                padding:44px 0 44px 37px;
+                margin-bottom: 30px;
+            }
+            .back_blue{
+                background-color: #c2e1f2;
+            }
+            .back_green{
+                background-color: #bae5c6;
+            }
+            span{
+                font-size: 24px;
+                font-weight: bold;
+                line-height: 1.33;
+                color: #192f60;
+                display: inline-block;
+                width: 212px;
+            }
+            img{
+
+            }
+            ul{
+                padding: 0 0 0 22px;
+                margin: 0;
+                li{
+                    font-size: 15px;
+                    line-height: 1.47;
+                    color: #5a6484;
+                }
+            }
+            button{
+                border: none;
+                background: none;
+                outline: none;
+                font-size: 15px;
+                font-weight: 600;
+                color: #0052cc;
+                margin-top: 20px;
+            }
+        }
+        .extra_info_this{
+            margin-top: 55px;
+            .extra_bx{
+                .title{
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #192f60;
+                    margin-bottom: 16px;
+                }
+                p{
+                    font-size: 15px;
+                    line-height: 1.47;
+                    color: #192f60;
+                }
+                p + p{
+                    color: #5a6484;
+                }
+            }
+        }
+    }
+}
+.relative_bx{
+    position: relative;
+    .absolute_bx{
+        position: absolute;
+        border-radius: 6px;
+        box-shadow: 0 3px 40px 0 rgba(0, 12, 105, 0.06);
+        width: 100%;
+        overflow: hidden;
+        padding:39px 44px;
+        background: #ffffff;
+        top: 50px;
+        &::before{
+            content: '';
+            width: 100%;
+            position: absolute;
+            top: 0;
+            height: 7px;
+            background-image: linear-gradient(to right, #2d81f7, #6fe5be 99%);
+            border-radius: 6px;
+            left: 0;
+            right: 0;
+        }
+        .title{
+            font-size: 24px;
+            font-weight: 600;
+            color: #192f60;
+            margin-bottom: 20px;
+        }
+        .glim_bx{
+            .icon_text{
+                font-size: 20px;
+                font-weight: 600;
+                color: #192f60;
+                margin-bottom: 20px;
+            }
+            .text{
+                font-size: 15px;
+                line-height: 1.47;
+                color: #5a6484;
+                margin: 0;
+            }
+        }
+    }
+}
+.list_item_info_course{
+    margin-top: 210px;
+    ul{
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        text-align: center;
+        li{
+            display: inline-block;
+            span{
+                display: inline-block;
+                width: 100%;
+                font-size: 15px;
+                font-weight: 600;
+                color: #192f60;
+            }
+        }
+        li + li{
+            margin-left: 60px;
+        }
+    }
+}
+@media only screen and (max-width: 767px) and (min-width: 300px)  {
+    .kw_course_section{
+        .kw_course_card{
+            padding: 0;
+        }
+    }
+    .relative_bx{
+        .absolute_bx{
+            position: relative;
+            top: 0;
+        }
+    }
+    .list_item_info_course{
+        margin-top: 40px;
+    }
+}

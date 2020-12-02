@@ -3,7 +3,11 @@ import { getCourse } from '../api/services/course.service';
 import { Course } from '../interfaces/course';
 import ClpLayout from '../components/layouts/Clp.layout';
 import BatchComponent from '../components/clp/batch/Batch.component';
-import ReviewsComponent from '../components/clp/reviews/Reviews.component';
+import Breadcrumb from '../components/shared/breadcrumb/Breadcrumb.component';
+import CourseTitle from '../components/clp/course_title/Title.component';
+import VideoInfo from '../components/clp/video_info/VideoInfo.component';
+import LearningByEdureka from '../components/clp/learning_by_edureka/LearnEdu.component';
+import KnowYourCourse from '../components/clp/know_your_course/KnowYourCourse.component';
 
 
 type Props = {
@@ -25,12 +29,12 @@ const CoursePage = ({ data, errors }: Props) => {
 
   return (
     <ClpLayout>
-        <h1> {data.course?.title}</h1>
-
-        <BatchComponent course={data.course} batches = {[]}/>
-
-        <ReviewsComponent  reviews= {data.reviews}/>
-
+      <Breadcrumb/>
+        <CourseTitle />
+        <VideoInfo />
+        <LearningByEdureka />
+        <BatchComponent />
+        <KnowYourCourse/>
     </ClpLayout>
   )
 }

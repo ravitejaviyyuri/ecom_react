@@ -1,20 +1,21 @@
 import Head from 'next/head'
-import Footer from '../shared/Footer.component'
-import Navbar from '../shared/Navbar.component'
+import HeaderNavbar from '../shared/header/Navbar.component'
+
 
 function ClpLayout(props: any) {
+  
   return (
-    <div>
+    <div className="top_margin_fix_header">
       <Head>
         <title>Edureka - Devpops</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      <Navbar/>
+      <HeaderNavbar/>
 
-      <div className="container-fluid">{props.children}</div>
+      {props.children}
 
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

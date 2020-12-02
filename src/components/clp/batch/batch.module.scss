@@ -1,4 +1,43 @@
-.batches{
-    padding: 50px 20px;
-    background-color: #ccc;
+.batchtable_enroll_section{
+    padding: 55px 0 48px;
+    background-color: #f4f5f7;
+    .section_title{
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.27;
+        text-align: center;
+        color: #192f60;
+        margin-bottom: 35px;
+    }
+    .flex_custome{
+        display: flex;
+        border-radius: 6px;
+        box-shadow: 0 3px 40px 0 rgba(0, 9, 75, 0.12);
+        background-color: #ffffff;  
+        padding: 0;  
+    }
+    .course_price_back{
+        background-color: #fdf9f3;
+        padding: 36px 26px;
+    }
+    .cant_find_batch{
+        width: 232px;
+        height: 60px;
+        margin: 34px 147px 0 0;
+        border: none;
+        padding: 18px 24px 17px;
+        border-radius: 6px;
+        background-color: #ffffff;
+        box-shadow: 0 3px 40px 0 rgba(0, 9, 75, 0.12);
+        font-size: 18px;
+        font-weight: 600;
+        color: #0052cc;
+    }
+}
+@media only screen and (max-width: 767px) and (min-width: 300px)  {
+    .batchtable_enroll_section{
+        .flex_custome{
+            display: inherit;
+        }
+    }
 }

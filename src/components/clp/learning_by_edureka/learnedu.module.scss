@@ -1,0 +1,57 @@
+.LearningEdu_section{
+    background-color: #fafbfc;
+    padding: 50px 0;
+    .section_title{
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1;
+        text-align: center;
+        color: #192f60;
+        margin-bottom: 50px;
+    }
+    .card_over{
+        height: 400px;
+        padding: 32px 36px 59px 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px 0 rgba(0, 12, 105, 0.03);
+        background-color: #ffffff;
+        border: none;
+        img{
+            text-align: center;
+            height: 113px;
+            margin:  0 auto;
+            width: auto;
+        }
+        .card_title{
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.4;
+            text-align: center;
+            color: #192f60;
+            margin-top: 20px;
+            padding: 0 40px;
+            margin-bottom: 20px;
+        }
+        ul{
+            list-style: none;
+            padding:0;
+            margin: 0;
+            li{
+                font-size: 15px;
+                line-height: 1.07;
+                color: #192f60;
+                display: flex;
+                align-items: center;
+                svg{
+                    margin-right: 8px;
+                    width: 16px;
+                    height: 16px;
+                    min-width: 16px;
+                }
+            }
+            li + li{
+                margin-top: 18px;
+            }
+        }
+    }
+}
