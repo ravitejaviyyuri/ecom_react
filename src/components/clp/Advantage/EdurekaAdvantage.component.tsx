@@ -26,7 +26,6 @@ const EdurekaAdvantage = ({course_sections}: Props) => {
     }
   }, []);
   let section_data = JSON.parse(course_sections.section_details[0].subsection_content)
-  console.log(section_data[1].Bullets[0]);
   return (
     <section className={styles.advantage_section}>
       <Container className={styles.container}>

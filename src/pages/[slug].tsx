@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import { getCourse } from "../api/services/course.service";
-import { Course } from "../interfaces/course";
+import { Course, CourseSections } from "../interfaces/course";
 import ClpLayout from "../components/layouts/Clp.layout";
 import Reviews from "../components/clp/Review/Reviews.component";
 import OtherCityLink from "../components/clp/OtherCityLinks/OtherCity.component";
@@ -10,6 +10,7 @@ import EdurekaAdvantage from "../components/clp/Advantage/EdurekaAdvantage.compo
 import Certification from "../components/clp/Certification/Certification.component";
 import Projects from "../components/clp/Project/Project.component";
 import Curriculum from "../components/clp/Curriculum/Curriculum.component";
+import {sectionsMapping} from "../utils/section_mapping";
 
 type Props = {
   data: {
@@ -31,13 +32,13 @@ const CoursePage = ({ data, errors }: Props) => {
   return (
     <ClpLayout>
       <Curriculum />
-      <Projects />
+      <Projects course_section = {data.course.course_sections.clp_project}/>
       <Certification />
-      <EdurekaAdvantage course_sections = {data.course.course_sections[19]} />
+      {console.log(data.course.course_sections.clp_project)}
+      <EdurekaAdvantage course_sections = {data.course.course_sections.clp_edureka_advantage} />
       <Reviews />
-      {console.log(data.course.course_sections[19])};
-      <FAQ  course_sections = {data.course.course_sections}/>
-      <ICE  course_sections = {data.course.course_sections}/>
+      <FAQ  course_sections = {data.course.course_sections.clp_faq}/>
+      <ICE  course_sections = {data.course.course_sections.clp_ice}/>
       <OtherCityLink />
     </ClpLayout>
   );
@@ -48,8 +49,9 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const slug = params?.slug;
 
     const course: Course = await getCourse(String(slug));
-    console.log(course);
-
+    //console.log(course.course_sections);
+    course.course_sections = sectionsMapping(course.course_sections);
+    console.log(course.course_sections.clp_curriuculum_section);
     const reviews = ["review 1", "review 2", "review 3", "review 4"];
 
     return {

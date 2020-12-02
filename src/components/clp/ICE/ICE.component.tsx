@@ -8,7 +8,7 @@ type Props = {
 }
 const ICE = ({course_sections}: Props) => {
 
-  let ice_content = JSON.parse(course_sections[20].section_details[0].subsection_content);
+  let ice_content = JSON.parse(course_sections.section_details[0].subsection_content);
   return (
     <section className={styles.ice_section}>
       <Container>
@@ -16,7 +16,7 @@ const ICE = ({course_sections}: Props) => {
           <Col className={styles.ice_card}>
             <Row className={styles.row}>
               <Col className={styles.details_section}>
-                <div className={styles.heading}>{course_sections[20].section_title}</div>
+                <div className={styles.heading}>{course_sections.section_title}</div>
                 <div className={styles.info}>
                   {ice_content[0].icedescription}
                 </div>

@@ -32,7 +32,7 @@ export interface Course {
     highlights?: (Highlights)[] | null;
     helpline?: (Helpline)[] | null;
     reviews: Reviews;
-    course_sections: (CourseSections)[];
+    course_sections: any;
     section_types: SectionTypes;
     related_courses?: (RelatedCoursesOrTrendingCourses)[] | null;
     trending_courses?: (RelatedCoursesOrTrendingCourses)[] | null;
