@@ -12,6 +12,7 @@ body {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
   font-size: 16px;
+  background-color: #f4f5f7;
 }
 
 * {
@@ -67,4 +68,12 @@ img {
 .modal-backdrop.show {
   opacity: 0.9;
   background-color: #192f60;
+}
+.top_margin_fix_header {
+  margin-top: 70px;
+}
+@media only screen and (max-width: 767px) and (min-width: 300px) {
+  .top_margin_fix_header {
+    margin-top: 60px;
+  }
 }
