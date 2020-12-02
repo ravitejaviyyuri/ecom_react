@@ -31,10 +31,10 @@ const CoursePage = ({ data, errors }: Props) => {
 
   return (
     <ClpLayout>
-      <Curriculum />
+      <Curriculum course_section = {data.course.course_sections.clp_curriuculum_section}/>
       <Projects course_section = {data.course.course_sections.clp_project}/>
       <Certification />
-      {console.log(data.course.course_sections.clp_project)}
+      {console.log(data.course.course_sections.clp_curriuculum_section)}
       <EdurekaAdvantage course_sections = {data.course.course_sections.clp_edureka_advantage} />
       <Reviews />
       <FAQ  course_sections = {data.course.course_sections.clp_faq}/>
@@ -51,7 +51,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const course: Course = await getCourse(String(slug));
     //console.log(course.course_sections);
     course.course_sections = sectionsMapping(course.course_sections);
-    console.log(course.course_sections.clp_curriuculum_section);
+    //console.log(course.course_sections.clp_curriuculum_section);
     const reviews = ["review 1", "review 2", "review 3", "review 4"];
 
     return {

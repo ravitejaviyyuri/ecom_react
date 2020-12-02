@@ -185,8 +185,11 @@ const curriculumData = [
     ],
   },
 ];
+type Props = {
+  course_section: any
+}
 
-const Curriculum = () => {
+const Curriculum = ({course_section}: Props) => {
   const [isMob, setMob] = useState(false);
   const [showExpand, setShowExpand] = useState(false);
   const [expand, setExpand] = useState(false);
@@ -211,7 +214,8 @@ const Curriculum = () => {
       }
     }
   }, []);
-
+console.log("curriculum");
+console.log(JSON.parse(course_section.section_details[0].subsection_content).handsOn);
   return (
     <section
       className={`${styles.curriculum_section} ${
