@@ -1,0 +1,44 @@
+import React from "react";
+
+export const HamMenu = (props: any) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="15"
+      height="12"
+      viewBox="0 0 15 12"
+    >
+      <g
+        id="Group_10752"
+        data-name="Group 10752"
+        transform="translate(14967.047 1159.253)"
+      >
+        <g id="Group_10750" data-name="Group 10750">
+          <path
+            id="Path_24560"
+            data-name="Path 24560"
+            d="M57.953,366.747h-15v2h15Z"
+            transform="translate(-15010 -1526)"
+            fill={props.color}
+          />
+          <rect
+            id="Rectangle_3451"
+            data-name="Rectangle 3451"
+            width="11"
+            height="2"
+            transform="translate(-14967.047 -1154.253)"
+            fill={props.color}
+          />
+          <rect
+            id="Rectangle_3452"
+            data-name="Rectangle 3452"
+            width="9"
+            height="2"
+            transform="translate(-14967.047 -1149.253)"
+            fill={props.color}
+          />
+        </g>
+      </g>
+    </svg>
+  );
+};

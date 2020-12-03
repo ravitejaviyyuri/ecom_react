@@ -1,6 +1,7 @@
 import React from "react";
 import Select, { components } from "react-select";
 import styles from "./countrycodeselect.module.scss";
+import { DownFilledArrow } from "./icons/downfilledarrow";
 
 const customStyles = {
   option: (provided: any, state: { isSelected: any }) => ({
@@ -53,17 +54,7 @@ const options = [
 const DropdownIndicator = (props: any) => {
   return (
     <components.DropdownIndicator {...props}>
-      <svg
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        width="10"
-        height="6"
-        viewBox="0 0 1024 1024"
-      >
-        <title></title>
-        <g id="icomoon-ignore"></g>
-        <path fill="#192f60" d="M0 232.727h980.247l-493.382 513.862z"></path>
-      </svg>
+      <DownFilledArrow color="#192f60" />
     </components.DropdownIndicator>
   );
 };

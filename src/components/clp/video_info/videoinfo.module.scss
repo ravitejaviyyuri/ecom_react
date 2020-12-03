@@ -66,6 +66,9 @@
             color: #192f60;
             display: inline-block;
             width: 100%;
+            svg {
+              margin-right: 6px;
+            }
             @media only screen and (max-width: 767px) and (min-width: 300px) {
               font-size: 14px;
             }
@@ -169,6 +172,10 @@
         padding-bottom: 10px;
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
+        justify-content: center;
+        div {
+          margin-right: 10px !important;
+        }
       }
     }
     button {
