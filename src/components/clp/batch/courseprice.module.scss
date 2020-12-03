@@ -1,38 +1,53 @@
-.courseprice_section{
-   .title{
+.courseprice_section {
+  .title {
     font-size: 20px;
     font-weight: 500;
     color: #192f60;
-   }
-   .price_course{
-       .main{
-        font-size: 34px;
-        font-weight: bold;
-        color: #192f60;
-        display: inline-block;
-       }
-       .cut{
-        font-size: 18px;
-        font-weight: bold;
-        color: #8591ac;
-        display: inline-block;
-       }
-   }
-   .info_price{
-       padding-right: 0;
-       ul{
-           list-style: none;
-           padding: 0;
-           margin: 0;
-           li{
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: -0.12px;
-            color: #36b37e;
-           }
-       }
-   }
-   .buttonenr{
+    @media only screen and (max-width: 767px) and (min-width: 300px) {
+      font-size: 15px;
+    }
+  }
+  .price_course {
+    .main {
+      font-size: 34px;
+      font-weight: bold;
+      color: #192f60;
+      display: inline-block;
+      @media only screen and (max-width: 767px) and (min-width: 300px) {
+        font-size: 30px;
+      }
+    }
+    .cut {
+      font-size: 18px;
+      font-weight: bold;
+      color: #8591ac;
+      display: inline-block;
+      text-decoration: line-through;
+    }
+  }
+  .info_price {
+    padding-right: 0;
+    padding-left: 0;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: -0.12px;
+        color: #36b37e;
+        @media only screen and (max-width: 767px) and (min-width: 300px) {
+          font-size: 10px;
+        }
+        svg {
+          height: 5px;
+          width: 7px;
+        }
+      }
+    }
+  }
+  .buttonenr {
     background-color: #ed593e;
     font-size: 18px;
     font-weight: 600;
@@ -43,17 +58,47 @@
     height: 50px;
     margin-bottom: 23px;
     margin-top: 38px;
-    &::hover{
-        background-color: #ed593e;
+    &::hover {
+      background-color: #ed593e;
     }
-   }
-   .View_more_pri{
+    @media only screen and (max-width: 767px) and (min-width: 300px) {
+      margin-top: 23px;
+    }
+  }
+  .View_more_pri {
     font-size: 12px;
     color: #526ca7;
-       a{
-        font-weight: 500;
-        color: #192f60;
-        text-decoration: underline;
-       }
-   }
+    display: flex;
+    align-items: center;
+    @media only screen and (max-width: 767px) and (min-width: 300px) {
+      font-size: 10px;
+    }
+    a {
+      font-weight: 500;
+      color: #192f60;
+      text-decoration: underline;
+      margin-left: 2px;
+    }
+    svg {
+      margin-right: 2px;
+    }
+  }
+}
+
+.timer_bx {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  svg {
+    margin-right: 3px;
+  }
+  span {
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192f60;
+  }
 }
