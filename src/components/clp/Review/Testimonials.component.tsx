@@ -39,7 +39,10 @@ const testimonialReviews = [
       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of ",
   },
 ];
-
+type Props = {
+  testimonials : any,
+  activeTab: any
+}
 const params = {
   Swiper,
   modules: [Navigation, Pagination],
@@ -55,6 +58,7 @@ const params = {
     nextEl: `.swiper-button-next.${styles.next_btn}`,
     prevEl: `.swiper-button-prev.${styles.prev_btn}`,
   },
+
   renderPrevButton: () => (
     <div className={`swiper-button-prev ${styles.prev_btn}`}>
       <svg
@@ -108,7 +112,7 @@ const params = {
   shouldSwiperUpdate: true,
 };
 
-const Testimonials = (props: any) => {
+const Testimonials = ({activeTab, testimonials}: Props) => {
   const ref = useRef<any>(null);
   const [show, setShow] = useState(false);
 
@@ -119,12 +123,12 @@ const Testimonials = (props: any) => {
     if (ref.current !== null && ref.current.swiper !== null) {
       ref.current.swiper.update();
     }
-  }, [props.activeTab]);
+  }, [activeTab]);
   return (
     <div>
       <Row>
         <ReactIdSwiperCustom ref={ref} {...params}>
-          {testimonialReviews.map((value: any, index: number) => {
+          {testimonials.map((value: any, index: number) => {
             return (
               <Col key={index} xs={12} sm={12} md={12} lg={4}>
                 <div className={styles.card}>
@@ -138,7 +142,7 @@ const Testimonials = (props: any) => {
                       layout="fixed"
                     />
                     <div className={styles.details}>
-                      <span>{value.name}</span>
+                      <span>{value.reviewer_name}</span>
                       <a href="">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +160,7 @@ const Testimonials = (props: any) => {
                       </a>
                     </div>
                   </div>
-                  <div className={styles.card_body}>{value.review}</div>
+                  <div className={styles.card_body}>{value.review_desc}</div>
                   <div className={styles.card_footer}>
                     <span onClick={handleShow}>READ MORE</span>
                     <svg

@@ -99,7 +99,6 @@ const FAQ = ({course_sections}: Props) => {
       }
     }
   }, []);
-  console.log(course_sections);
      let course_subsection = course_sections.section_details[0].subsection_content;
      let course_related = JSON.parse(course_subsection);
      let general = JSON.parse(course_sections.section_details[1].subsection_content);

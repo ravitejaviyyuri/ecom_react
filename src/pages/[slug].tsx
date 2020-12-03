@@ -43,13 +43,13 @@ const CoursePage = ({ data, errors }: Props) => {
       <VideoInfo />
       <LearningByEdureka />
       <BatchComponent />
-      <KnowYourCourse />
+      <KnowYourCourse course_section = {data.course.course_sections.clp_curriuculum_section}/>
       <Curriculum course_section = {data.course.course_sections.clp_curriuculum_section}/>
       <Projects course_section = {data.course.course_sections.clp_project}/>
       <Certification />
-      {console.log(data.course.course_sections.clp_curriuculum_section)}
+      {console.log(data.course)}
       <EdurekaAdvantage course_sections = {data.course.course_sections.clp_edureka_advantage} />
-      <Reviews />
+      <Reviews rating_section = {data.course.course_sections.clp_rating_section} review_section = {data.course.reviews}/>
       <FAQ  course_sections = {data.course.course_sections.clp_faq}/>
       <ICE  course_sections = {data.course.course_sections.clp_ice}/>
       <OtherCityLink />
@@ -62,9 +62,9 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const slug = params?.slug;
 
     const course: Course = await getCourse(String(slug));
-    //console.log(course.course_sections);
+    console.log(course.course_sections);
     course.course_sections = sectionsMapping(course.course_sections);
-    //console.log(course.course_sections.clp_curriuculum_section);
+    //console.log(course.course_sections);
     const reviews = ["review 1", "review 2", "review 3", "review 4"];
 
     return {

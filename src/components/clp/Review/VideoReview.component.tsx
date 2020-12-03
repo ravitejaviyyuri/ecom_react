@@ -6,45 +6,48 @@ import { Swiper, Navigation, Pagination } from "swiper";
 import ReactIdSwiperCustom from "react-id-swiper/lib/ReactIdSwiper.custom";
 import styles from "./videoreview.module.scss";
 
-const testimonialReviews = [
-  {
-    name: "Sayani Sen 1",
-    company: "AVP - Tata Capital",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela.",
-  },
-  {
-    name: "Sayani Sen 2",
-    company: "AVP - Tata Capital",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela.",
-  },
-  {
-    name: "Sayani Sen 3",
-    company: "AVP - Tata Capital",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela.",
-  },
-  {
-    name: "Sayani Sen 4",
-    company: "AVP - Tata Capital",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela.",
-  },
-  {
-    name: "Sayani Sen 5",
-    company: "AVP - Tata Capital",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela.",
-  },
-  {
-    name: "Sayani Sen 6",
-    company: "AVP - Tata Capital",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela.",
-  },
-];
-
+// const testimonialReviews = [
+//   {
+//     name: "Sayani Sen 1",
+//     company: "AVP - Tata Capital",
+//     review:
+//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela.",
+//   },
+//   {
+//     name: "Sayani Sen 2",
+//     company: "AVP - Tata Capital",
+//     review:
+//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela.",
+//   },
+//   {
+//     name: "Sayani Sen 3",
+//     company: "AVP - Tata Capital",
+//     review:
+//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela.",
+//   },
+//   {
+//     name: "Sayani Sen 4",
+//     company: "AVP - Tata Capital",
+//     review:
+//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela.",
+//   },
+//   {
+//     name: "Sayani Sen 5",
+//     company: "AVP - Tata Capital",
+//     review:
+//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela.",
+//   },
+//   {
+//     name: "Sayani Sen 6",
+//     company: "AVP - Tata Capital",
+//     review:
+//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela.",
+//   },
+// ];
+type Props = {
+  activeTab: any,
+  videoReviews: any
+}
 const params = {
   Swiper,
   modules: [Navigation, Pagination],
@@ -113,20 +116,20 @@ const params = {
   shouldSwiperUpdate: true,
 };
 
-const VideoReviews = (props: any) => {
+const VideoReviews = ({activeTab, videoReviews}: Props) => {
   const ref = useRef<any>(null);
 
   useEffect(() => {
     if (ref.current !== null && ref.current.swiper !== null) {
       ref.current.swiper.update();
     }
-  }, [props.activeTab]);
+  }, [activeTab]);
 
   return (
     <div>
       <Row>
         <ReactIdSwiperCustom ref={ref} {...params}>
-          {testimonialReviews.map((value: any, index: number) => {
+          {videoReviews.map((value: any, index: number) => {
             return (
               <Col key={index} xs={12} sm={12} md={12} lg={4}>
                 <div className={styles.card}>
@@ -139,7 +142,7 @@ const VideoReviews = (props: any) => {
                       loading="lazy"
                     />
                     <div className={styles.details}>
-                      <span className={styles.name}>{value.name}</span>
+                      <span className={styles.name}>{value.reviewer_name}</span>
                       <span className={styles.company_name}>
                         {value.company}
                       </span>
@@ -171,7 +174,7 @@ const VideoReviews = (props: any) => {
                       </svg>
                     </span>
                   </div>
-                  <div className={styles.card_body}>{value.review}</div>
+                  <div className={styles.card_body}>{value.review_desc}</div>
                   <div className={styles.card_footer}>
                     <a href="">
                       <svg
