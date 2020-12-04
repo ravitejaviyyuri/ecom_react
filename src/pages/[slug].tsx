@@ -59,6 +59,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const slug = params?.slug;
 
     const course: Course = await getCourse(String(slug));
+    console.log(course);
 
     const reviews = ["review 1", "review 2", "review 3", "review 4"];
 

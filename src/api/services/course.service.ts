@@ -8,20 +8,11 @@ import { Course } from '../../interfaces/course';
 const getCourse = async (slug: String) => {
   try {
     //let response = await makeServerGet(config.serverUrl + '/courses/' + slug);
-    let response:Course = {
-      id: 123,
-      course_group: 100,
-      course_type: 3,
-      title: 'Devops Training',
-      description: 'Devops is a blah blah course',
-      slug: 'devops',
-      price_usd: '499',
-      price_inr: '19999',
-      image: 'string',
-      rating: 5,
-      learners_count: 4300,
-      business_unit: 'BU 1',
-    }
+    let responseFromApi = await makeServerPost(`http://new-course.dev-edureka.co/courses/${slug}/slug`,{"required":"helpline,course_sections,related_courses,related_live_courses_for_selfpaced,master_courses,trending_courses,video,highlights,reviews,seo,course_price"});
+   responseFromApi = responseFromApi.data.course;
+    let response: Course = responseFromApi;
+    
+   
     return response;
   } 
   catch (err) {
