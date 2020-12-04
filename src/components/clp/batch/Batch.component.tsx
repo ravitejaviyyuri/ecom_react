@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import styles from "./batch.module.scss";
 import BatchTable from "./BatchTable.component";
 import Courseprice from "./CoursePrice.component";
 import Button from "react-bootstrap/Button";
+import ChooseBatch from "../HelpChooseBatch/HelpChooseBatch.component";
 
 const BatchComponent = () => {
+  const [isOpen, setOpen] = useState(false);
+
   return (
     <section className={styles.batchtable_enroll_section}>
       <Container>
@@ -19,8 +22,21 @@ const BatchComponent = () => {
             <Courseprice />
           </Col>
         </Col>
-        <Button className={styles.cant_find_batch}>Cant find a batch?</Button>
+        <Button
+          className={styles.cant_find_batch}
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          Cant find a batch?
+        </Button>
       </Container>
+      <ChooseBatch
+        show={isOpen}
+        handleClose={() => {
+          setOpen(false);
+        }}
+      />
     </section>
   );
 };

@@ -30,9 +30,11 @@
     }
   }
   .video_section {
+    position: relative;
     float: left;
     display: inline-block;
     width: 50%;
+    cursor: pointer;
     .video_img_play {
       width: 482px;
       height: 297px;
@@ -197,6 +199,16 @@
   }
 }
 
+.play_icon {
+  position: absolute;
+  top: 31%;
+  left: 38%;
+  svg {
+    width: 60px;
+    height: 45px;
+  }
+}
+
 @media only screen and (max-width: 767px) and (min-width: 300px) {
   .videoinfo_section {
     .courseinfo_section {
@@ -223,5 +235,37 @@
         margin-top: 16px;
       }
     }
+  }
+}
+
+.filling_fast {
+  background-color: #ff5c7b;
+  font-size: 16px;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  position: absolute;
+  top: 20px;
+  left: -7px;
+  padding: 3px 7px 3px 14px;
+  &::after {
+    content: "";
+    display: inline-block;
+    border-right: 20px solid transparent;
+    border-top: 31px solid #ff5c7b;
+    position: absolute;
+    bottom: 0;
+    right: -20px;
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    border-left: 7px solid transparent;
+    border-bottom: 7px solid #ff5c7b;
+    position: absolute;
+    top: -7px;
+    left: 0px;
   }
 }

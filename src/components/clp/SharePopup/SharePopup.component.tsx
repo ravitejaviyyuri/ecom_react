@@ -7,7 +7,7 @@ import { CopyIcon } from "../../shared/icons/copyicon";
 import { LinkIcon } from "../../shared/icons/linkicon";
 import { TwitterIcon } from "../../shared/icons/twittericon";
 
-const LoginSignup = (props: any) => {
+const SharePopup = (props: any) => {
   return (
     <Modal
       centered
@@ -56,4 +56,4 @@ const LoginSignup = (props: any) => {
   );
 };
 
-export default LoginSignup;
+export default SharePopup;
