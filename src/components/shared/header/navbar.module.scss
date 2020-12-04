@@ -3,6 +3,9 @@
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.01);
   .edu_logo {
     margin-right: 35px;
+    svg {
+      height: 28px;
+    }
   }
   a {
     svg {
@@ -75,7 +78,7 @@
       a {
         color: #192f60;
       }
-      padding: 8px;
+      padding: 6px;
       border-radius: 19px;
       border: solid 1px #eff1f3;
       background-color: #fafbfc;

@@ -60,6 +60,9 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      @media only screen and (max-width: 767px) and (min-width: 300px) {
+        margin: 0;
+      }
       svg {
         fill: #5a6484;
       }
@@ -81,6 +84,7 @@
     }
   }
 }
+
 @media only screen and (max-width: 767px) and (min-width: 300px) {
   .title_section {
     .mix_section {

@@ -41,6 +41,12 @@
   transition: 1s;
 }
 
+.chevron_icon {
+  svg {
+    width: 14px;
+  }
+}
+
 .top_section {
   display: flex;
   align-items: center;
