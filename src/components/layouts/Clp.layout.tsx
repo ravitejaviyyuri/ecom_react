@@ -4,6 +4,7 @@ import LoginSignup from "../shared/LoginSignup/LoginSignup.component";
 import HeaderNavbar from "../shared/header/Navbar.component";
 import Footer from "../shared/Footer/Footer.component";
 import DUQ from "../shared/DUQ.component";
+import ContactUs from "../shared/ContactUs.component";
 import ResponsiveFooter from "../shared/Footer/ResponsiveFooter.component";
 import ExitIntentPopup from "../clp/ExitIntent/ExitIntent.component";
 
@@ -43,6 +44,7 @@ function ClpLayout(props: any) {
         }}
         handleType={setLogin}
       />
+      {!isMob ? <ContactUs /> : null}
       {props.children}
       <ExitIntentPopup
         show={showExitIntent}

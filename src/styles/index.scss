@@ -50,6 +50,23 @@ img {
   transition: all 400ms;
 }
 
+.contactus-transition-enter,
+.contactus-transition-appear {
+  transform: translateX(300px);
+}
+.contactus-transition-enter-active,
+.contactus-transition-appear-active {
+  transform: translateX(0px);
+  transition: all 400ms;
+}
+.contactus-transition-exit {
+  transform: translateX(0px);
+}
+.contactus-transition-exit-active {
+  transform: translateX(300px);
+  transition: all 400ms;
+}
+
 .swiper-pagination-bullet-active {
   background-color: #192f60 !important;
 }
