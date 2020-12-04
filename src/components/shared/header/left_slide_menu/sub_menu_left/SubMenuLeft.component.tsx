@@ -1,94 +1,122 @@
-import React, { Component } from "react";
+import React from "react";
+import Button from "react-bootstrap/Button";
 import MultilevelSidebar from "react-multilevel-sidebar";
 import "react-multilevel-sidebar/src/Sidebar.css";
+import { CrossIcon } from "../../../icons/crossicon";
+import styles from "./submenuleft.module.scss";
 
-let options = [
-  {
-    title: "",
-    titleIcon: <i className="fa fa-graduation-cap"></i>,
-    content: [{ id: 1, name: "My courses", to: "/my-courses" }]
-  },
-  {
-    title: "",
-    titleIcon: <i className="fa fa-paragraph"></i>,
-    hideBorder: true,
-    content: [
-      {
-        id: 2,
-        name: "Web Development",
-        icon: <i className="fa fa-chrome"></i>,
-        children: [
-          {
-            title: "JavaScript",
-            titleIcon: <i className="fa fa-opera"></i>,
-            content: [
-              {
-                id: 3,
-                name: "functions",
-                icon: <i className="fa fa-chrome"></i>,
-                children: [
-                  {
-                    content: [
-                      {
-                        id: 4,
-                        name: "functions",
-                        icon: <i className="fa fa-chrome"></i>,
-                        to: "#"
-                      },
-                      {
-                        id: 5,
-                        name: "functfghjions",
-                        icon: <i className="fa fa-chrome"></i>,
-                        to: "#"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-];
-
-class SubMenuleft extends Component<any , any> {
-  constructor(props:any) {
-    super(props);
-    this.state = {
-      isOpen: true
-    };
-  }
-
+const SubMenuleft = (props: any) => {
+  let options = [
+    {
+      title: "",
+      hideBorder: true,
+      content: [
+        {
+          id: 1,
+          name: "Categories",
+          children: [
+            {
+              title: "JavaScript",
+              content: [
+                {
+                  id: 2,
+                  name: "functions",
+                  children: [
+                    {
+                      content: [
+                        {
+                          id: 3,
+                          name: "functions",
+                          to: "#",
+                        },
+                        {
+                          id: 4,
+                          name: "functfghjions",
+                          to: "#",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: "",
+      hideBorder: true,
+      content: [{ id: 1, name: "Corporate Training", to: "/my-courses" }],
+    },
+    {
+      title: "",
+      hideBorder: true,
+      content: [{ id: 1, name: "All Courses", to: "/my-courses" }],
+    },
+    {
+      title: "",
+      hideBorder: true,
+      content: [{ id: 1, name: "Blog", to: "/my-courses" }],
+    },
+    {
+      title: "",
+      hideBorder: true,
+      content: [
+        {
+          id: 1,
+          name: (
+            <Button
+              className={styles.login_btn}
+              onClick={() => {
+                props.setLoginSignup(true, "login");
+              }}
+            >
+              Log In
+            </Button>
+          ),
+        },
+      ],
+    },
+    {
+      title: "",
+      hideBorder: true,
+      content: [
+        {
+          id: 1,
+          name: (
+            <Button
+              className={styles.signup_btn}
+              onClick={() => {
+                props.setLoginSignup(true, "signup");
+              }}
+            >
+              Sign Up
+            </Button>
+          ),
+        },
+      ],
+    },
+  ];
   //   you can also use this function on any of your event to open/close the sidebar
-  handleSidebarToggle = (isOpen: any) => {
-    this.setState({ isOpen });
+  const handleSidebarToggle = () => {
+    props.showSidebar(props.sidebar);
   };
-
-  handleClick = (itemOptions: any) => {
-    /* 
-        do something with the item you clicked.
-        you can also send custom properties of your choice
-        in the options array you'll be getting those here
-        whenever you click that item
-    */
-  };
-
-  render() {
-    return (
-      
-        <MultilevelSidebar
-          open={this.state.isOpen}
-          onToggle={this.handleSidebarToggle}
-          options={options}
-          header="React-MultiLevel-Sidebar"
-          // onItemClick={this.handleClick}
-        />
-      
-     
-    );
-  }
-}
+  return (
+    <div>
+      <MultilevelSidebar
+        open={props.sidebar}
+        onToggle={handleSidebarToggle}
+        options={options}
+        header="Browse Categories"
+        wrapperClassName={styles.wrapper}
+        headerClassName={styles.header}
+      />
+      <div className={styles.close_btn} onClick={handleSidebarToggle}>
+        <CrossIcon color="#000000" />
+      </div>
+    </div>
+  );
+};
 
 export default SubMenuleft;

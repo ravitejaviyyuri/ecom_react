@@ -20,7 +20,9 @@ const HeaderNavbar = (props: any) => {
 
   return (
     <>
-      {sidebar && <MenuLeftSlide />}
+      {sidebar && (
+        <MenuLeftSlide sidebar={sidebar} showSidebar={showSidebar} setLoginSignup={props.setLoginSignup} />
+      )}
 
       {isSearchModal && (
         <SearchOverlay show={isSearchModal} handleClose={handleClose} />

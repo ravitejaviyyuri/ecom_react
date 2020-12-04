@@ -11,6 +11,12 @@ function ClpLayout(props: any) {
   const [isMob, setMob] = useState(false);
   const [showExitIntent, setExitIntent] = useState(false);
   const [showLoginSignup, setLoginSignup] = useState(false);
+  const [isLogin, setLogin] = useState("login");
+
+  const handleLoginSignup = (state: boolean, type: string) => {
+    setLoginSignup(state);
+    setLogin(type);
+  };
 
   useEffect(() => {
     if (process.browser) {
@@ -28,12 +34,14 @@ function ClpLayout(props: any) {
         <title>Edureka - Devpops</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <HeaderNavbar setLoginSignup={setLoginSignup} />
+      <HeaderNavbar setLoginSignup={handleLoginSignup} />
       <LoginSignup
         show={showLoginSignup}
+        type={isLogin}
         handleClose={() => {
           setLoginSignup(false);
         }}
+        handleType={setLogin}
       />
       {props.children}
       <ExitIntentPopup

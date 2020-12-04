@@ -24,7 +24,7 @@ const SignoutNav = (props: any) => {
         <Button
           className={styles.login_in}
           onClick={() => {
-            props.setLoginSignup(true);
+            props.setLoginSignup(true, "login");
           }}
         >
           Log in
@@ -32,7 +32,7 @@ const SignoutNav = (props: any) => {
         <Button
           className={styles.sign_up}
           onClick={() => {
-            props.setLoginSignup(true);
+            props.setLoginSignup(true, "signup");
           }}
         >
           Sign up
