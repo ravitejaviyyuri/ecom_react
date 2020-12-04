@@ -9,8 +9,21 @@ type Props = {
   course_sections: any
 }
 const ICE = ({course_sections}: Props) => {
-
-  let ice_content = JSON.parse(course_sections.section_details[0].subsection_content);
+  var  value_content: any;
+  let list_items = course_sections.section_details.map((value: any) => {
+     value_content  = JSON.parse(value.subsection_content);
+     let items = value_content.points.map((point: any) =>{
+      return (<li>
+      <div>
+        <TickCircleIcon color="#36b37e" />
+      </div>
+      {point}
+    </li>)
+    
+     })
+     return items;
+  })
+  console.log( value_content.icedescription)
   return (
     <section className={styles.ice_section}>
       <Container>
@@ -20,28 +33,10 @@ const ICE = ({course_sections}: Props) => {
               <Col className={styles.details_section}>
                 <div className={styles.heading}>{course_sections.section_title}</div>
                 <div className={styles.info}>
-                  {ice_content[0].icedescription}
+                  {value_content.icedescription}
                 </div>
                 <ul className={styles.list}>
-                  <li>
-                    <div>
-                      <TickCircleIcon color="#36b37e" />
-                    </div>
-                  {ice_content[0].Bullets[0]}
-
-                  </li>
-                  <li>
-                    <div>
-                      <TickCircleIcon color="#36b37e" />
-                    </div>
-                    {ice_content[0].Bullets[1]}
-                  </li>
-                  <li>
-                    <div>
-                      <TickCircleIcon color="#36b37e" />
-                    </div>
-                    {ice_content[0].Bullets[2]}
-                  </li>
+                  {list_items}
                 </ul>
               </Col>
               <Col className={styles.img_section}>
