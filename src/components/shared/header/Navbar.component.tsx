@@ -47,7 +47,10 @@ const HeaderNavbar = (props: any) => {
             </a>
           </div>
         </Nav>
-        <LoginSignoutNav isLoggedIn={true} />
+        <LoginSignoutNav
+          setLoginSignup={props.setLoginSignup}
+          isLoggedIn={false}
+        />
       </Navbar>
     </>
   );
