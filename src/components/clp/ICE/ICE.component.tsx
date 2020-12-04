@@ -23,7 +23,7 @@ const ICE = ({course_sections}: Props) => {
      })
      return items;
   })
-  console.log( value_content.icedescription)
+ 
   return (
     <section className={styles.ice_section}>
       <Container>

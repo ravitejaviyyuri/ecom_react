@@ -10,80 +10,7 @@ import styles from "./faq.module.scss";
 import FAQAccordion from "./FAQAccordion.component";
 import {SectionDetails } from './../../../interfaces/course';
 
-// const faq1 = [
-//   {
-//     question: "What are the system requirements for this course?",
-//     answer:
-//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-//   },
-//   {
-//     question: "What are the system requirements for this course?",
-//     answer:
-//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-//   },
-//   {
-//     question: "What are the system requirements for this course?",
-//     answer:
-//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-//   },
-//   {
-//     question: "What are the system requirements for this course?",
-//     answer:
-//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-//   },
-//   {
-//     question: "What are the system requirements for this course?",
-//     answer:
-//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-//   },
-//   {
-//     question: "What are the system requirements for this course?",
-//     answer:
-//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-//   },
-//   {
-//     question: "What are the system requirements for this course?",
-//     answer:
-//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-//   },
-// ];
-// const faq2 = [
-//   {
-//     question: "What are the system requirements for this course?",
-//     answer:
-//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-//   },
-//   {
-//     question: "What are the system requirements for this course?",
-//     answer:
-//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-//   },
-//   {
-//     question: "What are the system requirements for this course?",
-//     answer:
-//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-//   },
-//   {
-//     question: "What are the system requirements for this course?",
-//     answer:
-//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-//   },
-//   {
-//     question: "What are the system requirements for this course?",
-//     answer:
-//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-//   },
-//   {
-//     question: "What are the system requirements for this course?",
-//     answer:
-//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-//   },
-//   {
-//     question: "What are the system requirements for this course?",
-//     answer:
-//       "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-//   },
-// ];
+
 type Props = {
   course_sections: any
 }
@@ -99,10 +26,18 @@ const FAQ = ({course_sections}: Props) => {
       }
     }
   }, []);
-     let course_subsection = course_sections.section_details[0].subsection_content;
-     let course_related = JSON.parse(course_subsection);
-     let general = JSON.parse(course_sections.section_details[1].subsection_content);
-     
+  var course_specific: any;
+  var general_queries: any;
+  course_sections.section_details.map((value: any, index: Number) => {
+    let value_content  = JSON.parse(value.subsection_content);
+        if(value_content.querytype == "course_specific"){
+          course_specific = value_content.course_specific;
+        }
+        if(value_content.querytype == "general_queries") {
+          console.log("eneral_queries");
+            general_queries = value_content.general_queries;
+        }
+  })
   return (
     <section className={styles.faq_section}>
       <Container>
@@ -133,10 +68,10 @@ const FAQ = ({course_sections}: Props) => {
                 <Col sm={12} className={styles.tab_col}>
                   <Tab.Content className={styles.tab_content}>
                     <Tab.Pane eventKey="first">
-                      <Accordion faq={course_related[0].queries} />
+                      <Accordion faq={course_specific} />
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
-                      <Accordion faq={general[0].queries} />
+                      <Accordion faq={general_queries} />
                     </Tab.Pane>
                   </Tab.Content>
                 </Col>
