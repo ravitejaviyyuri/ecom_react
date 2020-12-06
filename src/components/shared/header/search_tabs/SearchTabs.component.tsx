@@ -1,11 +1,11 @@
-import React , {Component} from "react";
+import React, { Component } from "react";
 import SubMenuLinks from "./SubMenuLinks.component";
-import styles from './searchtabs.module.scss'
-
+import styles from "./searchtabs.module.scss";
+import Container from "react-bootstrap/Container";
 import _ from "lodash";
-// import "../css/random.css";
+import { RightArrowIcon } from "../../icons/rightarrowicon";
 
-export default class MenuLinks extends Component<any , any> {
+export default class MenuLinks extends Component<any, any> {
   myRef: React.RefObject<HTMLInputElement>;
   constructor(props: any, context: any) {
     super(props, context);
@@ -25,13 +25,13 @@ export default class MenuLinks extends Component<any , any> {
         bd: "Big Data",
         bi: "BI & Visualization",
         pf: "Programming Frameworks",
-        block: "BlockChain"
+        block: "BlockChain",
       },
       clicked: false,
       menuname: "masters",
       responsiveTabs: {},
       clientWidth: 0,
-      dropdownStatus: false
+      dropdownStatus: false,
     };
 
     this.selectMenu = this.selectMenu.bind(this);
@@ -46,7 +46,7 @@ export default class MenuLinks extends Component<any , any> {
     this.setState(
       (state: any, props: any) => {
         return {
-          clientWidth: this.state.myRef.current.clientWidth
+          clientWidth: this.state.myRef.current.clientWidth,
         };
       },
       () => {
@@ -63,7 +63,7 @@ export default class MenuLinks extends Component<any , any> {
   }
 
   spliceTabs() {
-    console.log("splicetabs")
+    console.log("splicetabs");
     let totalWidth = 0;
     let barWidth = this.state.clientWidth - 44;
     const el = document.getElementsByClassName("tab_list_pic");
@@ -82,7 +82,7 @@ export default class MenuLinks extends Component<any , any> {
         const tabs = this.state.tabs;
         let key = el[i].id;
         this.setState(
-          (          prevState: { responsiveTabs: any; }) => {
+          (prevState: { responsiveTabs: any }) => {
             let responsiveTabs = { ...prevState.responsiveTabs };
             responsiveTabs[key] = tabs[el[i].id];
             return { responsiveTabs };
@@ -96,7 +96,6 @@ export default class MenuLinks extends Component<any , any> {
       }
       totalWidth += tabWidth;
     }
-
 
     this.setStyle();
   }
@@ -120,17 +119,17 @@ export default class MenuLinks extends Component<any , any> {
     }
 
     this.setState({
-      style: { width, left }
+      style: { width, left },
     });
   };
 
   update = () => {
-    console.log("update")
+    console.log("update");
     this.setState(
       {
         tabs: { ...this.state.tabs, ...this.state.responsiveTabs },
         responsiveTabs: {},
-        clientWidth: this.state.myRef.current.clientWidth
+        clientWidth: this.state.myRef.current.clientWidth,
       },
       () => {
         console.log(this.state.tabs);
@@ -141,24 +140,24 @@ export default class MenuLinks extends Component<any , any> {
   };
 
   selectMenu(name: string, menu: string) {
-    this.setState((state: { tabs: any; responsiveTabs: any; }, props: any) => {
+    this.setState((state: { tabs: any; responsiveTabs: any }, props: any) => {
       let reorderedtab;
       let reordereresponsivetab;
-      if(menu=="hidden"){
+      if (menu == "hidden") {
         let tabs = state.tabs;
         let deletedLastkey = Object.keys(tabs)[Object.keys(tabs).length - 1];
         let deletedLastValue = tabs[deletedLastkey];
         delete tabs[deletedLastkey];
         let responsiveTabs = state.responsiveTabs;
         reorderedtab = {
-          [name]: responsiveTabs[name]
+          [name]: responsiveTabs[name],
         };
 
         reorderedtab = { ...reorderedtab, ...tabs };
         console.log(reorderedtab);
 
         reordereresponsivetab = {
-          [deletedLastkey]: deletedLastValue
+          [deletedLastkey]: deletedLastValue,
         };
         console.log(reordereresponsivetab);
         delete responsiveTabs[name];
@@ -166,7 +165,7 @@ export default class MenuLinks extends Component<any , any> {
         console.log(responsiveTabs);
 
         reordereresponsivetab = { ...reordereresponsivetab, ...responsiveTabs };
-      }else{
+      } else {
         reorderedtab = state.tabs;
         reordereresponsivetab = state.responsiveTabs;
       }
@@ -176,13 +175,13 @@ export default class MenuLinks extends Component<any , any> {
         clicked: true,
         menuname: name,
         tabs: reorderedtab,
-        responsiveTabs: reordereresponsivetab
+        responsiveTabs: reordereresponsivetab,
       };
     });
   }
 
   toggleDropdown = () => {
-    this.setState((prevState: { dropdownStatus: any; }) => {
+    this.setState((prevState: { dropdownStatus: any }) => {
       return { dropdownStatus: !prevState.dropdownStatus };
     });
   };
@@ -201,53 +200,68 @@ export default class MenuLinks extends Component<any , any> {
       responsiveTabs,
       dropdownStatus,
       width,
-      height
+      height,
     } = this.state;
     const { children } = this.props;
     return (
       <React.Fragment>
-        <ul id="menu" ref={this.state.myRef} className={styles.search_list_tab}>
-          {Object.keys(this.state.tabs).map((name, index) => {
-            return (
-              <li
-                key={name}
-                id={name}
-                className={`tab_list_pic ${styles.tab__item} ${active === index ? "active" : ""}`}
-                onClick={() => this.selectMenu(name, "main")}
-              >
-                {this.state.tabs[name]}
-              </li>
-            );
-          })}
-          {Object.keys(responsiveTabs).length > 0 && (
-            <Dropdown
-              active={dropdownStatus}
-              toggleDropdown={() => this.toggleDropdown()}
+        <div className={styles.category_header}>
+          <Container>
+            <ul
+              id="menu"
+              ref={this.state.myRef}
+              className={styles.search_list_tab}
             >
-              {Object.keys(responsiveTabs).map((tab, index) => {
-                const tabIndex = Object.keys(tabs).length + index;
+              {Object.keys(this.state.tabs).map((name, index) => {
                 return (
                   <li
-                    id={tab}
-                    key={tab}
+                    key={name}
+                    id={name}
                     className={`tab_list_pic ${styles.tab__item} ${
-                      tabIndex === active ? "active" : ""
+                      active === index ? styles.active : ""
                     }`}
-                    onClick={() => this.selectMenu(tab, "hidden")}
+                    onClick={() => this.selectMenu(name, "main")}
                   >
-                    {responsiveTabs[tab]}
+                    {this.state.tabs[name]}
                   </li>
                 );
               })}
-            </Dropdown>
-          )}
-        </ul>
-        {<SubMenuLinks menuname={this.state.menuname} />}
+              {Object.keys(responsiveTabs).length > 0 && (
+                <Dropdown
+                  active={dropdownStatus}
+                  toggleDropdown={() => this.toggleDropdown()}
+                >
+                  {Object.keys(responsiveTabs).map((tab, index) => {
+                    const tabIndex = Object.keys(tabs).length + index;
+                    return (
+                      <li
+                        id={tab}
+                        key={tab}
+                        className={`tab_list_pic ${styles.tab__item} ${
+                          tabIndex === active ? "active" : ""
+                        }`}
+                        onClick={() => this.selectMenu(tab, "hidden")}
+                      >
+                        {responsiveTabs[tab]}
+                      </li>
+                    );
+                  })}
+                </Dropdown>
+              )}
+            </ul>
+          </Container>
+        </div>
+        <Container className={styles.category_items}>
+          {<SubMenuLinks menuname={this.state.menuname} />}
+
+          <div className={styles.all_course}>
+            VIEW ALL COURSES <RightArrowIcon color="#0052cc" />
+          </div>
+        </Container>
       </React.Fragment>
     );
   }
 }
-
 
 class Dropdown extends Component<any, any> {
   toggleDropdown = () => {
@@ -266,7 +280,10 @@ class Dropdown extends Component<any, any> {
         >
           ...
         </a>
-        <ul id="hidden-menu" className={`${styles.dropdown} ${active ? styles.active : ""}`}>
+        <ul
+          id="hidden-menu"
+          className={`${styles.dropdown} ${active ? styles.active : ""}`}
+        >
           {children}
         </ul>
       </div>

@@ -7,12 +7,16 @@ import DUQ from "../shared/DUQ.component";
 import ContactUs from "../shared/ContactUs.component";
 import ResponsiveFooter from "../shared/Footer/ResponsiveFooter.component";
 import ExitIntentPopup from "../clp/ExitIntent/ExitIntent.component";
+import StartLearning from "../clp/StartLearningPopup/StartLearning.component";
+import HelpChooseCourse from "../clp/HelpChooseCourse/HelpChooseCourse.component";
 
 function ClpLayout(props: any) {
   const [isMob, setMob] = useState(false);
   const [showExitIntent, setExitIntent] = useState(false);
   const [showLoginSignup, setLoginSignup] = useState(false);
   const [isLogin, setLogin] = useState("login");
+  const [showStartLearning, setStartLearning] = useState(false);
+  const [showHelpCourse, setHelpCourse] = useState(false);
 
   const handleLoginSignup = (state: boolean, type: string) => {
     setLoginSignup(state);
@@ -50,6 +54,18 @@ function ClpLayout(props: any) {
         show={showExitIntent}
         handleClose={() => {
           setExitIntent(false);
+        }}
+      />
+      <StartLearning
+        show={showStartLearning}
+        handleClose={() => {
+          setStartLearning(false);
+        }}
+      />
+      <HelpChooseCourse
+        show={showHelpCourse}
+        handleClose={() => {
+          setHelpCourse(false);
         }}
       />
       <Footer />
