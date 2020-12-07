@@ -33,13 +33,13 @@ const KnowYourCourse = ({knowYourCourse, getaGlimpse, courseOverview}:any) => {
     const title = value.subsection_title;
     const parsedValue = JSON.parse(value.subsection_content);
     const cardImageName = parsedValue.get_to_know_image;
-    const keyStat = parsedValue.get_to_know_question;
-    const keyStatDescription = parsedValue.get_to_know_answer;
+    const question = parsedValue.get_to_know_question;
+    const answer = parsedValue.get_to_know_answer;
     return {
       title,
       cardImageName,
-      keyStat,
-      keyStatDescription
+      question,
+      answer
     }
   });
 
@@ -175,8 +175,8 @@ const KnowYourCourse = ({knowYourCourse, getaGlimpse, courseOverview}:any) => {
               <div className={styles.title}>
                 Who should go for this training?
               </div>
-              <p>The following professionals can go for this course:</p>
               <p>
+                The following professionals can go for this course:
                 Software Tester, System Admin, Solution Architect, Security
                 Engineer, Application Developers etc.
               </p>
