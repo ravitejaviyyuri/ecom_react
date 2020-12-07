@@ -23,7 +23,60 @@ const titlekwmore = [
   },
 ];
 
-const KnowYourCourse = () => {
+const KnowYourCourse = ({knowYourCourse, getaGlimpse, courseOverview}:any) => {
+
+  knowYourCourse = knowYourCourse.section_details;
+  getaGlimpse = getaGlimpse.section_details;
+  courseOverview = courseOverview.section_details;
+
+  const formattedKnowYourCourse: any = knowYourCourse.map((value: any) => {
+    const title = value.subsection_title;
+    const parsedValue = JSON.parse(value.subsection_content);
+    const cardImageName = parsedValue.get_to_know_image;
+    const keyStat = parsedValue.get_to_know_question;
+    const keyStatDescription = parsedValue.get_to_know_answer;
+    return {
+      title,
+      cardImageName,
+      keyStat,
+      keyStatDescription
+    }
+  });
+
+  const formattedGetaGlimpse: any = getaGlimpse.map((value: any) => {
+    const title = value.subsection_title;
+    const parsedValue = JSON.parse(value.subsection_content);
+    const cardImageName = parsedValue.get_glimpse_image;
+    const keyStat = parsedValue.get_glimpse_key_stat;
+    const keyStatDescription = parsedValue.get_glimpse_key_stat_desc;
+    return {
+      title,
+      cardImageName,
+      keyStat,
+      keyStatDescription
+    }
+  });
+
+  let formattedCourseOverview: any = courseOverview.map((value: any) => {
+    const title = value.subsection_title;
+    const parsedValue = JSON.parse(value.subsection_content);
+    const courseDuration = parsedValue.course_duration;
+    const noOfLiveClasses = parsedValue.no_of_live_classes;
+    const noOfAssignments = parsedValue.number_of_assingments;
+    const noOfProjects = parsedValue.number_of_projects;
+    const nameOfCertificate = parsedValue.name_of_certificate;
+    return {
+      title,
+      courseDuration,
+      noOfLiveClasses,
+      noOfAssignments,
+      noOfProjects,
+      nameOfCertificate
+    }
+  });
+
+  formattedCourseOverview = Object.assign({}, ...formattedCourseOverview);
+
   let leftitems: string[] = [];
   let rightitems: string[] = [];
 
@@ -144,36 +197,19 @@ const KnowYourCourse = () => {
             <div className={styles.absolute_bx}>
               <div className={styles.title}>Glimpse of future</div>
               <Row className={styles.glim_row}>
-                <Col className={styles.glim_bx}>
-                  <div className={styles.heading}>
-                    <SalaryIcon color="#5e98ee" />
-                    <div className={styles.icon_text}>11 Lacs</div>
-                  </div>
-                  <p className={styles.text}>
-                    As per glassdoor, the average salary given to DevOps
-                    Engineer is INR 11,00,000 per year
-                  </p>
-                </Col>
-                <Col className={styles.glim_bx}>
-                  <div className={styles.heading}>
-                    <JobIcon color="#5e98ee" />
-                    <div className={styles.icon_text}>600+ Jobs</div>
-                  </div>
-                  <p className={styles.text}>
-                    600+ DevOps Engineer jobs are available in Bangalore-
-                    LinkedIn
-                  </p>
-                </Col>
-                <Col className={styles.glim_bx}>
-                  <div className={styles.heading}>
-                    <MoneyIcon color="#5e98ee" />
-                    <div className={styles.icon_text}>1.4 Billion </div>
-                  </div>
-                  <p className={styles.text}>
-                    top Tech Giants Investments by companies like Amazon,
-                    Google, Microsoft etc.
-                  </p>
-                </Col>
+                {formattedGetaGlimpse.map((value: any, index: any) => {
+                  return (
+                    <Col key={String(index)} className={styles.glim_bx}>
+                      <div className={styles.heading}>
+                        <SalaryIcon color="#5e98ee" />
+                        <div className={styles.icon_text}>{value.keyStat}</div>
+                      </div>
+                      <p className={styles.text}>
+                        {value.keyStatDescription}
+                      </p>
+                    </Col>
+                  )
+                })}
               </Row>
             </div>
           </div>
@@ -183,11 +219,11 @@ const KnowYourCourse = () => {
           <ul>
             <li>
               <ScheduleIcon color="#5e98ee" />
-              <span>9 weeks</span>
+              <span>{formattedCourseOverview.courseDuration}</span>
             </li>
             <li>
               <LiveClassIcon color="#5e98ee" />
-              <span>18 live classes</span>
+              <span>{formattedCourseOverview.noOfLiveClasses}</span>
             </li>
             <li>
               <TestIcon color="#5e98ee" />
@@ -195,15 +231,15 @@ const KnowYourCourse = () => {
             </li>
             <li>
               <AssignmentIcon color="#5e98ee" />
-              <span>12 assignments</span>
+              <span>{formattedCourseOverview.noOfAssignments}</span>
             </li>
             <li>
               <ProjectIcon color="#5e98ee" />
-              <span>2 Capstone Project</span>
+              <span>{formattedCourseOverview.noOfProjects}</span>
             </li>
             <li>
               <CertificateIcon color="#5e98ee" />
-              <span>Devops Certificate</span>
+              <span>{formattedCourseOverview.nameOfCertificate}</span>
             </li>
           </ul>
         </div>

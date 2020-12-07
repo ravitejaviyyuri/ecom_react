@@ -7,7 +7,20 @@ import Card from "react-bootstrap/Card";
 import styles from "./learnedu.module.scss";
 import { TickCircleIcon } from "../../shared/icons/tickcircleicon";
 
-const LearningByEdureka = () => {
+const LearningByEdureka = ({course_section}:any) => {
+
+  const edureka360degSection = course_section.section_details;
+  const formattedData: any = edureka360degSection.map((value: any) => {
+    const title = value.subsection_title;
+    const parsedValue = JSON.parse(value.subsection_content);
+    const cardImageName = parsedValue.card_image_name;
+    const dataPoints = JSON.parse(parsedValue.data);
+    return {
+      title,
+      cardImageName,
+      dataPoints
+    }
+  });
   return (
     <section className={styles.LearningEdu_section}>
       <Container>
@@ -15,105 +28,39 @@ const LearningByEdureka = () => {
           The Future of Learning is Here - 360° Learning by Edureka
         </div>
         <Row>
-          <Col>
-            <Card className={styles.card_over}>
-              <div className={styles.card_img}>
-                <Image
-                  src="/1_live_class.png"
-                  width="166"
-                  height="99"
-                  loading="lazy"
-                />
-              </div>
-              <Card.Body className="p-0">
-                <Card.Title className={styles.card_title}>
-                  Live Interactive Learning
-                </Card.Title>
-                <div>
-                  <ul>
-                    <li>
-                      <TickCircleIcon color="#36b37e" />
-                      World-Class Instructors
-                    </li>
-                    <li>
-                      <TickCircleIcon color="#36b37e" />
-                      Expert-Led Mentoring Sessions
-                    </li>
-                    <li>
-                      <TickCircleIcon color="#36b37e" />
-                      High-Impact Exhaustive Training
-                    </li>
-                  </ul>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
-            <Card className={styles.card_over}>
-              <div className={styles.card_img}>
-                <Image
-                  src="/2_personal_Lm.png"
-                  width="152"
-                  height="108"
-                  loading="lazy"
-                />
-              </div>
-              <Card.Body className="p-0">
-                <Card.Title className={styles.card_title}>
-                  Personal Learning Manager
-                </Card.Title>
-                <div>
-                  <ul>
-                    <li>
-                      <TickCircleIcon color="#36b37e" />
-                      Resolved All Your Doubts Instantly
-                    </li>
-                    <li>
-                      <TickCircleIcon color="#36b37e" />
-                      Get One-On-One Learning Assistance Round The Clock
-                    </li>
-                    <li>
-                      <TickCircleIcon color="#36b37e" />
-                      Guarantee that Your Learning is Never Compromised
-                    </li>
-                  </ul>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
-            <Card className={styles.card_over}>
-              <div className={styles.card_img}>
-                <Image
-                  src="/3_hands_on.png"
-                  width="134"
-                  height="100"
-                  loading="lazy"
-                />
-              </div>
-              <Card.Body className="p-0">
-                <Card.Title className={styles.card_title}>
-                  Hands-On Project Based Learning
-                </Card.Title>
-                <div>
-                  <ul>
-                    <li>
-                      <TickCircleIcon color="#36b37e" />
-                      Industry-Relevant Projects
-                    </li>
-                    <li>
-                      <TickCircleIcon color="#36b37e" />
-                      Quizzes & Assignments
-                    </li>
-                    <li>
-                      <TickCircleIcon color="#36b37e" />
-                      Unlimited access to Class Recording, Resources & more!
-                    </li>
-                  </ul>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
+          {formattedData.map((card: any, index:any) => {
+            card.cardImageName = "/" + card.cardImageName;
+            return (
+              <Col key={String(index)}>
+                <Card  className={styles.card_over}>
+                  <div className={styles.card_img}>
+                    <Image
+                      src={card.cardImageName}
+                      width="166"
+                      height="99"
+                      loading="lazy"
+                      alt = "card Image"
+                    />
+                  </div>
+                  <Card.Body className="p-0">
+                    <Card.Title className={styles.card_title}>
+                      {card.title}
+                    </Card.Title>
+                    <div>
+                      <ul>
+                        {card.dataPoints.map((value: any, index : any) => {
+                          return (<li key={index}>
+                            <TickCircleIcon color="#36b37e" />
+                            {value}
+                          </li>);
+                        })}
+                      </ul>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            );
+          })}
         </Row>
       </Container>
     </section>

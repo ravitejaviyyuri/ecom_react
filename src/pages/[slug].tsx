@@ -16,6 +16,7 @@ import CourseTitle from "../components/clp/course_title/Title.component";
 import VideoInfo from "../components/clp/video_info/VideoInfo.component";
 import LearningByEdureka from "../components/clp/learning_by_edureka/LearnEdu.component";
 import KnowYourCourse from "../components/clp/know_your_course/KnowYourCourse.component";
+import {sectionsMapping} from "../utils/section_mapping";
 
 type Props = {
   data: {
@@ -39,10 +40,10 @@ const CoursePage = ({ data, errors }: Props) => {
       <Breadcrumb />
       <CourseTitle />
       <VideoInfo />
-      <LearningByEdureka />
+      <LearningByEdureka course_section = {data.course.course_sections.clp_360_deg_section} />
       <BatchComponent />
-      <KnowYourCourse />
-      <Curriculum />
+      <KnowYourCourse knowYourCourse= {data.course.course_sections.clp_get_to_know_your_course} getaGlimpse = {data.course.course_sections.clp_get_a_glimpse} courseOverview = {data.course.course_sections.clp_course_overview}/>
+      <Curriculum  course_section = {data.course.course_sections.clp_curriuculum_section}/>
       <Projects />
       <Certification />
       <EdurekaAdvantage />
@@ -59,8 +60,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const slug = params?.slug;
 
     const course: Course = await getCourse(String(slug));
-    console.log(course);
-
+    course.course_sections = sectionsMapping(course.course_sections);
+  //  console.log(course.course_sections);
     const reviews = ["review 1", "review 2", "review 3", "review 4"];
 
     // Pass data to the page via props

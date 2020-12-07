@@ -94,7 +94,7 @@ const CurriculumAccordion = (props: any) => {
                   <Col xs={12} sm={12} md={5} className={styles.topics_col}>
                     <h6>Topics</h6>
                     <ul>
-                      {value.topics.map((value: any, index: number) => {
+                      {/* {value.topics.map((value: any, index: number) => {
                         return (
                           <li key={index}>
                             {value}
@@ -107,7 +107,7 @@ const CurriculumAccordion = (props: any) => {
                             </span>
                           </li>
                         );
-                      })}
+                      })} */}
                     </ul>
                     {!isMob && (
                       <DownloadButton
@@ -132,11 +132,11 @@ const CurriculumAccordion = (props: any) => {
                               />
                             </div>
                             <ul>
-                              {value.handson.map(
+                              {/* {value.handson.map(
                                 (value: any, index: number) => {
                                   return <li key={index}>{value}</li>;
                                 }
-                              )}
+                              )} */ value.handson}
                             </ul>
                           </div>
                         </div>
@@ -156,9 +156,9 @@ const CurriculumAccordion = (props: any) => {
                               />
                             </div>
                             <ul>
-                              {value.skills.map((value: any, index: number) => {
+                              {/* {value.skills.map((value: any, index: number) => {
                                 return <li key={index}>{value}</li>;
-                              })}
+                              })} */ value.skills}
                             </ul>
                           </div>
                         </div>
