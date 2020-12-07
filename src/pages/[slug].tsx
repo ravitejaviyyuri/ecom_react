@@ -1,5 +1,6 @@
 import { GetServerSideProps } from "next";
 import { getCourse } from "../api/services/course.service";
+import { getBatches } from "../api/services/batch.service";
 import { Course, CourseSections } from "../interfaces/course";
 import ClpLayout from "../components/layouts/Clp.layout";
 import Reviews from "../components/clp/Review/Reviews.component";
@@ -21,6 +22,7 @@ import KnowYourCourse from "../components/clp/know_your_course/KnowYourCourse.co
 type Props = {
   data: {
     course: Course;
+    batches: any;
     reviews: String[];
   };
   errors?: string;
@@ -42,12 +44,12 @@ const CoursePage = ({ data, errors }: Props) => {
       <CourseTitle />
       <VideoInfo />
       <LearningByEdureka />
-      <BatchComponent />
+      <BatchComponent batches= {data.batches}/>
       <KnowYourCourse />
       <Curriculum course_section = {data.course.course_sections.clp_curriuculum_section}/>
       <Projects course_section = {data.course.course_sections.clp_project}/>
       <Certification />
-      {console.log(data.course)}
+      {console.log(data.batches)};
       <EdurekaAdvantage course_sections = {data.course.course_sections.clp_edureka_advantage} />
       <Reviews rating_section = {data.course.course_sections.clp_rating_section} review_section = {data.course.reviews}/>
       <FAQ  course_sections = {data.course.course_sections.clp_faq}/>
@@ -62,15 +64,18 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const slug = params?.slug;
 
     const course: Course = await getCourse(String(slug));
-    console.log(course.course_sections);
+    //console.log(course.course_sections);
     course.course_sections = sectionsMapping(course.course_sections);
     //console.log(course.course_sections);
+    const batches = await getBatches(course.id);
+    console.log(batches);
     const reviews = ["review 1", "review 2", "review 3", "review 4"];
 
     return {
       props: {
         data: {
           course: course,
+          batches: batches,
           reviews: reviews,
         },
       },
