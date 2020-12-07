@@ -11,7 +11,7 @@ const BatchComponent = () => {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <section className={styles.batchtable_enroll_section}>
+    <section id="batches" className={styles.batchtable_enroll_section}>
       <Container>
         <div className={styles.section_title}>Our flexible batches</div>
         <Col className={styles.flex_custome}>

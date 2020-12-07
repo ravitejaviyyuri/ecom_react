@@ -216,6 +216,7 @@ const Curriculum = () => {
 
   return (
     <section
+    id="curriculum"
       className={`${styles.curriculum_section} ${
         expand ? styles.section_full : null
       }`}

@@ -17,7 +17,7 @@ const Reviews = () => {
   };
 
   return (
-    <section className={styles.review_section}>
+    <section id="reviews" className={styles.review_section}>
       <Container>
         <Row>
           <div className={styles.heading}>
@@ -63,7 +63,7 @@ const Reviews = () => {
                       <Testimonials activeTab={activeTab} />
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
-                      <VideoReviews activeTab={activeTab}/>
+                      <VideoReviews activeTab={activeTab} />
                     </Tab.Pane>
                   </Tab.Content>
                 </Col>

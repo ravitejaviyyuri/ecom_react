@@ -9,7 +9,7 @@ import { TickCircleIcon } from "../../shared/icons/tickcircleicon";
 
 const LearningByEdureka = () => {
   return (
-    <section className={styles.LearningEdu_section}>
+    <section id="approach" className={styles.LearningEdu_section}>
       <Container>
         <div className={styles.section_title}>
           The Future of Learning is Here - 360° Learning by Edureka

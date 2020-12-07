@@ -95,7 +95,7 @@ const FAQ = () => {
     }
   }, []);
   return (
-    <section className={styles.faq_section}>
+    <section id="faqs" className={styles.faq_section}>
       <Container>
         <Row>
           <div className={styles.heading}>Frequently asked questions</div>
