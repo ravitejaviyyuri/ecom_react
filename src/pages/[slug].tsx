@@ -1,7 +1,11 @@
 import { GetServerSideProps } from "next";
 import { getCourse } from "../api/services/course.service";
 import { getBatches } from "../api/services/batch.service";
+import {getCurrencies} from "../api/services/currency.service";
+import {getCountries} from "../api/services/country.service";
 import { Course, CourseSections } from "../interfaces/course";
+import { Currency } from '../interfaces/currency';
+import { Country } from '../interfaces/country';
 import ClpLayout from "../components/layouts/Clp.layout";
 import Reviews from "../components/clp/Review/Reviews.component";
 import OtherCityLink from "../components/clp/OtherCityLinks/OtherCity.component";
@@ -23,6 +27,8 @@ type Props = {
   data: {
     course: Course;
     batches: any;
+    currencies: Currency[];
+    countries: Country[];
     reviews: String[];
   };
   errors?: string;
@@ -49,7 +55,8 @@ const CoursePage = ({ data, errors }: Props) => {
       <Curriculum course_section = {data.course.course_sections.clp_curriuculum_section}/>
       <Projects course_section = {data.course.course_sections.clp_project}/>
       <Certification />
-      {console.log(data.batches)};
+      {console.log(data.course.course_sections.clp_ice.section_details[0].subsection_content)};
+      {console.log(data.course.course_sections.clp_rating_section.section_details[0].subsection_content)};
       <EdurekaAdvantage course_sections = {data.course.course_sections.clp_edureka_advantage} />
       <Reviews rating_section = {data.course.course_sections.clp_rating_section} review_section = {data.course.reviews}/>
       <FAQ  course_sections = {data.course.course_sections.clp_faq}/>
@@ -68,6 +75,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     course.course_sections = sectionsMapping(course.course_sections);
     //console.log(course.course_sections);
     const batches = await getBatches(course.id);
+    const currencies = await getCurrencies();
+    const countries = await getCountries();
     console.log(batches);
     const reviews = ["review 1", "review 2", "review 3", "review 4"];
 
@@ -76,6 +85,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
         data: {
           course: course,
           batches: batches,
+          currencies:currencies,
+          countries:countries,
           reviews: reviews,
         },
       },
