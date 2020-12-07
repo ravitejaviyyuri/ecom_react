@@ -1,292 +1,159 @@
-import React, { Component } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import _ from "lodash";
 import SubMenuLinks from "./SubMenuLinks.component";
+import Dropdown from "./Dropdown.component";
 import styles from "./searchtabs.module.scss";
 import Container from "react-bootstrap/Container";
-import _ from "lodash";
 import { RightArrowIcon } from "../../icons/rightarrowicon";
 
-export default class MenuLinks extends Component<any, any> {
-  myRef: React.RefObject<HTMLInputElement>;
-  constructor(props: any, context: any) {
-    super(props, context);
-    this.myRef = React.createRef();
-    this.state = {
-      active: 0,
-      style: {},
-      myRef: React.createRef(),
-      tabs: {
-        masters: "Masters Program",
-        new: "New Launches",
-        cc: "Cloud Computing",
-        ai: "Artificial Intelligence",
-        trending: "Trending Courses",
-        devops: "DevOps",
-        ds: "Data Science",
-        bd: "Big Data",
-        bi: "BI & Visualization",
-        pf: "Programming Frameworks",
-        block: "BlockChain",
-      },
-      clicked: false,
-      menuname: "masters",
-      responsiveTabs: {},
-      clientWidth: 0,
-      dropdownStatus: false,
+const MenuLinks = (props: any) => {
+  const ref = useRef<any>(null);
+  const [tabs, setTabs] = useState<any>({
+    masters: "Masters Program",
+    new: "New Launches",
+    cc: "Cloud Computing",
+    ai: "Artificial Intelligence",
+    trending: "Trending Courses",
+    devops: "DevOps",
+    ds: "Data Science",
+    bd: "Big Data",
+    bi: "BI & Visualization",
+    pf: "Programming Frameworks",
+    block: "BlockChain",
+  });
+  const [responsiveTabs, setResponsiveTabs] = useState<any>({});
+  const [menuName, setMenuName] = useState("masters");
+  const [clientWidth, setClientWidth] = useState(0);
+  const [active, setActive] = useState(0);
+  const [dropdownStatus, setDropdownStatus] = useState(false);
+
+  useEffect(() => {
+    const throttledUpdate = _.throttle(update, 1000);
+    setClientWidth(ref.current.clientWidth);
+    window.addEventListener("resize", throttledUpdate);
+    return () => {
+      window.removeEventListener("resize", throttledUpdate);
     };
+  }, []);
 
-    this.selectMenu = this.selectMenu.bind(this);
-    this.spliceTabs = this.spliceTabs.bind(this);
-    this.setStyle = this.setStyle.bind(this);
-    this.update = this.update.bind(this);
-    this.toggleDropdown = this.toggleDropdown.bind(this);
-  }
+  useEffect(() => {
+    spliceTabs();
+  }, [clientWidth]);
 
-  componentDidMount() {
-    console.log("componentDidMount");
-    this.setState(
-      (state: any, props: any) => {
-        return {
-          clientWidth: this.state.myRef.current.clientWidth,
-        };
-      },
-      () => {
-        console.log(this.state.clientWidth);
-        this.spliceTabs();
-        window.addEventListener("resize", _.throttle(this.update, 1000));
-      }
-    );
-  }
+  const update = () => {
+    setTabs({ ...tabs, ...responsiveTabs });
+    setResponsiveTabs({});
+    setClientWidth(ref.current.clientWidth);
+  };
 
-  componentWillUnmount() {
-    console.log("componentWillUnmount");
-    window.removeEventListener("resize", _.throttle(this.update, 1000));
-  }
-
-  spliceTabs() {
-    console.log("splicetabs");
-    let totalWidth = 0;
-    let barWidth = this.state.clientWidth - 44;
-    const el = document.getElementsByClassName("tab_list_pic");
-    console.log(el);
-    for (let i = 0; i < el.length; i++) {
-      const tabWidth = el[i].clientWidth;
-      // 44 = dropdown toggle width
-      if (i === el.length - 1) {
-        barWidth += 44;
-      }
-      console.log(el[i].id);
-      console.log(tabWidth);
-      console.log(totalWidth);
-      console.log(barWidth);
-      if (totalWidth + tabWidth > barWidth) {
-        const tabs = this.state.tabs;
-        let key = el[i].id;
-        this.setState(
-          (prevState: { responsiveTabs: any }) => {
-            let responsiveTabs = { ...prevState.responsiveTabs };
-            responsiveTabs[key] = tabs[el[i].id];
-            return { responsiveTabs };
-          },
-          () => {
-            console.log(this.state);
-            this.setStyle();
-            delete this.state.tabs[el[i].id];
-          }
-        );
-      }
-      totalWidth += tabWidth;
-    }
-
-    this.setStyle();
-  }
-
-  setStyle = () => {
-    const { active, tabs } = this.state;
-    let width = null;
-    let left = 0;
-    if (active < tabs.length) {
+  const spliceTabs = () => {
+    if (clientWidth !== 0) {
+      let totalWidth = 0;
+      let barWidth = clientWidth - 100;
       const el = document.getElementsByClassName("tab_list_pic");
-
+      let tabTemp = { ...tabs };
+      let responsiveTemp = { ...responsiveTabs };
       for (let i = 0; i < el.length; i++) {
-        let tabWidth = el[i].clientWidth;
-        if (i === active) {
-          width = tabWidth;
-          break;
-        } else {
-          left += tabWidth;
+        const tabWidth = el[i].clientWidth;
+        if (i === el.length - 1) {
+          barWidth += 100;
         }
+        if (totalWidth + tabWidth > barWidth) {
+          let key = el[i].id;
+          responsiveTemp[key] = tabTemp[el[i].id];
+          delete tabTemp[el[i].id];
+          setTabs(tabTemp);
+          setResponsiveTabs(responsiveTemp);
+        }
+        totalWidth += tabWidth;
       }
     }
-
-    this.setState({
-      style: { width, left },
-    });
   };
 
-  update = () => {
-    console.log("update");
-    this.setState(
-      {
-        tabs: { ...this.state.tabs, ...this.state.responsiveTabs },
-        responsiveTabs: {},
-        clientWidth: this.state.myRef.current.clientWidth,
-      },
-      () => {
-        console.log(this.state.tabs);
-        console.log(this.state.responsiveTabs);
-        this.spliceTabs();
-      }
-    );
-  };
-
-  selectMenu(name: string, menu: string) {
-    this.setState((state: { tabs: any; responsiveTabs: any }, props: any) => {
-      let reorderedtab;
-      let reordereresponsivetab;
-      if (menu == "hidden") {
-        let tabs = state.tabs;
-        let deletedLastkey = Object.keys(tabs)[Object.keys(tabs).length - 1];
-        let deletedLastValue = tabs[deletedLastkey];
-        delete tabs[deletedLastkey];
-        let responsiveTabs = state.responsiveTabs;
-        reorderedtab = {
-          [name]: responsiveTabs[name],
-        };
-
-        reorderedtab = { ...reorderedtab, ...tabs };
-        console.log(reorderedtab);
-
-        reordereresponsivetab = {
-          [deletedLastkey]: deletedLastValue,
-        };
-        console.log(reordereresponsivetab);
-        delete responsiveTabs[name];
-
-        console.log(responsiveTabs);
-
-        reordereresponsivetab = { ...reordereresponsivetab, ...responsiveTabs };
-      } else {
-        reorderedtab = state.tabs;
-        reordereresponsivetab = state.responsiveTabs;
-      }
-      this.setStyle();
-
-      return {
-        clicked: true,
-        menuname: name,
-        tabs: reorderedtab,
-        responsiveTabs: reordereresponsivetab,
+  const selectMenu = (name: string, index: number, menu: string) => {
+    let reorderedtab;
+    let reordereresponsivetab;
+    if (menu == "hidden") {
+      let tabsTemp = { ...tabs };
+      let deletedLastkey = Object.keys(tabsTemp)[Object.keys(tabs).length - 1];
+      let deletedLastValue = tabsTemp[deletedLastkey];
+      delete tabsTemp[deletedLastkey];
+      let responsiveTemp = { ...responsiveTabs };
+      reorderedtab = {
+        [name]: responsiveTemp[name],
       };
-    });
-  }
-
-  toggleDropdown = () => {
-    this.setState((prevState: { dropdownStatus: any }) => {
-      return { dropdownStatus: !prevState.dropdownStatus };
-    });
+      reorderedtab = { ...reorderedtab, ...tabsTemp };
+      reordereresponsivetab = {
+        [deletedLastkey]: deletedLastValue,
+      };
+      delete responsiveTemp[name];
+      reordereresponsivetab = { ...reordereresponsivetab, ...responsiveTemp };
+    } else {
+      reorderedtab = { ...tabs };
+      reordereresponsivetab = { ...responsiveTabs };
+    }
+    setTabs(reorderedtab);
+    setResponsiveTabs(reordereresponsivetab);
+    setMenuName(name);
+    setActive(index);
+    setDropdownStatus(false);
   };
 
-  changeTab = (index: any) => {
-    this.setState({ active: index, dropdownStatus: false }, () => {
-      this.setStyle();
-    });
+  const toggleDropdown = (value?: any) => {
+    if (value !== undefined) {
+      setDropdownStatus(value);
+    } else {
+      setDropdownStatus(!dropdownStatus);
+    }
   };
 
-  render() {
-    const {
-      active,
-      style,
-      tabs,
-      responsiveTabs,
-      dropdownStatus,
-      width,
-      height,
-    } = this.state;
-    const { children } = this.props;
-    return (
-      <React.Fragment>
-        <div className={styles.category_header}>
-          <Container>
-            <ul
-              id="menu"
-              ref={this.state.myRef}
-              className={styles.search_list_tab}
-            >
-              {Object.keys(this.state.tabs).map((name, index) => {
-                return (
-                  <li
-                    key={name}
-                    id={name}
-                    className={`tab_list_pic ${styles.tab__item} ${
-                      active === index ? styles.active : ""
-                    }`}
-                    onClick={() => this.selectMenu(name, "main")}
-                  >
-                    {this.state.tabs[name]}
-                  </li>
-                );
-              })}
-              {Object.keys(responsiveTabs).length > 0 && (
-                <Dropdown
-                  active={dropdownStatus}
-                  toggleDropdown={() => this.toggleDropdown()}
+  return (
+    <>
+      <div className={styles.category_header}>
+        <Container>
+          <ul id="menu" ref={ref} className={styles.search_list_tab}>
+            {Object.keys(tabs).map((name, index) => {
+              return (
+                <li
+                  key={index}
+                  id={name}
+                  className={`tab_list_pic ${styles.tab__item} ${
+                    active === index ? styles.active : ""
+                  }`}
+                  onClick={() => selectMenu(name, index, "main")}
                 >
-                  {Object.keys(responsiveTabs).map((tab, index) => {
-                    const tabIndex = Object.keys(tabs).length + index;
-                    return (
-                      <li
-                        id={tab}
-                        key={tab}
-                        className={`tab_list_pic ${styles.tab__item} ${
-                          tabIndex === active ? "active" : ""
-                        }`}
-                        onClick={() => this.selectMenu(tab, "hidden")}
-                      >
-                        {responsiveTabs[tab]}
-                      </li>
-                    );
-                  })}
-                </Dropdown>
-              )}
-            </ul>
-          </Container>
-        </div>
-        <Container className={styles.category_items}>
-          {<SubMenuLinks menuname={this.state.menuname} />}
-
-          <div className={styles.all_course}>
-            VIEW ALL COURSES <RightArrowIcon color="#0052cc" />
-          </div>
+                  {tabs[name]}
+                </li>
+              );
+            })}
+            {Object.keys(responsiveTabs).length > 0 && (
+              <Dropdown active={dropdownStatus} toggleDropdown={toggleDropdown}>
+                {Object.keys(responsiveTabs).map((tab, index) => {
+                  const tabIndex = Object.keys(tabs).length + index;
+                  return (
+                    <li
+                      id={tab}
+                      key={index}
+                      className={`tab_list_pic ${styles.tab__item}`}
+                      onClick={() => selectMenu(tab, 0, "hidden")}
+                    >
+                      {responsiveTabs[tab]}
+                    </li>
+                  );
+                })}
+              </Dropdown>
+            )}
+          </ul>
         </Container>
-      </React.Fragment>
-    );
-  }
-}
-
-class Dropdown extends Component<any, any> {
-  toggleDropdown = () => {
-    this.props.toggleDropdown();
-  };
-
-  render() {
-    const { children, active } = this.props;
-    return (
-      <div className={styles.dropdown__wrapper}>
-        <a
-          className={styles.dropdown__toggle}
-          href="#"
-          onClick={this.toggleDropdown}
-          data-toggle="dropdown"
-        >
-          ...
-        </a>
-        <ul
-          id="hidden-menu"
-          className={`${styles.dropdown} ${active ? styles.active : ""}`}
-        >
-          {children}
-        </ul>
       </div>
-    );
-  }
-}
+      <Container className={styles.category_items}>
+        {<SubMenuLinks menuname={menuName} />}
+        <div className={styles.all_course}>
+          VIEW ALL COURSES <RightArrowIcon color="#0052cc" />
+        </div>
+      </Container>
+    </>
+  );
+};
+
+export default MenuLinks;
