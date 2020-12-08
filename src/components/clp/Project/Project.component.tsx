@@ -8,34 +8,36 @@ import styles from "./project.module.scss";
 import { SwiperComponent } from "swiper/types/shared";
 import { NextIcon } from "../../shared/icons/nexticon";
 import { PrevIcon } from "../../shared/icons/previcon";
+type Prop = {
+  course_section: any;
+}
+// const projectArray = [
+//   {
+//     name: "Uber Supply-Demand Gap 1",
+//     desc:
+//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care.",
+//   },
+//   {
+//     name: "Uber Supply-Demand Gap 2",
+//     desc:
+//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care.",
+//   },
+//   {
+//     name: "Uber Supply-Demand Gap 3",
+//     desc:
+//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care.",
+//   },
+//   {
+//     name: "Uber Supply-Demand Gap 4",
+//     desc:
+//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care.",
+//   },
+// ];
 
-const projectArray = [
-  {
-    name: "Uber Supply-Demand Gap 1",
-    desc:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care.",
-  },
-  {
-    name: "Uber Supply-Demand Gap 2",
-    desc:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care.",
-  },
-  {
-    name: "Uber Supply-Demand Gap 3",
-    desc:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care.",
-  },
-  {
-    name: "Uber Supply-Demand Gap 4",
-    desc:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care.",
-  },
-];
-
-const IndustryProjects = () => {
+const IndustryProjects = ({course_section}: Prop) => {
   const ref = useRef<any>(null);
   const [isMob, setMob] = useState(false);
-  const cardNumber: number = projectArray.length;
+  const cardNumber: number = course_section.section_details.length;
   let desktopSize: number = 12;
   let cardColSize: number = 12;
   let cardClass: string = `${styles.card}`;
@@ -120,9 +122,10 @@ const IndustryProjects = () => {
     <section id="projects" className={styles.project_section}>
       <Container className="p-0">
         <Row>
-          <div className={styles.heading}>Industry Project</div>
+          <div className={styles.heading}>{course_section.section_title}</div>
           <ReactIdSwiperCustom ref={ref} {...params}>
-            {projectArray.map((value: any, index: number) => {
+            {course_section.section_details.map((value: any, index: number) => {
+              value = JSON.parse(value.subsection_content)
               return (
                 <Col key={index} xs={12} sm={12} md={desktopSize}>
                   <div className={cardClass}>
@@ -131,8 +134,8 @@ const IndustryProjects = () => {
                         <img src="" alt="Project Image" />
                       </Col>
                       <Col xs={12} sm={12} md={cardColSize}>
-                        <h3>{value.name}</h3>
-                        <span>{value.desc}</span>
+                        <h3>{value.projectname}</h3>
+                        <span>{value.projectdescription}</span>
                       </Col>
                     </Row>
                   </div>

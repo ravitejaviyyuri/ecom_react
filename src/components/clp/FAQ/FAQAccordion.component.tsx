@@ -3,7 +3,6 @@ import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import styles from "./faqaccordion.module.scss";
 import { DownChevronIcon } from "../../shared/icons/downchevronicon";
-
 const FAQAccordion = (props: any) => {
   const [activeId, setActiveId] = useState("0");
   const toggleActive = (id: any) => {

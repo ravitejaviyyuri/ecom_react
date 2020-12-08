@@ -7,83 +7,15 @@ import Nav from "react-bootstrap/Nav";
 import Accordion from "./FAQAccordion.component";
 import OpenForm from "../OpenForm/OpenForm.component";
 import styles from "./faq.module.scss";
+import FAQAccordion from "./FAQAccordion.component";
+import {SectionDetails } from './../../../interfaces/course';
 
-const faq1 = [
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-];
-const faq2 = [
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-  {
-    question: "What are the system requirements for this course?",
-    answer:
-      "DevOps improves collaboration and productivity by automating infrastructure and workflows and continuously measuring applications performance In this course you will learn about Version Controlling Code Automation, Continuous Integration",
-  },
-];
 
-const FAQ = () => {
+type Props = {
+  course_sections: any
+}
+
+const FAQ = ({course_sections}: Props) => {
   const [isMob, setMob] = useState(false);
   useEffect(() => {
     if (process.browser) {
@@ -94,6 +26,18 @@ const FAQ = () => {
       }
     }
   }, []);
+  var course_specific: any;
+  var general_queries: any;
+  course_sections.section_details.map((value: any, index: Number) => {
+    let value_content  = JSON.parse(value.subsection_content);
+        if(value_content.querytype == "course_specific"){
+          course_specific = value_content.course_specific;
+        }
+        if(value_content.querytype == "general_queries") {
+          console.log("eneral_queries");
+            general_queries = value_content.general_queries;
+        }
+  })
   return (
     <section id="faqs" className={styles.faq_section}>
       <Container>
@@ -124,10 +68,10 @@ const FAQ = () => {
                 <Col sm={12} className={styles.tab_col}>
                   <Tab.Content className={styles.tab_content}>
                     <Tab.Pane eventKey="first">
-                      <Accordion faq={faq1} />
+                      <Accordion faq={course_specific} />
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
-                      <Accordion faq={faq2} />
+                      <Accordion faq={general_queries} />
                     </Tab.Pane>
                   </Tab.Content>
                 </Col>

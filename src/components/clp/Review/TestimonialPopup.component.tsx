@@ -9,28 +9,6 @@ import { PrevIcon } from "../../shared/icons/previcon";
 import { LinkedinIcon } from "../../shared/icons/linkedinicon";
 import { CrossIcon } from "../../shared/icons/crossicon";
 
-const testimonialReviews = [
-  {
-    name: "Emma Stone 1",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of  Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures.",
-  },
-  {
-    name: "Emma Stone 2",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of  Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures.",
-  },
-  {
-    name: "Emma Stone 3",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of  Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures.",
-  },
-  {
-    name: "Emma Stone 4",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of  Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures.",
-  },
-];
 
 const params = {
   Swiper,
@@ -98,8 +76,9 @@ const TestimonialPopup = (props: any) => {
         <div className={styles.close_btn} onClick={props.handleClose}>
           <CrossIcon color="#000000" />
         </div>
+
         <ReactIdSwiperCustom ref={ref} {...params}>
-          {testimonialReviews.map((value: any, index: number) => {
+          {props.testimonials.map((value: any, index: number) => {
             return (
               <div key={index} className={styles.card}>
                 <div className={styles.card_header}>
@@ -112,13 +91,13 @@ const TestimonialPopup = (props: any) => {
                     layout="fixed"
                   />
                   <div className={styles.details}>
-                    <span>{value.name}</span>
+                    <span>{value.reviewer_name}</span>
                     <a href="">
                       <LinkedinIcon color="#0077b7" />
                     </a>
                   </div>
                 </div>
-                <div className={styles.card_body}>{value.review}</div>
+                <div className={styles.card_body}>{value.review_desc}</div>
                 <div className={styles.card_footer} onClick={props.handleClose}>
                   CLOSE
                   <CrossIcon color="#0052cc" />

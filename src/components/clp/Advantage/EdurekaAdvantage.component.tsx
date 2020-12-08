@@ -9,35 +9,18 @@ import { LiveClassSliderIcon } from "../../shared/icons/liveclassslidericon";
 import { CrossCircleIcon } from "../../shared/icons/crosscircle";
 import { TickCircleIcon } from "../../shared/icons/tickcircleicon";
 
-const advantageData = [
-  {
-    title: "Live and interactive classroom experience",
-    others: "Recorded videos without any interaction with the instructor",
-    edureka: "Live instructor-led online classes by industry experts",
-  },
-  {
-    title: "Live and interactive classroom experience",
-    others: "Recorded videos without any interaction with the instructor",
-    edureka: "Live instructor-led online classes by industry experts",
-  },
-  {
-    title: "Live and interactive classroom experience",
-    others: "Recorded videos without any interaction with the instructor",
-    edureka: "Live instructor-led online classes by industry experts",
-  },
-  {
-    title: "Live and interactive classroom experience",
-    others: "Recorded videos without any interaction with the instructor",
-    edureka: "Live instructor-led online classes by industry experts",
-  },
-  {
-    title: "Live and interactive classroom experience",
-    others: "Recorded videos without any interaction with the instructor",
-    edureka: "Live instructor-led online classes by industry experts",
-  },
-];
+type Props = {
+  course_sections: any;
+}
+// const advantageData = [
+//   {
+//     title: "Live and interactive classroom experience",
+//     others: "Recorded videos without any interaction with the instructor",
+//     edureka: "Live instructor-led online classes by industry experts",
+//   },
 
-const EdurekaAdvantage = () => {
+const EdurekaAdvantage = ({course_sections}: Props) => {
+  
   const [isMob, setMob] = useState(false);
   useEffect(() => {
     if (process.browser) {
@@ -48,12 +31,31 @@ const EdurekaAdvantage = () => {
       }
     }
   }, []);
+  type advanatge = { title: any;
+   other: any;
+   edureka: any;
+};
+ let advantages_arr: advanatge = {title: "", other: "", edureka:""};
+  course_sections.section_details.map((data: any) => {
+      console.log(data);
+     var  subsection_data = JSON.parse(data.subsection_content);
+     subsection_data.map((section: any, index: number)=>{
+         if(index == 0){
+           advantages_arr.title = section;
+         }else if(index == 1){
+          advantages_arr.other = section;
+        }else if(index == 2){
+          advantages_arr.edureka = section;
+        }
+     })
+  })
+  console.log(advantages_arr);
   return (
     <section className={styles.advantage_section}>
       <Container className={styles.container}>
         <Row>
           <Col xs={12} className={styles.heading}>
-            The Edureka Advantage
+            {course_sections.section_title}
           </Col>
         </Row>
         <Row className="m-0">
@@ -64,7 +66,7 @@ const EdurekaAdvantage = () => {
             className={`${styles.header} ${styles.blue}`}
           >
             {" "}
-            WHAT I NEED
+            {advantages_arr.title.description}
           </Col>
           <Col
             xs={6}
@@ -72,7 +74,7 @@ const EdurekaAdvantage = () => {
             md={4}
             className={`${styles.header} ${styles.red}`}
           >
-            WHAT OTHERS OFFERS
+            {advantages_arr.other.description}
           </Col>
           <Col
             xs={6}
@@ -80,17 +82,17 @@ const EdurekaAdvantage = () => {
             md={4}
             className={`${styles.header} ${styles.green}`}
           >
-            EDUREKA ADVANTAGE
+            {advantages_arr.edureka.description}
           </Col>
         </Row>
-        {advantageData.map((value: any, index: number) => {
+        {advantages_arr.title.Bullets.map((value: any, index: number) => {
           return (
             <Row key={index} className={styles.cell_row}>
               <Col xs={12} sm={12} md={4} className={styles.cell}>
                 <div className={styles.liveclass_icon}>
                   <LiveClassSliderIcon color="#192f60" />
                 </div>
-                <div className={styles.title_text}>{value.title}</div>
+                <div className={styles.title_text}>{advantages_arr.title.Bullets[index]}</div>
               </Col>
               <Col
                 xs={6}
@@ -101,7 +103,7 @@ const EdurekaAdvantage = () => {
                 <div className={styles.icon}>
                   <CrossCircleIcon color="#ff5630" />
                 </div>
-                <div className={styles.text}>{value.others}</div>
+                <div className={styles.text}>{advantages_arr.other.Bullets[index]}</div>
               </Col>
               <Col
                 xs={6}
@@ -112,7 +114,7 @@ const EdurekaAdvantage = () => {
                 <div className={styles.icon}>
                   <TickCircleIcon color="#36b37e" />
                 </div>
-                <div className={styles.text}>{value.edureka}</div>
+                <div className={styles.text}>{advantages_arr.edureka.Bullets[index]}</div>
               </Col>
             </Row>
           );

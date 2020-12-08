@@ -3,8 +3,11 @@ import Image from "next/image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import styles from "./ratings.module.scss";
-
-const Ratings = () => {
+type Props = {
+  ratings: any
+}
+const Ratings = ({ratings}: Props) => {
+  
   return (
     <Row className={styles.rating_row}>
       <Col xs={12} sm={12} md={12} lg={3} className={styles.col}>
@@ -17,11 +20,11 @@ const Ratings = () => {
             alt="Google Logo"
           />
           <div className={styles.rating_col}>
-            <span className={styles.current_rating}>4.4</span>
+  <span className={styles.current_rating}>{ratings.google.plaform_rating}</span>
             <span className={styles.max_rating}>/5</span>
           </div>
         </div>
-        <div className={styles.total_reviews}>1,476 Google Reviews</div>
+        <div className={styles.total_reviews}>{ratings.google.palform_desc}</div>
       </Col>
       <Col xs={12} sm={12} md={12} lg={3} className={styles.col}>
         <div className={styles.rating_section}>
@@ -33,10 +36,10 @@ const Ratings = () => {
             alt="YouTube Logo"
           />
           <div className={styles.rating_col}>
-            <span className={styles.current_rating}>2.11m</span>
+            <span className={styles.current_rating}>{ratings.youtube.plaform_rating}</span>
           </div>
         </div>
-        <div className={styles.total_reviews}>Youtube subscribers</div>
+        <div className={styles.total_reviews}>{ratings.youtube.palform_desc}</div>
       </Col>
       <Col xs={12} sm={12} md={12} lg={3} className={styles.col}>
         <div className={styles.rating_section}>
@@ -48,11 +51,11 @@ const Ratings = () => {
             alt="YouTube Logo"
           />
           <div className={styles.rating_col}>
-            <span className={styles.current_rating}>9.2</span>
+            <span className={styles.current_rating}>{ratings.trustpilot.plaform_rating}</span>
             <span className={styles.max_rating}>/10</span>
           </div>
         </div>
-        <div className={styles.total_reviews}>1300 Trustpilot Reviews</div>
+        <div className={styles.total_reviews}>{ratings.trustpilot.palform_desc}</div>
       </Col>
       <Col xs={12} sm={12} md={12} lg={3} className={styles.col}>
         <div className={styles.rating_section}>
@@ -64,11 +67,11 @@ const Ratings = () => {
             alt="YouTube Logo"
           />
           <div className={styles.rating_col}>
-            <span className={styles.current_rating}>4.2</span>
+            <span className={styles.current_rating}>{ratings.mouthshut.plaform_rating}</span>
             <span className={styles.max_rating}>/5</span>
           </div>
         </div>
-        <div className={styles.total_reviews}>3000 Mouthshut Reviews</div>
+        <div className={styles.total_reviews}>{ratings.mouthshut.palform_desc}</div>
       </Col>
     </Row>
   );

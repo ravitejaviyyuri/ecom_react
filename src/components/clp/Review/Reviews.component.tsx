@@ -8,16 +8,25 @@ import styles from "./reviews.module.scss";
 import Testimonials from "./Testimonials.component";
 import VideoReviews from "./VideoReview.component";
 import Ratings from "./Ratings.component";
+type  Props = {
+  rating_section: any;
+  review_section: any;
+}
 
-const Reviews = () => {
+const Reviews = ({rating_section, review_section}: Props) => {
   const [activeTab, setActive] = useState<string>("testimonial");
 
   const handleClick = (tab: string) => {
     setActive(tab);
   };
-
-  return (
-    <section id="reviews" className={styles.review_section}>
+  let platform_ratings: any;
+  rating_section.section_details.forEach((data: any, index: Number) => {
+    if(index == 0 )
+       platform_ratings = data.subsection_content;
+  })
+  let ratings = JSON.parse(platform_ratings);
+   return (
+    <section className={styles.review_section}>
       <Container>
         <Row>
           <div className={styles.heading}>
@@ -60,10 +69,10 @@ const Reviews = () => {
                 <Col sm={12} className={styles.tab_col}>
                   <Tab.Content className={styles.tab_content}>
                     <Tab.Pane eventKey="first">
-                      <Testimonials activeTab={activeTab} />
+                      <Testimonials activeTab={activeTab} testimonials={review_section.reviews}    />
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
-                      <VideoReviews activeTab={activeTab} />
+                      <VideoReviews activeTab={activeTab}  videoReviews= {review_section.video_reviews}/>
                     </Tab.Pane>
                   </Tab.Content>
                 </Col>
@@ -71,7 +80,7 @@ const Reviews = () => {
             </Tab.Container>
           </Col>
           <Col xs={12}>
-            <Ratings />
+            <Ratings  ratings={ratings}/>
           </Col>
         </Row>
       </Container>

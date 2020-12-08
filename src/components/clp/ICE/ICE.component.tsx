@@ -5,8 +5,25 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import styles from "./ice.module.scss";
 import { TickCircleIcon } from "../../shared/icons/tickcircleicon";
-
-const ICE = () => {
+type Props = {
+  course_sections: any
+}
+const ICE = ({course_sections}: Props) => {
+  var  value_content: any;
+  let list_items = course_sections.section_details.map((value: any) => {
+     value_content  = JSON.parse(value.subsection_content);
+     let items = value_content.points.map((point: any, index: number) =>{
+      return (<li key ={index} >
+      <div>
+        <TickCircleIcon color="#36b37e" />
+      </div>
+      {point}
+    </li>)
+    
+     })
+     return items;
+  })
+ 
   return (
     <section className={styles.ice_section}>
       <Container>
@@ -14,30 +31,12 @@ const ICE = () => {
           <Col className={styles.ice_card}>
             <Row className={styles.row}>
               <Col className={styles.details_section}>
-                <div className={styles.heading}>Edureka ICE</div>
+                <div className={styles.heading}>{course_sections.section_title}</div>
                 <div className={styles.info}>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et.
+                  {value_content.icedescription}
                 </div>
                 <ul className={styles.list}>
-                  <li>
-                    <div>
-                      <TickCircleIcon color="#36b37e" />
-                    </div>
-                    Immersive Classroom experience
-                  </li>
-                  <li>
-                    <div>
-                      <TickCircleIcon color="#36b37e" />
-                    </div>
-                    Instant doubt clearing
-                  </li>
-                  <li>
-                    <div>
-                      <TickCircleIcon color="#36b37e" />
-                    </div>
-                    Instructor-led Sessions
-                  </li>
+                  {list_items}
                 </ul>
               </Col>
               <Col className={styles.img_section}>

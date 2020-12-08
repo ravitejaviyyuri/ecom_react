@@ -6,17 +6,18 @@ import BatchTable from "./BatchTable.component";
 import Courseprice from "./CoursePrice.component";
 import Button from "react-bootstrap/Button";
 import ChooseBatch from "../HelpChooseBatch/HelpChooseBatch.component";
-
-const BatchComponent = () => {
+type Props = {
+  batches: any;
+}
+const BatchComponent = ({batches}: Props) => {
   const [isOpen, setOpen] = useState(false);
-
   return (
     <section id="batches" className={styles.batchtable_enroll_section}>
       <Container>
         <div className={styles.section_title}>Our flexible batches</div>
         <Col className={styles.flex_custome}>
           <Col className="p-0" xs={12} md={8}>
-            <BatchTable />
+            <BatchTable  batches={batches}/>
           </Col>
           <Col className={styles.course_price_back} xs={12} md={4}>
             <Courseprice />
