@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Modal from "react-bootstrap/Modal";
 import { Swiper, Navigation, Pagination } from "swiper";
@@ -9,28 +9,6 @@ import { PrevIcon } from "../../shared/icons/previcon";
 import { LinkedinIcon } from "../../shared/icons/linkedinicon";
 import { CrossIcon } from "../../shared/icons/crossicon";
 
-// const testimonialReviews = [
-//   {
-//     name: "Emma Stone 1",
-//     review:
-//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of  Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures.",
-//   },
-//   {
-//     name: "Emma Stone 2",
-//     review:
-//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of  Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures.",
-//   },
-//   {
-//     name: "Emma Stone 3",
-//     review:
-//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of  Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures.",
-//   },
-//   {
-//     name: "Emma Stone 4",
-//     review:
-//       "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of  Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures.",
-//   },
-// ];
 
 const params = {
   Swiper,
@@ -77,6 +55,14 @@ const params = {
 };
 
 const TestimonialPopup = (props: any) => {
+  const ref = useRef<any>(null);
+
+  useEffect(() => {
+    if (ref.current !== null && ref.current.swiper !== null) {
+      ref.current.swiper.slideTo(props.slideNumber);
+    }
+  });
+
   return (
     <Modal
       show={props.show}
@@ -90,9 +76,9 @@ const TestimonialPopup = (props: any) => {
         <div className={styles.close_btn} onClick={props.handleClose}>
           <CrossIcon color="#000000" />
         </div>
-        <ReactIdSwiperCustom {...params}>
-          {props.testimonials.map((value: any, index: number) => {
-            console.log(value);
+
+        <ReactIdSwiperCustom ref={ref} {...params}>
+          {props.testimonilas.map((value: any, index: number) => {
             return (
               <div key={index} className={styles.card}>
                 <div className={styles.card_header}>

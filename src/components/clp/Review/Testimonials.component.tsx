@@ -11,38 +11,7 @@ import { PrevIcon } from "../../shared/icons/previcon";
 import { LinkedinIcon } from "../../shared/icons/linkedinicon";
 import { RightArrowIcon } from "../../shared/icons/rightarrowicon";
 
-const testimonialReviews = [
-  {
-    name: "Emma Stone 1",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of ",
-  },
-  {
-    name: "Emma Stone 2",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of ",
-  },
-  {
-    name: "Emma Stone 3",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of ",
-  },
-  {
-    name: "Emma Stone 4",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of ",
-  },
-  {
-    name: "Emma Stone 5",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of ",
-  },
-  {
-    name: "Emma Stone 6",
-    review:
-      "Our senior frontend developer was “Very structured program by Edureka and NIT Rourkela. The instructors were knowledgeable, competent and delivered very sound lectures. They took care of ",
-  },
-];
+
 type Props = {
   testimonials : any,
   activeTab: any
@@ -95,9 +64,13 @@ const params = {
 const Testimonials = ({activeTab, testimonials}: Props) => {
   const ref = useRef<any>(null);
   const [show, setShow] = useState(false);
+  const [slideNumber, setSlideNumber] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = (slideNumber: any) => {
+    setSlideNumber(slideNumber);
+    setShow(true);
+  };
 
   useEffect(() => {
     if (ref.current !== null && ref.current.swiper !== null) {
@@ -130,7 +103,7 @@ const Testimonials = ({activeTab, testimonials}: Props) => {
                   </div>
                   <div className={styles.card_body}>{value.review_desc}</div>
                   <div className={styles.card_footer}>
-                    <span onClick={handleShow}>READ MORE</span>
+                    <span onClick={() => handleShow(index)}>READ MORE</span>
                     <RightArrowIcon color="#004dff" />
                   </div>
                 </div>
@@ -139,8 +112,7 @@ const Testimonials = ({activeTab, testimonials}: Props) => {
           })}
         </ReactIdSwiperCustom>
       </Row>
-
-      <TestimonialPopup show={show} handleClose={handleClose} testimonials = {testimonials} />
+      <TestimonialPopup show={show}   slideNumber={slideNumber} handleClose={handleClose} testimonials = {testimonials} />
     </div>
   );
 };
