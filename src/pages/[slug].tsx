@@ -16,7 +16,6 @@ import EdurekaAdvantage from "../components/clp/Advantage/EdurekaAdvantage.compo
 import Certification from "../components/clp/Certification/Certification.component";
 import Projects from "../components/clp/Project/Project.component";
 import Curriculum from "../components/clp/Curriculum/Curriculum.component";
-import {sectionsMapping} from "../utils/section_mapping";
 import BatchComponent from "../components/clp/batch/Batch.component";
 import Breadcrumb from "../components/shared/breadcrumb/Breadcrumb.component";
 import CourseTitle from "../components/clp/course_title/Title.component";
@@ -78,21 +77,12 @@ const CoursePage = ({ data, errors }: Props) => {
       <VideoInfo />
       <LearningByEdureka course_section = {data.course.course_sections.clp_360_deg_section} />
       <ScrollSpy fixed={fixedScrollSpy} />
-<<<<<<< HEAD
-      <BatchComponent />
       <KnowYourCourse knowYourCourse= {data.course.course_sections.clp_get_to_know_your_course} getaGlimpse = {data.course.course_sections.clp_get_a_glimpse} courseOverview = {data.course.course_sections.clp_course_overview}/>
       <Curriculum  course_section = {data.course.course_sections.clp_curriuculum_section}/>
-      <Projects />
-=======
-      <LearningByEdureka />
       <BatchComponent batches= {data.batches}/>
-      <KnowYourCourse />
       <Curriculum course_section = {data.course.course_sections.clp_curriuculum_section}/>
       <Projects course_section = {data.course.course_sections.clp_project}/>
->>>>>>> f7f485029593abef790a3e9ef2f698baad8a5443
       <Certification />
-      {console.log(data.course.course_sections.clp_ice.section_details[0].subsection_content)};
-      {console.log(data.course.course_sections.clp_rating_section.section_details[0].subsection_content)};
       <EdurekaAdvantage course_sections = {data.course.course_sections.clp_edureka_advantage} />
       <Reviews rating_section = {data.course.course_sections.clp_rating_section} review_section = {data.course.reviews}/>
       <FAQ  course_sections = {data.course.course_sections.clp_faq}/>
@@ -107,19 +97,12 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const slug = params?.slug;
 
     const course: Course = await getCourse(String(slug));
-<<<<<<< HEAD
-    course.course_sections = sectionsMapping(course.course_sections);
-  //  console.log(course.course_sections);
-=======
     //console.log(course.course_sections);
     course.course_sections = sectionsMapping(course.course_sections);
     //console.log(course.course_sections);
     const batches = await getBatches(course.id);
     const currencies = await getCurrencies();
     const countries = await getCountries();
-    console.log(batches);
->>>>>>> f7f485029593abef790a3e9ef2f698baad8a5443
-    const reviews = ["review 1", "review 2", "review 3", "review 4"];
 
     return {
       props: {
@@ -128,7 +111,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
           batches: batches,
           currencies:currencies,
           countries:countries,
-          reviews: reviews,
         },
       },
     };
