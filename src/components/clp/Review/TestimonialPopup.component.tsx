@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Modal from "react-bootstrap/Modal";
 import { Swiper, Navigation, Pagination } from "swiper";
@@ -77,6 +77,14 @@ const params = {
 };
 
 const TestimonialPopup = (props: any) => {
+  const ref = useRef<any>(null);
+
+  useEffect(() => {
+    if (ref.current !== null && ref.current.swiper !== null) {
+      ref.current.swiper.slideTo(props.slideNumber);
+    }
+  });
+
   return (
     <Modal
       show={props.show}
@@ -90,7 +98,7 @@ const TestimonialPopup = (props: any) => {
         <div className={styles.close_btn} onClick={props.handleClose}>
           <CrossIcon color="#000000" />
         </div>
-        <ReactIdSwiperCustom {...params}>
+        <ReactIdSwiperCustom ref={ref} {...params}>
           {testimonialReviews.map((value: any, index: number) => {
             return (
               <div key={index} className={styles.card}>
