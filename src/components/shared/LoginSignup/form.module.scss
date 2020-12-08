@@ -1,0 +1,128 @@
+.form {
+  margin-top: 28px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+  color: #3a5075;
+}
+
+.input {
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #9ba5ba;
+  height: 44px;
+}
+
+.forgot_password {
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0052cc;
+  position: absolute;
+  right: 10px;
+  top: 42px;
+}
+
+.code_select {
+  height: 42px !important;
+  top: 30px;
+  left: 1px;
+}
+
+.phone_input {
+  padding-left: 100px;
+}
+
+.note {
+  font-size: 10px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.7;
+  letter-spacing: normal;
+  text-align: left;
+  color: #3a5075;
+  margin-bottom: 15px;
+  span {
+    color: 192f60;
+  }
+  a {
+    font-weight: bold;
+    color: #192f60;
+  }
+}
+
+.tc_privacy_div {
+  margin-bottom: 15px;
+}
+
+.check_form_group {
+  margin-bottom: 5px;
+}
+
+.check_label {
+  font-size: 10px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #192f60;
+  display: flex;
+  align-items: center;
+  a {
+    font-weight: 600;
+    color: #0052cc;
+  }
+  input {
+    margin-top: 0;
+  }
+}
+
+.submit {
+  border-radius: 6px;
+  box-shadow: 0 3px 20px 0 rgba(0, 12, 105, 0.03);
+  background-color: #0052cc;
+  color: #ffffff;
+  width: 100%;
+  padding: 10px 0px;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #0052cc;
+  }
+}
+
+.change_form {
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  text-align: left;
+  color: #3a5075;
+  margin-top: 15px;
+  text-align: center;
+  span {
+    font-weight: bold;
+    color: #0052cc;
+    cursor: pointer;
+  }
+}

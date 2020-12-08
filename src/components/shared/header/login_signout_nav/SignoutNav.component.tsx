@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Nav, Button } from "react-bootstrap";
 import styles from "./loginsignoutnav.module.scss";
 
-const SignoutNav = () => {
+const SignoutNav = (props: any) => {
   return (
     <>
       <Nav className={styles.right_links}>
@@ -21,8 +21,22 @@ const SignoutNav = () => {
             Blog
           </Nav.Link>
         </Nav.Item>
-        <Button className={styles.login_in}>Log in</Button>
-        <Button className={styles.sign_up}>Sign up</Button>
+        <Button
+          className={styles.login_in}
+          onClick={() => {
+            props.setLoginSignup(true, "login");
+          }}
+        >
+          Log in
+        </Button>
+        <Button
+          className={styles.sign_up}
+          onClick={() => {
+            props.setLoginSignup(true, "signup");
+          }}
+        >
+          Sign up
+        </Button>
       </Nav>
     </>
   );

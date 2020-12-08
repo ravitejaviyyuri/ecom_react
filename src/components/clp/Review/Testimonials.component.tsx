@@ -91,9 +91,13 @@ const params = {
 const Testimonials = (props: any) => {
   const ref = useRef<any>(null);
   const [show, setShow] = useState(false);
+  const [slideNumber, setSlideNumber] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = (slideNumber: any) => {
+    setSlideNumber(slideNumber);
+    setShow(true);
+  };
 
   useEffect(() => {
     if (ref.current !== null && ref.current.swiper !== null) {
@@ -126,7 +130,7 @@ const Testimonials = (props: any) => {
                   </div>
                   <div className={styles.card_body}>{value.review}</div>
                   <div className={styles.card_footer}>
-                    <span onClick={handleShow}>READ MORE</span>
+                    <span onClick={() => handleShow(index)}>READ MORE</span>
                     <RightArrowIcon color="#004dff" />
                   </div>
                 </div>
@@ -136,7 +140,11 @@ const Testimonials = (props: any) => {
         </ReactIdSwiperCustom>
       </Row>
 
-      <TestimoniaPopup show={show} handleClose={handleClose} />
+      <TestimoniaPopup
+        slideNumber={slideNumber}
+        show={show}
+        handleClose={handleClose}
+      />
     </div>
   );
 };

@@ -238,6 +238,7 @@ const Curriculum = ({course_section}:any) => {
 
   return (
     <section
+    id="curriculum"
       className={`${styles.curriculum_section} ${
         expand ? styles.section_full : null
       }`}

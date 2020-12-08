@@ -1,0 +1,70 @@
+.close_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  height: 37px;
+  width: 37px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  z-index: 1300;
+  cursor: pointer;
+  svg {
+    height: 13px;
+    width: 13px;
+  }
+}
+
+.wrapper {
+  width: 100vw !important;
+}
+
+.header {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  font-stretch: normal !important;
+  font-style: normal !important;
+  line-height: 1.53 !important;
+  letter-spacing: normal !important;
+  text-align: left !important;
+  color: #192f60 !important;
+  padding: 25px 45px !important;
+}
+
+.login_btn {
+  border-radius: 3px;
+  background-color: #f1f2f5;
+  font-size: 15px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: left;
+  color: #192f60;
+  border: none;
+  outline: none;
+  width: 282px;
+  height: 44px;
+  text-align: center;
+}
+
+.signup_btn {
+  border-radius: 3px;
+  background-color: #0052cc;
+  font-size: 15px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  width: 282px;
+  height: 44px;
+  text-align: center;
+}

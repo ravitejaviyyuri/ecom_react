@@ -117,7 +117,7 @@ const IndustryProjects = () => {
     shouldSwiperUpdate: true,
   };
   return (
-    <section className={styles.project_section}>
+    <section id="projects" className={styles.project_section}>
       <Container className="p-0">
         <Row>
           <div className={styles.heading}>Industry Project</div>

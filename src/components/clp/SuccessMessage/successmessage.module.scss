@@ -1,0 +1,40 @@
+.success_msg_section {
+  padding: 70px 30px;
+}
+
+.success_tick {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  svg {
+    width: 57px;
+    height: 57px;
+  }
+  h4 {
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: center;
+    color: #192f60;
+    margin-top: 15px;
+  }
+}
+
+.message {
+  margin-top: 15px;
+  h4 {
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    color: #9ba5ba;
+  }
+}

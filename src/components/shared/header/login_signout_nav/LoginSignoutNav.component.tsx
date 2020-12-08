@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import LoginNav from "./LoginNav.component";
 import SignoutNav from "./SignoutNav.component";
 
-const LoginSignoutNav = (props: { isLoggedIn: any }) => {
+const LoginSignoutNav = (props: any) => {
   const isLoggedIn = props.isLoggedIn;
   if (isLoggedIn) {
     return <LoginNav />;
   }
-  return <SignoutNav />;
+  return (
+    <SignoutNav
+      setLoginSignup={props.setLoginSignup}
+    />
+  );
 };
 
 export default LoginSignoutNav;

@@ -11,6 +11,7 @@ import { SmileyFaceIcon } from "../../shared/icons/smileyfaceicon";
 import { SalaryHikeIcon } from "../../shared/icons/salaryhikeicon";
 import { SwicthIcon } from "../../shared/icons/switchicon";
 import { RightArrowIcon } from "../../shared/icons/rightarrowicon";
+import { YoutubeRedIcon } from "../../shared/icons/youtuberedicon";
 
 const VideoInfo = () => {
   return (
@@ -30,6 +31,9 @@ const VideoInfo = () => {
               </p>
             </div>
             <div className={styles.video_section}>
+              <div className={styles.filling_fast}>
+                <span>Bestseller</span>
+              </div>
               <div className={styles.video_img_play}>
                 <img
                   src={
@@ -37,6 +41,9 @@ const VideoInfo = () => {
                   }
                   alt="playimg"
                 />
+                <span className={styles.play_icon}>
+                  <YoutubeRedIcon />
+                </span>
               </div>
               <div className={styles.user_most_like}>
                 <div className={styles.first_bx}>
