@@ -12,8 +12,8 @@ const ICE = ({course_sections}: Props) => {
   var  value_content: any;
   let list_items = course_sections.section_details.map((value: any) => {
      value_content  = JSON.parse(value.subsection_content);
-     let items = value_content.points.map((point: any) =>{
-      return (<li>
+     let items = value_content.points.map((point: any, index: number) =>{
+      return (<li key ={index} >
       <div>
         <TickCircleIcon color="#36b37e" />
       </div>

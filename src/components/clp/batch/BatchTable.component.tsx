@@ -7,11 +7,11 @@ type Props = {
 }
 const BatchTable = ({batches}: Props) => {
    
-   const soldout_batches = batches.soldout.map((data: any, index: Number) => 
-      <BatchRow  batch={data.Batch} type ="sold" index={index}/>
+   const soldout_batches = batches.soldout.map((data: any, index: number) => 
+      <BatchRow  key= {index} batch={data.Batch} type ="sold" index={index}/>
    )
-   const live_batches = batches.live.map((data: any,index: Number) => 
-   <BatchRow  batch={data.Batch} type = "live" index={index}/>
+   const live_batches = batches.live.map((data: any,index: number) => 
+   <BatchRow key= {index + 1} batch={data.Batch} type = "live" index={index}/>
   )
   return (
     <section className={styles.batchtable_section}>

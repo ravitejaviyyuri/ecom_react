@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import { Swiper, Navigation, Pagination } from "swiper";
 import ReactIdSwiperCustom from "react-id-swiper/lib/ReactIdSwiper.custom";
 import styles from "./testimonials.module.scss";
-import TestimoniaPopup from "./TestimonialPopup.component";
+import TestimonialPopup from "./TestimonialPopup.component";
 import { NextIcon } from "../../shared/icons/nexticon";
 import { PrevIcon } from "../../shared/icons/previcon";
 import { LinkedinIcon } from "../../shared/icons/linkedinicon";
@@ -140,7 +140,7 @@ const Testimonials = ({activeTab, testimonials}: Props) => {
         </ReactIdSwiperCustom>
       </Row>
 
-      <TestimoniaPopup show={show} handleClose={handleClose} />
+      <TestimonialPopup show={show} handleClose={handleClose} testimonials = {testimonials} />
     </div>
   );
 };
