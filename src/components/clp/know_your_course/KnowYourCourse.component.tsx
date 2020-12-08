@@ -74,7 +74,7 @@ const KnowYourCourse = ({knowYourCourse, getaGlimpse, courseOverview}:any) => {
       nameOfCertificate
     }
   });
-
+ 
   formattedCourseOverview = Object.assign({}, ...formattedCourseOverview);
 
   let leftitems: string[] = [];
