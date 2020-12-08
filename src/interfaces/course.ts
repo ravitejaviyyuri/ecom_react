@@ -11,4 +11,5 @@ export interface Course{
     rating: number,
     learners_count: number,
     business_unit: string,
+    course_sections: any
 }
