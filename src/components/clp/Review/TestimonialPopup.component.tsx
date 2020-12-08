@@ -78,7 +78,7 @@ const TestimonialPopup = (props: any) => {
         </div>
 
         <ReactIdSwiperCustom ref={ref} {...params}>
-          {props.testimonilas.map((value: any, index: number) => {
+          {props.testimonials.map((value: any, index: number) => {
             return (
               <div key={index} className={styles.card}>
                 <div className={styles.card_header}>
