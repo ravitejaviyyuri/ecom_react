@@ -6,8 +6,6 @@ import LoginForm from "./LoginForm.component";
 import SignupForm from "./SignupForm.component";
 
 const LoginSignup = (props: any) => {
-  const [isLogin, setLogin] = useState("login");
-
   return (
     <Modal
       centered
@@ -21,10 +19,10 @@ const LoginSignup = (props: any) => {
           <CrossIcon color="#192f60" />
         </div>
         <div className={styles.heading}>Let’s Get Started</div>
-        {isLogin === "login" ? (
-          <LoginForm setLogin={setLogin} />
+        {props.type === "login" ? (
+          <LoginForm setLogin={props.handleType} />
         ) : (
-          <SignupForm setLogin={setLogin} />
+          <SignupForm setLogin={props.handleType} />
         )}
       </Modal.Body>
     </Modal>

@@ -119,7 +119,7 @@ const IndustryProjects = ({course_section}: Prop) => {
     shouldSwiperUpdate: true,
   };
   return (
-    <section className={styles.project_section}>
+    <section id="projects" className={styles.project_section}>
       <Container className="p-0">
         <Row>
           <div className={styles.heading}>{course_section.section_title}</div>

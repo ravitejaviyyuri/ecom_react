@@ -20,7 +20,9 @@ const HeaderNavbar = (props: any) => {
 
   return (
     <>
-      {sidebar && <MenuLeftSlide />}
+      {sidebar && (
+        <MenuLeftSlide sidebar={sidebar} showSidebar={showSidebar} setLoginSignup={props.setLoginSignup} />
+      )}
 
       {isSearchModal && (
         <SearchOverlay show={isSearchModal} handleClose={handleClose} />
@@ -36,7 +38,7 @@ const HeaderNavbar = (props: any) => {
         </Navbar.Brand>
         <Nav className={`${styles.search_click_bx}`}>
           <div className={styles.search_bx} onClick={handleShow}>
-            <SearchIcon />
+            <SearchIcon color="#5a6484" />
             <span>Search courses</span>
           </div>
         </Nav>

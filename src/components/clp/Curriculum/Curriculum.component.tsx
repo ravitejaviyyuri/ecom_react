@@ -220,6 +220,7 @@ console.log("curriculum");
 console.log(JSON.parse(course_section.section_details[0].subsection_content).handsOn);
   return (
     <section
+    id="curriculum"
       className={`${styles.curriculum_section} ${
         expand ? styles.section_full : null
       }`}

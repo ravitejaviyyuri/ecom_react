@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { GetServerSideProps } from "next";
 import { getCourse } from "../api/services/course.service";
 import { getBatches } from "../api/services/batch.service";
@@ -22,6 +23,7 @@ import CourseTitle from "../components/clp/course_title/Title.component";
 import VideoInfo from "../components/clp/video_info/VideoInfo.component";
 import LearningByEdureka from "../components/clp/learning_by_edureka/LearnEdu.component";
 import KnowYourCourse from "../components/clp/know_your_course/KnowYourCourse.component";
+import ScrollSpy from "../components/clp/ScrollSpy/ScrollSpy.component";
 
 type Props = {
   data: {
@@ -43,12 +45,37 @@ const CoursePage = ({ data, errors }: Props) => {
     );
   }
 
+  const [scrollPos, setScrollPos] = useState<number>(0);
+  const [fixedScrollSpy, setFixedScrollSpy] = useState<boolean>(false);
+
+  const handleScroll = () => {
+    if (window.scrollY !== 0) {
+      setScrollPos(window.scrollY);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (process.browser) {
+      if (scrollPos > 613) {
+        setFixedScrollSpy(true);
+      } else {
+        setFixedScrollSpy(false);
+      }
+    }
+  }, [scrollPos]);
+
   return (
     <ClpLayout>
      
       <Breadcrumb />
       <CourseTitle />
       <VideoInfo />
+      <ScrollSpy fixed={fixedScrollSpy} />
       <LearningByEdureka />
       <BatchComponent batches= {data.batches}/>
       <KnowYourCourse />

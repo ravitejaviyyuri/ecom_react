@@ -19,7 +19,6 @@ const Reviews = ({rating_section, review_section}: Props) => {
   const handleClick = (tab: string) => {
     setActive(tab);
   };
- 
   let platform_ratings: any;
   rating_section.section_details.forEach((data: any, index: Number) => {
     if(index == 0 )

@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import styles from "./title.module.scss";
+import SharePopup from "../SharePopup/SharePopup.component";
 import { PhoneIcon } from "../../shared/icons/phoneicon";
 import { HeartIcon } from "../../shared/icons/hearticon";
 import { ShareIcon } from "../../shared/icons/shareicon";
 
 const CourseTitle = () => {
+  const [isOpen, setOpen] = useState(false);
+
   return (
     <section className={styles.title_section}>
       <Container>
@@ -24,12 +27,23 @@ const CourseTitle = () => {
             <div className={styles.wishlist_bx}>
               <HeartIcon />
             </div>
-            <div className={styles.share_bx}>
+            <div
+              className={styles.share_bx}
+              onClick={() => {
+                setOpen(true);
+              }}
+            >
               <ShareIcon />
             </div>
           </div>
         </div>
       </Container>
+      <SharePopup
+        show={isOpen}
+        handleClose={() => {
+          setOpen(false);
+        }}
+      />
     </section>
   );
 };
