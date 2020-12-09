@@ -20,7 +20,7 @@ const LoginSignup = (props: any) => {
         </div>
         <div className={styles.heading}>Let’s Get Started</div>
         {props.type === "login" ? (
-          <LoginForm setLogin={props.handleType} />
+          <LoginForm setLogin={props.handleType} handleClose={props.handleClose}/>
         ) : (
           <SignupForm setLogin={props.handleType} />
         )}

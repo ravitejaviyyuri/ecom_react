@@ -1,0 +1,10 @@
+const UPDATE_USER_STATE = {
+    type: 'UPDATE_USER_STATE',
+    action: {
+      UPDATE_LOGIN: 'UPDATE_LOGIN',
+      UPDATE_LOGOUT: 'UPDATE_LOGOUT',
+      UPDATE_SIGNUP: 'UPDATE_SIGNUP'
+    }
+}
+
+export default UPDATE_USER_STATE;

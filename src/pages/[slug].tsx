@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext,useReducer } from "react";
+import { AppContext, AppReducer } from '../store';
+
 import { GetServerSideProps } from "next";
 import { getCourse } from "../api/services/course.service";
 import { getBatches } from "../api/services/batch.service";
@@ -24,6 +26,7 @@ import LearningByEdureka from "../components/clp/learning_by_edureka/LearnEdu.co
 import KnowYourCourse from "../components/clp/know_your_course/KnowYourCourse.component";
 import {sectionsMapping} from "../utils/section_mapping";
 import ScrollSpy from "../components/clp/ScrollSpy/ScrollSpy.component";
+//import {AuthProvider, } from '../components/shared/context/Auth.context';
 
 type Props = {
   data: {
@@ -44,6 +47,10 @@ const CoursePage = ({ data, errors }: Props) => {
       </div>
     );
   }
+
+  const initialState = useContext(AppContext);
+  const [state, dispatch] = useReducer(AppReducer, initialState.state);
+
 
   const [scrollPos, setScrollPos] = useState<number>(0);
   const [fixedScrollSpy, setFixedScrollSpy] = useState<boolean>(false);
@@ -70,6 +77,7 @@ const CoursePage = ({ data, errors }: Props) => {
   }, [scrollPos]);
 
   return (
+    <AppContext.Provider value={{ state, dispatch }}>
     <ClpLayout>
      
       <Breadcrumb />
@@ -89,6 +97,7 @@ const CoursePage = ({ data, errors }: Props) => {
       <ICE  course_sections = {data.course.course_sections.clp_ice}/>
       <OtherCityLink />
     </ClpLayout>
+    </AppContext.Provider>
   );
 };
 
