@@ -1,8 +1,13 @@
+import {useContext} from 'react';
 import { before } from "lodash";
+import UPDATE_USER_STATE  from '../../../../store/user/action';
+import {initState as initialState} from "../../../../store/user/context";
+import {AppContext} from '../../../../store';
 import React from "react";
 import { Nav, Dropdown } from "react-bootstrap";
 import styles from "./loginsignoutnav.module.scss";
 import { BellIcon } from "../../icons/bellicon";
+import StateManager from 'react-select';
 
 const navDropdownIcon = (
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
@@ -18,6 +23,16 @@ const userimage = (
   />
 );
 const LoginNav = () => {
+  // console.log(initialState);
+  const {state, dispatch} = useContext(AppContext);
+  
+  const onLogoutHandler = () => {
+     console.log("logout");
+     dispatch({ type: UPDATE_USER_STATE.type,
+      action: UPDATE_USER_STATE.action.UPDATE_LOGOUT,
+     data: initialState})
+  }
+
   return (
     <>
       <Nav className={styles.right_links}>
@@ -66,7 +81,7 @@ const LoginNav = () => {
             <Dropdown.Item href="#">Action</Dropdown.Item>
             <Dropdown.Item href="#">Action</Dropdown.Item>
             <Dropdown.Item href="#">Action</Dropdown.Item>
-            <Dropdown.Item href="#">Action</Dropdown.Item>
+            <Dropdown.Item  onSelect = {onLogoutHandler} href="#">Log Out</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </Nav>

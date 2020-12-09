@@ -3,17 +3,17 @@ import { Dispatch, AppState } from '../AppContext';
 import { remove } from 'lodash';
 
 const UserReducer = (state: AppState, action: Dispatch) => {
+  console.log("inreducer");
+  console.log(action.data);
   switch (action.action) {
-
     case USER_ACTION.action.UPDATE_LOGIN: {
-      console.log(action.data);
       return {
         ...state,
         userState: {
           ...state.userState,
           userInfo: {
-            ...state.userState.userInfo,
-            userDetails: action.data,
+            userDetails: action.data.userData,
+            loginStatus: action.data.loginStatus
           },
         },
       };
@@ -24,8 +24,8 @@ const UserReducer = (state: AppState, action: Dispatch) => {
             userState: {
               ...state.userState,
               userInfo: {
-                ...state.userState.userInfo,
-                userDetails: action.data,
+                userDetails: action.data.userInfo.userDetails,
+                loginStatus: action.data.userInfo.loginStatus
               },
             },
           };

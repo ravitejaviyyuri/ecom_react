@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
+import { AppContext } from '../../../store';
 import { Navbar, Nav, Button } from "react-bootstrap";
 import styles from "./navbar.module.scss";
 import SearchOverlay from "./SearchOverlay.component";
@@ -10,6 +11,9 @@ import { SearchIcon } from "../icons/searchicon";
 import { PhoneIcon } from "../icons/phoneicon";
 
 const HeaderNavbar = (props: any) => {
+
+  const{state} = useContext(AppContext);
+
   const [isSearchModal, setSearchModal] = useState(false);
 
   const handleClose = () => setSearchModal(false);
@@ -17,7 +21,8 @@ const HeaderNavbar = (props: any) => {
 
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-
+  console.log("homenav")
+  console.log(state.userState.userInfo.loginStatus.islogin);
   return (
     <>
       {sidebar && (
@@ -51,7 +56,7 @@ const HeaderNavbar = (props: any) => {
         </Nav>
         <LoginSignoutNav
           setLoginSignup={props.setLoginSignup}
-          isLoggedIn={false}
+          isLoggedIn={state.userState.userInfo.loginStatus.islogin}
         />
       </Navbar>
     </>

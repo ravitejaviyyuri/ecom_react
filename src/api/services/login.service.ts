@@ -6,8 +6,8 @@ import config from '../../config/app';
  */
 const userLogin = async (username:string, password:string) => {
   try {
-   let response = await makeServerPost("https://a2com.edureka.in/api/1.0/users/login", {
-    //let response = await makeServerPost("http://ecom.dev-edureka.co/api/1.0/users/login", {    
+   //let response = await makeServerPost("https://a2com.edureka.in/api/1.0/users/login", {
+    let response = await makeServerPost("http://ecom.dev-edureka.co/api/1.0/users/login", {    
         "email_address": username,
         "password": password
     })

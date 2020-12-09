@@ -21,6 +21,11 @@ const LoginForm = (props: any) => {
       if(res.status == "200"){
         props.handleClose()
         console.log(res.userData);
+        const userData = {id:res.userData.userid, name:res.userData.firstName, email:res.userData.emailAddress};
+        const loginStatus = {islogin:true};
+        dispatch({ type: UPDATE_USER_STATE.type,
+        action: UPDATE_USER_STATE.action.UPDATE_LOGIN,
+        data: {userData:userData, loginStatus:loginStatus }})
         console.log(res.userData.mobileNo);
        // let cookieRes = verifyCookie(res.userData.sessionId);
        }else{
