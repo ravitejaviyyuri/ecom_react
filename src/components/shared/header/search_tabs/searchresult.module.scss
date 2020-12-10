@@ -1,0 +1,28 @@
+.result_bx {
+  position: absolute;
+  top: 50px;
+  background: #ffffff;
+  width: 100%;
+  z-index: 1;
+  border-radius: 2px;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.1);
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    background-color: #ffffff;
+    color: #192f60;
+    padding: 18px 20px;
+    font-size: 19px;
+    display: inline-block;
+    width: 100%;
+    text-transform: uppercase;
+    cursor: pointer;
+    &:hover {
+      background-color: #f4f8fe;
+      color: #166dcc;
+    }
+  }
+}

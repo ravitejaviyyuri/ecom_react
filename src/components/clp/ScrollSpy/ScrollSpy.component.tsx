@@ -38,9 +38,7 @@ const ScrollSpy = (props: any) => {
   }, []);
 
   return (
-    <section
-      className={`${styles.scrollspy} ${props.fixed ? styles.fixed : null}`}
-    >
+    <section className={styles.scrollspy}>
       <Container>
         <ul>
           <ReactIdSwiperCustom ref={ref} {...params}>
@@ -50,7 +48,7 @@ const ScrollSpy = (props: any) => {
                 to="approach"
                 spy={true}
                 smooth={true}
-                offset={-60}
+                offset={-70}
                 duration={600}
               >
                 Approach
@@ -62,7 +60,7 @@ const ScrollSpy = (props: any) => {
                 to="batches"
                 spy={true}
                 smooth={true}
-                offset={-60}
+                offset={-70}
                 duration={600}
               >
                 Batches
@@ -74,7 +72,7 @@ const ScrollSpy = (props: any) => {
                 to="curriculum"
                 spy={true}
                 smooth={true}
-                offset={-60}
+                offset={-70}
                 duration={600}
               >
                 Curriculum
@@ -86,7 +84,7 @@ const ScrollSpy = (props: any) => {
                 to="projects"
                 spy={true}
                 smooth={true}
-                offset={-60}
+                offset={-70}
                 duration={600}
               >
                 Projects
@@ -98,7 +96,7 @@ const ScrollSpy = (props: any) => {
                 to="reviews"
                 spy={true}
                 smooth={true}
-                offset={-60}
+                offset={-70}
                 duration={600}
               >
                 Reviews
@@ -110,7 +108,7 @@ const ScrollSpy = (props: any) => {
                 to="faqs"
                 spy={true}
                 smooth={true}
-                offset={-60}
+                offset={-70}
                 duration={600}
               >
                 FAQs

@@ -51,11 +51,20 @@ const CoursePage = ({ data, errors }: Props) => {
   }, []);
 
   useEffect(() => {
+    console.log(scrollPos);
     if (process.browser) {
-      if (scrollPos > 613) {
-        setFixedScrollSpy(true);
+      if (window.innerWidth < 768) {
+        if (scrollPos > 1000) {
+          setFixedScrollSpy(true);
+        } else {
+          setFixedScrollSpy(false);
+        }
       } else {
-        setFixedScrollSpy(false);
+        if (scrollPos > 602) {
+          setFixedScrollSpy(true);
+        } else {
+          setFixedScrollSpy(false);
+        }
       }
     }
   }, [scrollPos]);
@@ -65,7 +74,7 @@ const CoursePage = ({ data, errors }: Props) => {
       <Breadcrumb />
       <CourseTitle />
       <VideoInfo />
-      <ScrollSpy fixed={fixedScrollSpy} />
+      {fixedScrollSpy ? <ScrollSpy /> : null}
       <LearningByEdureka />
       <BatchComponent />
       <KnowYourCourse />
