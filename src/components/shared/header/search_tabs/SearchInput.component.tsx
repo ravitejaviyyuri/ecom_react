@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import { SearchIcon } from "../../icons/searchicon";
 import styles from "./searchinput.module.scss";
+import SearchResult from "./SearchResult.component";
 
 
 //const searchClient = algoliasearch('testing9DFZ2ODF33','0ae09568a97f143707a7158a5c6de789');
 
 
 const SearchInput = (props: any) => {
+  
+  const [isResult, setResult] = useState(false);
   const onChangeHandler = (event: any) =>{
      console.log(event.target.value);
      props.setSearchInput(event.target.value);
   }
+
   return (
     <div className={styles.search_bx}>
       <Container>
@@ -26,6 +30,7 @@ const SearchInput = (props: any) => {
           <span className={styles.search_icon}>
             <SearchIcon color="#ffffff" />
           </span>
+          {isResult && <SearchResult />}
         </div>
       </Container>
     </div>
