@@ -10,6 +10,7 @@ import instantsearch from 'algoliasearch/lite';
 const SearchOverlay = (props: any) => {
 
   const [searchInput, setSearchInput] = useState("");
+  const  [data, setData] = useState([{}]);
 
   const searchClient = algoliasearch('testing9DFZ2ODF33','0ae09568a97f143707a7158a5c6de789');
   const index = searchClient.initIndex('test_courses');
@@ -19,11 +20,12 @@ const SearchOverlay = (props: any) => {
     index.search(searchInput)
     .then(({ hits }) => {
       console.log(hits);
+      setData(hits);
     });  
 
   },[searchInput])
   
-
+  console.log(data[0]);
   return (
     <Modal
       centered
@@ -37,7 +39,7 @@ const SearchOverlay = (props: any) => {
           <CrossIcon color="#000000" />
         </div>
         <SearchInput  setSearchInput= {setSearchInput}/>
-        <MenuLinks />
+        <MenuLinks  hits={data} />
       </Modal.Body>
     </Modal>
   );

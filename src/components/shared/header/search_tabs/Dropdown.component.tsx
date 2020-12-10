@@ -7,6 +7,7 @@ const Dropdown = (props: any) => {
   const handleClick = (e: { target: any }) => {
     if (ref.current && !ref.current.contains(e.target)) {
       toggleDropdown(false);
+      console.log(e.target);
     }
   };
 
@@ -19,6 +20,7 @@ const Dropdown = (props: any) => {
 
   const toggleDropdown = (value?: any) => {
     props.toggleDropdown(value);
+    console.log(value);
   };
 
   return (
