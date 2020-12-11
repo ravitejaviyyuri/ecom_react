@@ -88,13 +88,12 @@ const CoursePage = ({ data, errors }: Props) => {
   return (
     <AppContext.Provider value={{ state, dispatch }}>
     <ClpLayout>
-     
+      {console.log(data.course)}
       <Breadcrumb />
       <CourseTitle />
       <VideoInfo />
       {fixedScrollSpy ? <ScrollSpy /> : null}
       <LearningByEdureka course_section = {data.course.course_sections.clp_360_deg_section} />
-      <ScrollSpy fixed={fixedScrollSpy} />
       <KnowYourCourse knowYourCourse= {data.course.course_sections.clp_get_to_know_your_course} getaGlimpse = {data.course.course_sections.clp_get_a_glimpse} courseOverview = {data.course.course_sections.clp_course_overview}/>
       <Curriculum  course_section = {data.course.course_sections.clp_curriuculum_section}/>
       <BatchComponent batches= {data.batches}/>

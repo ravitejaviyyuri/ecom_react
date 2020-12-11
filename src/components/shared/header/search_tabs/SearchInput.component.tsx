@@ -9,8 +9,8 @@ import SearchResult from "./SearchResult.component";
 
 
 const SearchInput = (props: any) => {
+
   
-  const [isResult, setResult] = useState(false);
   const onChangeHandler = (event: any) =>{
      console.log(event.target.value);
      props.setSearchInput(event.target.value);
@@ -30,7 +30,7 @@ const SearchInput = (props: any) => {
           <span className={styles.search_icon}>
             <SearchIcon color="#ffffff" />
           </span>
-          {isResult && <SearchResult />}
+          {props.isResult && <SearchResult hits={props.hits}/>}
         </div>
       </Container>
     </div>

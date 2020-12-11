@@ -1,7 +1,6 @@
 import React from "react";
 
 const SubMenuLinks = (props: any) => {
-  console.log(props);
   const links: any = {
     masters: ["item1", "item2", "item3"],
     new: ["item1", "item2", "item3", "item4", "item5"],
