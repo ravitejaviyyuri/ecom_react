@@ -30,7 +30,7 @@ const UserReducer = (state: AppState, action: Dispatch) => {
             },
           };
         }
-      case USER_ACTION.action.UPDATE_SIGNUP: {
+    case USER_ACTION.action.UPDATE_SIGNUP: {
         console.log("signout");
         console.log(action.data.userData)
         return {
@@ -44,6 +44,27 @@ const UserReducer = (state: AppState, action: Dispatch) => {
         },
       };
     }
+    case USER_ACTION.action.UPDATE_COUNTRY: {
+      
+      console.log(action.data.val)
+        return {
+            ...state,
+        userState: {
+          ...state.userState,
+          userInfo: {
+            ...state.userState.userInfo,
+              userDetails:{
+                ...state.userState.userInfo.userDetails,
+                currencyPrefrence:action.data.currency,
+                country:action.data.country
+              },
+              ...state.userState.userInfo.loginStatus
+          },
+        },
+      };
+    }
+
+
     default:
         return state;
     }

@@ -38,6 +38,7 @@ const IndustryProjects = ({course_section}: Prop) => {
   const ref = useRef<any>(null);
   const [isMob, setMob] = useState(false);
   const cardNumber: number = course_section.section_details.length;
+  console.log(cardNumber);
   let desktopSize: number = 12;
   let cardColSize: number = 12;
   let cardClass: string = `${styles.card}`;

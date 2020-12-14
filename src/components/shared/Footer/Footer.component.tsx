@@ -17,7 +17,8 @@ import { FacebookIcon } from "../icons/facebookicon";
 import { TwitterIcon } from "../icons/twittericon";
 import { LinkedinIcon } from "../icons/linkedinicon";
 import { YoutubeIcon } from "../icons/youtubeicon";
-import {Country} from '../../../interfaces/country'
+import {Country} from '../../../interfaces/country';
+
  type Props = {
    countries: Country[];
  }

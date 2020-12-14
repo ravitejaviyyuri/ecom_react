@@ -1,14 +1,17 @@
-import React from "react";
-import Select, { components } from "react-select";
+import React,{useContext} from "react";
+import Select, { components} from "react-select";
+
 import styles from "./countryselect.module.scss";
 import { DownFilledArrow } from "../icons/downfilledarrow";
 import {Country} from '../../../interfaces/country';
+import {AppContext} from '../../../store';
+import UPDATE_USER_STATE from '../../../store/user/action';
+// const options = [
+//   { value: "india", label: "India" },
+//   { value: "us", label: "US" },
+//   { value: "uk", label: "UK" },
+// ];
 
-const options = [
-  { value: "india", label: "India" },
-  { value: "us", label: "US" },
-  { value: "uk", label: "UK" },
-];
 
 type Props = {
   countries: Country[];
@@ -54,6 +57,24 @@ const DropdownIndicator = (props: any) => {
   );
 };
 const CountrySelect = ({countries}: Props) => {
+
+const {state, dispatch} = useContext(AppContext);
+
+const options = countries.map((country: Country) => 
+     Object.create({ "value":country.country_name+"#"+country.currency, "label": country.country_name})
+)
+const onChangeHandler = (option: any) =>{
+  console.log(option);
+  let arr = option.value.split("#");
+  console.log(arr);
+  let val = {country:arr[0],currency:arr[1]}
+  dispatch({ type: UPDATE_USER_STATE.type,
+    action: UPDATE_USER_STATE.action.UPDATE_COUNTRY,
+    data: val})
+}
+
+console.log(options)
+
   return (
     <div className={styles.country_select_section}>
       <span className={styles.label}>Country</span>
@@ -61,12 +82,15 @@ const CountrySelect = ({countries}: Props) => {
         instanceId="country-select"
         options={options}
         styles={customStyles}
-        defaultValue={{ label: "India", value: "india" }}
+        isSearchable={true}
+        onChange = {onChangeHandler}
+        defaultValue={{ label: "India", value: "India#INR" }}
         components={{
           IndicatorSeparator: () => null,
           DropdownIndicator,
-        }}
-      />
+        }}>
+        </Select>
+      
     </div>
   );
 };
