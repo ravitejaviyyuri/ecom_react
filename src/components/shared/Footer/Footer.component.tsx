@@ -17,8 +17,12 @@ import { FacebookIcon } from "../icons/facebookicon";
 import { TwitterIcon } from "../icons/twittericon";
 import { LinkedinIcon } from "../icons/linkedinicon";
 import { YoutubeIcon } from "../icons/youtubeicon";
+import {Country} from '../../../interfaces/country'
+ type Props = {
+   countries: Country[];
+ }
 
-const Footer = () => {
+const Footer = ({countries}: Props) => {
   const [scrollPos, setScrollPos] = useState<number>(0);
   const [showScrollTop, setshowScrollTop] = useState<boolean>(false);
 
@@ -42,7 +46,7 @@ const Footer = () => {
       }
     }
   }, [scrollPos]);
-
+ console.log(countries);
   return (
     <section className={styles.footer_section}>
       {showScrollTop && <ScrollUp />}
@@ -102,7 +106,7 @@ const Footer = () => {
             are the registered trademarks of MongoDB, Inc.
           </Col>
           <Col xs={12} sm={12} md={4} className={styles.country_section}>
-            <CountrySelect />
+            <CountrySelect   countries={countries}/>
           </Col>
         </Row>
         <Row className={styles.copyright_section}>

@@ -2,12 +2,17 @@ import React from "react";
 import Select, { components } from "react-select";
 import styles from "./countryselect.module.scss";
 import { DownFilledArrow } from "../icons/downfilledarrow";
+import {Country} from '../../../interfaces/country';
 
 const options = [
   { value: "india", label: "India" },
   { value: "us", label: "US" },
   { value: "uk", label: "UK" },
 ];
+
+type Props = {
+  countries: Country[];
+}
 
 const customStyles = {
   option: (provided: any, state: { isSelected: any }) => ({
@@ -48,7 +53,7 @@ const DropdownIndicator = (props: any) => {
     </components.DropdownIndicator>
   );
 };
-const CountrySelect = () => {
+const CountrySelect = ({countries}: Props) => {
   return (
     <div className={styles.country_select_section}>
       <span className={styles.label}>Country</span>

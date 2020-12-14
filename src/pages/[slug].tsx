@@ -71,14 +71,14 @@ const CoursePage = ({ data, errors }: Props) => {
   useEffect(() => {
     console.log(scrollPos);
     if (process.browser) {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 788) {
         if (scrollPos > 1000) {
           setFixedScrollSpy(true);
         } else {
           setFixedScrollSpy(false);
         }
       } else {
-        if (scrollPos > 602) {
+        if (scrollPos > 622) { 
           setFixedScrollSpy(true);
         } else {
           setFixedScrollSpy(false);
@@ -99,7 +99,7 @@ const CoursePage = ({ data, errors }: Props) => {
      
   return (
     <AppContext.Provider value={{ state, dispatch }}>
-    <ClpLayout>
+    <ClpLayout countries={data.countries}>
       {console.log(data.course)}
       <Breadcrumb />
       <CourseTitle />

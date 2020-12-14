@@ -9,8 +9,10 @@ import ResponsiveFooter from "../shared/Footer/ResponsiveFooter.component";
 import ExitIntentPopup from "../clp/ExitIntent/ExitIntent.component";
 import StartLearning from "../clp/StartLearningPopup/StartLearning.component";
 import HelpChooseCourse from "../clp/HelpChooseCourse/HelpChooseCourse.component";
+import {Country} from "../../interfaces/country";
 
 function ClpLayout(props: any) {
+
   const [isMob, setMob] = useState(false);
   const [showExitIntent, setExitIntent] = useState(false);
   const [showLoginSignup, setLoginSignup] = useState(false);
@@ -68,7 +70,7 @@ function ClpLayout(props: any) {
           setHelpCourse(false);
         }}
       />
-      <Footer />
+      <Footer countries={props.countries} />
       {isMob ? <ResponsiveFooter /> : <DUQ />}
     </div>
   );
