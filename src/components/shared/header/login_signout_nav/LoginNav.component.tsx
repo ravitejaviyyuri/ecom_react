@@ -8,6 +8,8 @@ import { Nav, Dropdown } from "react-bootstrap";
 import styles from "./loginsignoutnav.module.scss";
 import { BellIcon } from "../../icons/bellicon";
 import StateManager from 'react-select';
+import {cookie_const} from '../../../../utils/constants';
+import {deleteCookie} from '../../../../utils/cookie';
 
 const navDropdownIcon = (
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
@@ -15,22 +17,29 @@ const navDropdownIcon = (
   </svg>
 );
 
-const userimage = (
-  <img
-    className="thumbnail-image"
-    src="/image/rev_user_image__1603460455.png"
-    alt="user pic"
-  />
-);
+
 const LoginNav = () => {
   // console.log(initialState);
   const {state, dispatch} = useContext(AppContext);
-  
+  console.log(state.userState.userInfo.userDetails.firstName);
+  console.log(state);
+  //const user_name = state.userState.userInfo.userDetails.firstName + " "+ state.userState.userInfo.userDetails.lastName
+  const user_name = "dharani";
+  const userimage = (
+    <img
+      className="thumbnail-image"
+      src= "/image/rev_user_image__1603460455.png"
+      alt="user pic"
+    />
+  );
   const onLogoutHandler = () => {
      console.log("logout");
      dispatch({ type: UPDATE_USER_STATE.type,
       action: UPDATE_USER_STATE.action.UPDATE_LOGOUT,
      data: initialState})
+     deleteCookie(cookie_const.COOKIE_BRAIN4CE);
+     deleteCookie(cookie_const.COOKIE_USER_EMAIL);
+     deleteCookie(cookie_const.COOKIE_USER_PHONE);
   }
 
   return (
@@ -72,7 +81,7 @@ const LoginNav = () => {
             className={styles.user_name_img}
             id="dropdown-user_drop"
           >
-            <span>Pushpak</span> {userimage}
+            <span>{user_name}</span> {userimage}
           </Dropdown.Toggle>
 
           <Dropdown.Menu className={styles.user_list_drop} alignRight>

@@ -1,7 +1,14 @@
 interface UserDetails {
-    id: number;
-    name: string;
-    email: string;
+    sessionId: string,
+    userId: string,
+    tokenId: string,
+    firstName: string,
+    lastName: string,
+    emailAddress: string,
+    mobileNo: string,
+    profilePicUrl: string,
+    currencyPrefrence: string,
+    country:string
 }
 
 interface LoginStatus {
@@ -21,9 +28,16 @@ interface UserState{
 export const initState : UserState = {
     userInfo:{
         userDetails : {
-            id: 0,
-            name:"",
-            email:""
+            sessionId: "",
+            userId:  "",
+            tokenId:  "",
+            firstName:  "",
+            lastName:  "",
+            emailAddress: "",
+            mobileNo:  "",
+            profilePicUrl:  "",
+            currencyPrefrence:  "",
+            country: ""
         },
         loginStatus: {
             islogin: false

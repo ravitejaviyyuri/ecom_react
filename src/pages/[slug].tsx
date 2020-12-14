@@ -1,6 +1,8 @@
 import React, { useState, useEffect,useContext,useReducer } from "react";
 import { AppContext, AppReducer } from '../store';
-
+import { createCookie,accessCookie,checkCookie} from "../utils/cookie";
+import {cookie_const} from "../utils/constants";
+import {verifyCookie} from "../api/services/verifycookie";
 import { GetServerSideProps } from "next";
 import { getCourse } from "../api/services/course.service";
 import { getBatches } from "../api/services/batch.service";
@@ -83,8 +85,18 @@ const CoursePage = ({ data, errors }: Props) => {
         }
       }
     }
+    if (checkCookie(cookie_const.COOKIE_BRAIN4CE)){
+      console.log("check")
+      const data =  verifyCookie();
+      data.then((res: any) => {
+         console.log(res);
+      })
+    }
+
   }, [scrollPos]);
 
+
+     
   return (
     <AppContext.Provider value={{ state, dispatch }}>
     <ClpLayout>
@@ -113,6 +125,11 @@ const CoursePage = ({ data, errors }: Props) => {
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   try {
     const slug = params?.slug;
+    // if(checkCookie(cookie_const.COOKIE_BRAIN4CE)){
+    //      const data = await verifyCookie();
+    //      console.log(data);
+    // }
+
 
     const course: Course = await getCourse(String(slug));
     //console.log(course.course_sections);

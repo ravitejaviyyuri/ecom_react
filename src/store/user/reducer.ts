@@ -31,13 +31,15 @@ const UserReducer = (state: AppState, action: Dispatch) => {
           };
         }
       case USER_ACTION.action.UPDATE_SIGNUP: {
+        console.log("signout");
+        console.log(action.data.userData)
         return {
             ...state,
         userState: {
           ...state.userState,
           userInfo: {
-            ...state.userState.userInfo,
-            userDetails: action.data,
+              userDetails: action.data.userData,
+              loginStatus: action.data.loginStatus
           },
         },
       };

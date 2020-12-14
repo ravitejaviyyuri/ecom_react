@@ -1,12 +1,14 @@
 
+var  dom = ".dev-edureka.co";
 export function createCookie(cookieName:any,cookieValue:any ,daysToExpire = 1)
 {
 
-  let dom = ".dev-edureka.co";
+  
   var date = new Date();
+  console.log(dom);
   console.log("create cookie calle");
   date.setTime(date.getTime()+(daysToExpire*24*60*60*1000));
-  document.cookie = cookieName + "=" + cookieValue + "; expires=" + date.toUTCString();+"path=/;"+ "domain="+ dom.toString();
+  document.cookie = cookieName + "=" + cookieValue + "; expires=" + date.toUTCString()+";path=/;"+ "domain="+ dom.toString();
 }
 
 export function accessCookie(cookieName:any)
@@ -35,9 +37,10 @@ export function checkCookie(cookieName:any)
     // }
   }
 }
-export function deleteCookie(cookieName:any,cookieValue:any ,daysToExpire = 1)
+export function deleteCookie(cookieName:any, daysToExpire = 1)
 {
+  let cookieValue = accessCookie(cookieName);
   var date = new Date();
   date.setTime(date.getTime()+(daysToExpire*24*60*60*1000))-2;
-  document.cookie = cookieName + "=" + cookieValue + "; expires=" + date.toUTCString();
+  document.cookie = cookieName + "=" + cookieValue + "; expires=" + date.toUTCString()+";path=/;"+ "domain="+ dom.toString();
 }
