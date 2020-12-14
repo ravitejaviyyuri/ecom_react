@@ -36,8 +36,8 @@ export const initState : UserState = {
             emailAddress: "",
             mobileNo:  "",
             profilePicUrl:  "",
-            currencyPrefrence:  "",
-            country: ""
+            currencyPrefrence:  "INR",
+            country: "India"
         },
         loginStatus: {
             islogin: false

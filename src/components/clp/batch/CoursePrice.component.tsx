@@ -6,15 +6,17 @@ import styles from "./courseprice.module.scss";
 import { TickIcon } from "../../shared/icons/tickicon";
 import { HourGlassIcon } from "../../shared/icons/hourglassicon";
 import { InfoIcon } from "../../shared/icons/infoicon";
-
-const Courseprice = () => {
+type Props ={
+  price: string;
+}
+const Courseprice = ({price}: Props) => {
   return (
     <section className={styles.courseprice_section}>
       <div className={styles.title}>Course Price at</div>
       <Row>
         <Col className={styles.price_course}>
-          <span className={styles.main}>₹ 23,444</span>
-          <span className={styles.cut}>₹ 23,444</span>
+          <span className={styles.main}>{"₹ " + price}</span>
+          <span className={styles.cut}>{"₹ " + price}</span>
         </Col>
         <Col className={styles.info_price}>
           <ul>
