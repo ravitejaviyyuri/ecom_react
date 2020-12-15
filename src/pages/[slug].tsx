@@ -113,7 +113,7 @@ const CoursePage = ({ data, errors }: Props) => {
       <Curriculum  course_section = {data.course.course_sections.clp_curriuculum_section}/>
       <BatchComponent batches= {data.batches} price={data.course.course_price} currencies={data.currencies} countries={data.countries}/>
       <Curriculum course_section = {data.course.course_sections.clp_curriuculum_section}/>
-      {/* <Projects course_section = {data.course.course_sections.clp_project}/> */}
+      <Projects course_section = {data.course.course_sections.clp_project}/>
       <Certification />
       <EdurekaAdvantage course_sections = {data.course.course_sections.clp_edureka_advantage} />
       <Reviews rating_section = {data.course.course_sections.clp_rating_section} review_section = {data.course.reviews}/>
