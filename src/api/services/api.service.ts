@@ -11,8 +11,8 @@ function handleError(response: AxiosResponse) {
   throw new Error(message);
 }
 
-const makeServerPost = async (url: string, data = {}) => {
-  const response = await axios.post(url, data);
+const makeServerPost = async (url: string, data = {},options={}) => {
+  const response = await axios.post(url, data, options);
 
   if (response.status !== HttpStatus.OK) {
     return handleError(response);

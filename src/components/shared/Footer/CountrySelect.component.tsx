@@ -6,11 +6,6 @@ import { DownFilledArrow } from "../icons/downfilledarrow";
 import {Country} from '../../../interfaces/country';
 import {AppContext} from '../../../store';
 import UPDATE_USER_STATE from '../../../store/user/action';
-// const options = [
-//   { value: "india", label: "India" },
-//   { value: "us", label: "US" },
-//   { value: "uk", label: "UK" },
-// ];
 
 
 type Props = {
@@ -64,16 +59,12 @@ const options = countries.map((country: Country) =>
      Object.create({ "value":country.country_name+"#"+country.currency, "label": country.country_name})
 )
 const onChangeHandler = (option: any) =>{
-  console.log(option);
   let arr = option.value.split("#");
-  console.log(arr);
   let val = {country:arr[0],currency:arr[1]}
   dispatch({ type: UPDATE_USER_STATE.type,
     action: UPDATE_USER_STATE.action.UPDATE_COUNTRY,
     data: val})
 }
-
-console.log(options)
 
   return (
     <div className={styles.country_select_section}>

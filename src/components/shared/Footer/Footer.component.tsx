@@ -47,7 +47,6 @@ const Footer = ({countries}: Props) => {
       }
     }
   }, [scrollPos]);
- console.log(countries);
   return (
     <section className={styles.footer_section}>
       {showScrollTop && <ScrollUp />}

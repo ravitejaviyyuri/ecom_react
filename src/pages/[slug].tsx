@@ -89,11 +89,11 @@ const CoursePage = ({ data, errors }: Props) => {
       }
     }
     if (checkCookie(cookie_const.COOKIE_BRAIN4CE)){
-      //console.log("check")
-      const data =  verifyCookie();
-      data.then((res: any) => {
-         //console.log(res);
-      })
+      console.log("check")
+      // const data =  verifyCookie();
+      // data.then((res: any) => {
+      //    console.log(res);
+      // })
     }
 
   }, [scrollPos]);
