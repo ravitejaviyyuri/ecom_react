@@ -27,8 +27,6 @@ const SearchOverlay = (props: any) => {
     });  
 
   },[searchInput])
-  
-  // console.log(data[0]);
   return (
     <Modal
       centered
@@ -42,7 +40,7 @@ const SearchOverlay = (props: any) => {
           <CrossIcon color="#000000" />
         </div>
         <SearchInput  setSearchInput= {setSearchInput} hits={data} isResult = {isResult} />
-        <MenuLinks   />
+        <MenuLinks  searchtabs={props.searchtabs}  />
       </Modal.Body>
     </Modal>
   );

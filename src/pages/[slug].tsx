@@ -4,6 +4,7 @@ import { createCookie,accessCookie,checkCookie} from "../utils/cookie";
 import {cookie_const} from "../utils/constants";
 import {verifyCookie} from "../api/services/verifycookie";
 import { GetServerSideProps } from "next";
+import {searchTabs} from '../api/services/search.service';
 import { getCourse } from "../api/services/course.service";
 import { getBatches } from "../api/services/batch.service";
 import {getCurrencies} from "../api/services/currency.service";
@@ -28,6 +29,7 @@ import LearningByEdureka from "../components/clp/learning_by_edureka/LearnEdu.co
 import KnowYourCourse from "../components/clp/know_your_course/KnowYourCourse.component";
 import {sectionsMapping} from "../utils/section_mapping";
 import ScrollSpy from "../components/clp/ScrollSpy/ScrollSpy.component";
+import {searchMapping} from '../utils/search_mappings';
 //import {AuthProvider, } from '../components/shared/context/Auth.context';
 
 type Props = {
@@ -37,6 +39,7 @@ type Props = {
     currencies: Currency[];
     countries: Country[];
     reviews: String[];
+    searchtabs:any
   };
   errors?: string;
 };
@@ -69,7 +72,7 @@ const CoursePage = ({ data, errors }: Props) => {
   }, []);
 
   useEffect(() => {
-    console.log(scrollPos);
+    //console.log(scrollPos);
     if (process.browser) {
       if (window.innerWidth < 788) {
         if (scrollPos > 1000) {
@@ -86,10 +89,10 @@ const CoursePage = ({ data, errors }: Props) => {
       }
     }
     if (checkCookie(cookie_const.COOKIE_BRAIN4CE)){
-      console.log("check")
+      //console.log("check")
       const data =  verifyCookie();
       data.then((res: any) => {
-         console.log(res);
+         //console.log(res);
       })
     }
 
@@ -99,8 +102,8 @@ const CoursePage = ({ data, errors }: Props) => {
      
   return (
     <AppContext.Provider value={{ state, dispatch }}>
-    <ClpLayout countries={data.countries}>
-      {console.log(data.course)}
+    <ClpLayout countries={data.countries} searchtabs={data.searchtabs}>
+      {console.log(data.searchtabs)}
       <Breadcrumb />
       <CourseTitle />
       <VideoInfo />
@@ -138,7 +141,10 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const batches = await getBatches(course.id);
     const currencies = await getCurrencies();
     const countries = await getCountries();
-
+    const searchData = await searchTabs();
+    
+   const tabdata = searchMapping(searchData);
+     
     return {
       props: {
         data: {
@@ -146,6 +152,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
           batches: batches,
           currencies:currencies,
           countries:countries,
+          searchtabs:tabdata
         },
       },
     };

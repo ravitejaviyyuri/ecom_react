@@ -22,7 +22,7 @@ const HeaderNavbar = (props: any) => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   console.log("homenav")
-  console.log(state.userState.userInfo.loginStatus.islogin);
+  console.log(state);
   return (
     <>
       {sidebar && (
@@ -30,7 +30,7 @@ const HeaderNavbar = (props: any) => {
       )}
 
       {isSearchModal && (
-        <SearchOverlay show={isSearchModal} handleClose={handleClose} />
+        <SearchOverlay show={isSearchModal} handleClose={handleClose} searchtabs={props.searchtabs} />
       )}
 
       <Navbar className={styles.header_new} fixed="top" bg="white">

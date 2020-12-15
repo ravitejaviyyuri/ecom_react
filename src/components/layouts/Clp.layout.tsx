@@ -41,7 +41,7 @@ function ClpLayout(props: any) {
         <title>Edureka - Devpops</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <HeaderNavbar setLoginSignup={handleLoginSignup} />
+      <HeaderNavbar setLoginSignup={handleLoginSignup} searchtabs={props.searchtabs}/>
       <LoginSignup
         show={showLoginSignup}
         type={isLogin}

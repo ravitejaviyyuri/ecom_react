@@ -101,7 +101,6 @@ const MenuLinks = (props: any) => {
 
   const toggleDropdown = (value?: any) => {
     if (value !== undefined) {
-      console.log("helllllooo");
       setDropdownStatus(value);
     } else {
       setDropdownStatus(!dropdownStatus);
@@ -148,7 +147,7 @@ const MenuLinks = (props: any) => {
         </Container>
       </div>
       <Container className={styles.category_items}>
-        {<SubMenuLinks menuname={menuName}  />}
+        {<SubMenuLinks menuname={menuName}  searchtabs={props.searchtabs}/>}
         <div className={styles.all_course}>
           VIEW ALL COURSES <RightArrowIcon color="#0052cc" />
         </div>
