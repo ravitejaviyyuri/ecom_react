@@ -1,4 +1,5 @@
 import React, { useState, useEffect,useContext,useReducer } from "react";
+import UPDATE_USER_STATE from "../store/user/action";
 import { AppContext, AppReducer } from '../store';
 import { createCookie,accessCookie,checkCookie} from "../utils/cookie";
 import {cookie_const} from "../utils/constants";
@@ -56,7 +57,6 @@ const CoursePage = ({ data, errors }: Props) => {
   const initialState = useContext(AppContext);
   const [state, dispatch] = useReducer(AppReducer, initialState.state);
 
-
   const [scrollPos, setScrollPos] = useState<number>(0);
   const [fixedScrollSpy, setFixedScrollSpy] = useState<boolean>(false);
 
@@ -68,7 +68,20 @@ const CoursePage = ({ data, errors }: Props) => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    if (checkCookie(cookie_const.COOKIE_BRAIN4CE)){
+       const data =  verifyCookie(accessCookie(cookie_const.COOKIE_BRAIN4CE));
+      data.then((res: any) => {
+          const loginStatus = {islogin:true};
+          if(res.status_code == 200){
+            console.log(res);
+            dispatch({ type: UPDATE_USER_STATE.type,
+              action: UPDATE_USER_STATE.action.UPDATE_LOGIN,
+              data: {userData:res.data, loginStatus:loginStatus }})
+          }
+      })
+    }
     return () => window.removeEventListener("scroll", handleScroll);
+    
   }, []);
 
   useEffect(() => {
@@ -87,13 +100,6 @@ const CoursePage = ({ data, errors }: Props) => {
           setFixedScrollSpy(false);
         }
       }
-    }
-    if (checkCookie(cookie_const.COOKIE_BRAIN4CE)){
-      console.log("check")
-      // const data =  verifyCookie();
-      // data.then((res: any) => {
-      //    console.log(res);
-      // })
     }
 
   }, [scrollPos]);
