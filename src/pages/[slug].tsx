@@ -110,7 +110,7 @@ const CoursePage = ({ data, errors }: Props) => {
       {fixedScrollSpy ? <ScrollSpy /> : null}
       <LearningByEdureka course_section = {data.course.course_sections.clp_360_deg_section} />
       <KnowYourCourse knowYourCourse= {data.course.course_sections.clp_get_to_know_your_course} getaGlimpse = {data.course.course_sections.clp_get_a_glimpse} courseOverview = {data.course.course_sections.clp_course_overview}/>
-      <BatchComponent batches= {data.batches}/>
+      <BatchComponent batches= {data.batches} price={data.course.course_price} currencies={data.currencies} countries={data.countries}/>
       <Curriculum  course_section = {data.course.course_sections.clp_curriuculum_section}/>
       <Projects course_section = {data.course.course_sections.clp_project}/>
       <Certification />
