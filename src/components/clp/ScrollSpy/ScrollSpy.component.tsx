@@ -11,7 +11,7 @@ const params = {
   Swiper,
   containerClass: styles.swiper_container,
   wrapperClass: styles.wrapper_class,
-  slidesPerView: "auto",
+  //slidesPerView: "auto",
   rebuildOnUpdate: true,
   shouldSwiperUpdate: true,
 };
@@ -41,7 +41,7 @@ const ScrollSpy = (props: any) => {
     <section className={styles.scrollspy}>
       <Container>
         <ul>
-          <ReactIdSwiperCustom ref={ref} {...params}>
+          <ReactIdSwiperCustom ref={ref} {...params} slidesPerView="auto"  >
             <li>
               <Link
                 activeClass={styles.current}
