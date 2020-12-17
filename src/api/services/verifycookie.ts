@@ -5,23 +5,22 @@ import config from '../../config/app';
  */
 
 
-const verifyCookie = async () => {
+const verifyCookie = async (cookie_val:string) => {
 
-  try {
-    const options = {
-      headers: {'Cache-Control': 'no-cache',
-      'Content-Type': 'application/json'}
-    };
- 
-    let response = await makeServerPost("http://api-auth.dev-edureka.co/api/user/verify",
-    {"usercookie":"6i5hon2kvfn1811h5iutfti8g6"},options);  
+      try {
+        // const options = {
+        //   headers: {'Cache-Control': 'no-cache',
+        //   'Content-Type': 'text/html'}
+        // };
+    
+        let response = await makeServerPost("http://api-auth.dev-edureka.co/api/user/verifyclpcookie",
+        {"usercookie":cookie_val});  
+        
+        return response;
 
-    console.log(response);
-    return response.data;
-
-  } 
-  catch (err) {
-    throw err;
-  }
+      } 
+      catch (err) {
+        throw err;
+      }
 };
 export { verifyCookie};
