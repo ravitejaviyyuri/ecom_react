@@ -6,7 +6,7 @@ import config from '../../config/app';
 const searchTabs = async () => {
   try {
  
-    let response = await makeServerGet("http://new-course.dev-edureka.co/courses/searchtabs");  
+    let response = await makeServerGet("http://uat-courses.edureka.in/courses/searchtabs");  
 
     // console.log(response);
     return response.data;

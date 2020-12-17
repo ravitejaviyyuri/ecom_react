@@ -9,7 +9,7 @@ import { makeServerPost, makeServerGet } from './api.service';
  */
 const getBatches = async (courseId: number) => {
   try {
-     let response = await makeServerGet(`https://a2-batches.edureka.in/batches/live-batches/${courseId}`);
+     let response = await makeServerGet(`https://uat-batches.edureka.in/batches/live-batches/${courseId}`);
      response = response.data;
      return response;
   }
