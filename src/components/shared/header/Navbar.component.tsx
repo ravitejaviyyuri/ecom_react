@@ -1,5 +1,5 @@
-import React, { useState, useEffect,useContext } from "react";
-import { AppContext } from '../../../store';
+import React, { useState, useEffect, useContext } from "react";
+import { AppContext } from "../../../store";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import styles from "./navbar.module.scss";
 import SearchOverlay from "./SearchOverlay.component";
@@ -9,28 +9,72 @@ import { EdurekaLogo } from "../icons/edurekalogo";
 import { HamMenu } from "../icons/hammenu";
 import { SearchIcon } from "../icons/searchicon";
 import { PhoneIcon } from "../icons/phoneicon";
+import ScrollSpy from "../../clp/ScrollSpy/ScrollSpy.component";
 
 const HeaderNavbar = (props: any) => {
-
-  const{state} = useContext(AppContext);
+  const { state } = useContext(AppContext);
 
   const [isSearchModal, setSearchModal] = useState(false);
+
+  const [scrollPos, setScrollPos] = useState<number>(0);
+  const [fixedScrollSpy, setFixedScrollSpy] = useState<boolean>(false);
+
+  const handleScroll = () => {
+    if (window.scrollY !== 0) {
+      setScrollPos(window.scrollY);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    console.log("mount");
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      console.log("unmount");
+    };
+  }, []);
+
+  useEffect(() => {
+    if (process.browser) {
+      if (window.innerWidth < 788) {
+        if (scrollPos > 1000) {
+          setFixedScrollSpy(true);
+        } else {
+          setFixedScrollSpy(false);
+        }
+      } else {
+        if (scrollPos > 622) {
+          setFixedScrollSpy(true);
+        } else {
+          setFixedScrollSpy(false);
+        }
+      }
+    }
+  }, [scrollPos]);
 
   const handleClose = () => setSearchModal(false);
   const handleShow = () => setSearchModal(true);
 
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-  console.log("homenav")
-  console.log(state);
+
   return (
     <>
       {sidebar && (
-        <MenuLeftSlide sidebar={sidebar} showSidebar={showSidebar} setLoginSignup={props.setLoginSignup} />
+        <MenuLeftSlide
+          sidebar={sidebar}
+          showSidebar={showSidebar}
+          setLoginSignup={props.setLoginSignup}
+        />
       )}
 
       {isSearchModal && (
-        <SearchOverlay show={isSearchModal} handleClose={handleClose} searchtabs={props.searchtabs} />
+        <SearchOverlay
+          show={isSearchModal}
+          handleClose={handleClose}
+          searchtabs={props.searchtabs}
+        />
       )}
 
       <Navbar className={styles.header_new} fixed="top" bg="white">
@@ -59,6 +103,8 @@ const HeaderNavbar = (props: any) => {
           isLoggedIn={state.userState.userInfo.loginStatus.islogin}
         />
       </Navbar>
+
+      {fixedScrollSpy ? <ScrollSpy /> : null}
     </>
   );
 };
