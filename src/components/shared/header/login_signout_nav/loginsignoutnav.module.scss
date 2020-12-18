@@ -144,6 +144,17 @@
 }
 @media only screen and (max-width: 767px) and (min-width: 300px) {
   .right_links {
+    .refer_links,
+    .mycourse_links,
+    .community_drop,
+    .notification_drop {
+      display: none;
+    }
+    .user_drop {
+      margin-left: 10px;
+    }
+  }
+  .hide_mob {
     display: none;
   }
 }

@@ -66,6 +66,7 @@ const HeaderNavbar = (props: any) => {
           sidebar={sidebar}
           showSidebar={showSidebar}
           setLoginSignup={props.setLoginSignup}
+          isLoggedIn={state.userState.userInfo.loginStatus.islogin}
         />
       )}
 

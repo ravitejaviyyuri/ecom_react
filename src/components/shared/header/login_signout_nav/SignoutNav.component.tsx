@@ -5,7 +5,7 @@ import styles from "./loginsignoutnav.module.scss";
 const SignoutNav = (props: any) => {
   return (
     <>
-      <Nav className={styles.right_links}>
+      <Nav className={`${styles.right_links} ${styles.hide_mob}`}>
         <Nav.Item>
           <Nav.Link className={styles.right_links_a} href="/">
             Corporate Training

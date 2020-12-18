@@ -98,16 +98,109 @@ const SubMenuleft = (props: any) => {
       ],
     },
   ];
+
+  let loggedInOptions = [
+    {
+      title: "",
+      hideBorder: true,
+      content: [
+        {
+          id: 1,
+          name: "Categories",
+          children: [
+            {
+              title: "JavaScript",
+              content: [
+                {
+                  id: 2,
+                  name: "functions",
+                  children: [
+                    {
+                      content: [
+                        {
+                          id: 3,
+                          name: "functions",
+                          to: "#",
+                        },
+                        {
+                          id: 4,
+                          name: "functfghjions",
+                          to: "#",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: "",
+      hideBorder: true,
+      content: [{ id: 1, name: "Corporate Training", to: "/my-courses" }],
+    },
+    {
+      title: "",
+      hideBorder: true,
+      content: [{ id: 1, name: "All Courses", to: "/my-courses" }],
+    },
+    {
+      title: "",
+      hideBorder: true,
+      content: [{ id: 1, name: "Blog", to: "/my-courses" }],
+    },
+    {
+      title: "",
+      hideBorder: true,
+      content: [{ id: 1, name: "My Courses", to: "/my-courses" }],
+    },
+    {
+      title: "",
+      hideBorder: true,
+      content: [{ id: 1, name: "Community", to: "/my-courses" }],
+    },
+    {
+      title: "",
+      hideBorder: true,
+      content: [{ id: 1, name: "Refer", to: "/my-courses" }],
+    },
+    {
+      title: "",
+      hideBorder: true,
+      content: [
+        {
+          id: 1,
+          name: (
+            <Button
+              className={styles.signup_btn}
+              onClick={() => {
+                props.setLoginSignup(true, "signup");
+              }}
+            >
+              Logout
+            </Button>
+          ),
+        },
+      ],
+    },
+  ];
+
   //   you can also use this function on any of your event to open/close the sidebar
   const handleSidebarToggle = () => {
     props.showSidebar(props.sidebar);
   };
+
+  let isLoggedIn = props.isLoggedIn;
+
   return (
     <div>
       <MultilevelSidebar
         open={props.sidebar}
         onToggle={handleSidebarToggle}
-        options={options}
+        options={isLoggedIn ? loggedInOptions : options}
         header="Browse Categories"
         wrapperClassName={styles.wrapper}
         headerClassName={styles.header}
