@@ -115,6 +115,7 @@ const Certification = () => {
             <img
               src="https://d1jnx9ba8s6j9r.cloudfront.net/imgver.1606136770/img/certibackgrounds/sample_crt.png"
               alt="Sample Certificate"
+              loading="lazy"
             />
             <div className={styles.zoom} onClick={handleShow}>
               <ZoomIcon color="#192f60" />
