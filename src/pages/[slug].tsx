@@ -4,7 +4,7 @@ import { AppContext, AppReducer } from "../store";
 import { createCookie, accessCookie, checkCookie } from "../utils/cookie";
 import { cookie_const } from "../utils/constants";
 import { verifyCookie } from "../api/services/verifycookie";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps,GetStaticProps,GetStaticPaths } from "next";
 import { searchTabs } from "../api/services/search.service";
 import { getCourse } from "../api/services/course.service";
 import { getBatches } from "../api/services/batch.service";
@@ -117,40 +117,88 @@ const CoursePage = ({ data, errors }: Props) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+// export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+//   try {
+//     const slug = params?.slug;
+//     // if(checkCookie(cookie_const.COOKIE_BRAIN4CE)){
+//     //      const data = await verifyCookie();
+//     //      console.log(data);
+//     // }
+
+//     const course: Course = await getCourse(String(slug));
+//     //console.log(course.course_sections);
+//     course.course_sections = sectionsMapping(course.course_sections);
+//     //console.log(course.course_sections);
+//     const batches = await getBatches(course.id);
+//     const currencies = await getCurrencies();
+//     const countries = await getCountries();
+//     const searchData = await searchTabs();
+
+//     const tabdata = searchMapping(searchData);
+
+//     return {
+//       props: {
+//         data: {
+//           course: course,
+//           batches: batches,
+//           currencies: currencies,
+//           countries: countries,
+//           searchtabs: tabdata,
+//         },
+//       },
+//     };
+//   } catch (err) {
+//     // Pass error to the page via props
+//     return { props: { errors: err.message } };
+//   }
+// };
+
+//ISR code
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     const slug = params?.slug;
-    // if(checkCookie(cookie_const.COOKIE_BRAIN4CE)){
-    //      const data = await verifyCookie();
-    //      console.log(data);
-    // }
 
-    const course: Course = await getCourse(String(slug));
-    //console.log(course.course_sections);
+    const course: Course = await getCourse(String(slug))
     course.course_sections = sectionsMapping(course.course_sections);
-    //console.log(course.course_sections);
-    const batches = await getBatches(course.id);
-    const currencies = await getCurrencies();
     const countries = await getCountries();
+    const currencies = await getCurrencies();
+    const batches = await getBatches(course.id);
     const searchData = await searchTabs();
-
     const tabdata = searchMapping(searchData);
 
+
+    // Pass data to the page via props
     return {
       props: {
         data: {
           course: course,
           batches: batches,
-          currencies: currencies,
+          currencies:currencies,
           countries: countries,
           searchtabs: tabdata,
-        },
+        }
       },
-    };
+      revalidate: 3000
+    }
   } catch (err) {
     // Pass error to the page via props
-    return { props: { errors: err.message } };
+    return { props: { errors: err.message } }
   }
-};
+}
+
+export const getStaticPaths: GetStaticPaths<{slug:string}> = async () => {
+  
+  
+
+
+    // Pass data to the page via props
+    return {
+     paths:[{params:{slug:"devops-certification-training"}}
+            ],
+     fallback:false,
+    };
+  
+}
+
 
 export default CoursePage;
