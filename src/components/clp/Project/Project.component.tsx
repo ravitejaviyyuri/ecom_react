@@ -10,7 +10,7 @@ import { NextIcon } from "../../shared/icons/nexticon";
 import { PrevIcon } from "../../shared/icons/previcon";
 type Prop = {
   course_section: any;
-}
+};
 // const projectArray = [
 //   {
 //     name: "Uber Supply-Demand Gap 1",
@@ -34,7 +34,7 @@ type Prop = {
 //   },
 // ];
 
-const IndustryProjects = ({course_section}: Prop) => {
+const IndustryProjects = ({ course_section }: Prop) => {
   const ref = useRef<any>(null);
   const [isMob, setMob] = useState(false);
   const cardNumber: number = course_section.section_details.length;
@@ -70,7 +70,7 @@ const IndustryProjects = ({course_section}: Prop) => {
         }
       }
     }
-  }, []);
+  }, [course_section]);
 
   let modulesToLoad: SwiperComponent[] = [];
   if (cardNumber > 3 || isMob) {
@@ -126,7 +126,7 @@ const IndustryProjects = ({course_section}: Prop) => {
           <div className={styles.heading}>{course_section.section_title}</div>
           <ReactIdSwiperCustom ref={ref} {...params}>
             {course_section.section_details.map((value: any, index: number) => {
-              value = JSON.parse(value.subsection_content)
+              value = JSON.parse(value.subsection_content);
               return (
                 <Col key={index} xs={12} sm={12} md={desktopSize}>
                   <div className={cardClass}>

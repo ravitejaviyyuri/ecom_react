@@ -7,9 +7,11 @@ import styles from "./watchvideopopup.module.scss";
 import { CrossIcon } from "../../shared/icons/crossicon";
 import { YoutubeRedIcon } from "../../shared/icons/youtuberedicon";
 import { VideoIcon } from "../../shared/icons/videoicon";
+import SignupForm from "../../shared/LoginSignup/SignupForm.component";
 
 const WatchVideoPopup = (props: any) => {
   const [isMob, setMob] = useState(false);
+  const [isLeadForm, setLeadForm] = useState(false);
 
   useEffect(() => {
     if (process.browser) {
@@ -50,29 +52,36 @@ const WatchVideoPopup = (props: any) => {
               <YoutubeRedIcon />
             </span>
           </Col>
-          <Col xs={12} sm={12} md={4} className={styles.right_section}>
-            <div className={styles.current_playing}>
-              <span> Not sure of which course to take?</span>
-              {!isMob && <VideoIcon color="#0052cc" />}
-            </div>
-            <div className={styles.up_next_col}>
-              {!isMob && <p>Upnext</p>}
-              <div className={styles.playlist}>
-                <div className={styles.next_playing}>
-                  <span> Not sure of which course to take?</span>
-                  <VideoIcon color="#8e8e8e" />
-                </div>
-                <div className={styles.next_playing}>
-                  <span> Not sure of which course to take?</span>
-                  <VideoIcon color="#8e8e8e" />
-                </div>
-                <div className={styles.next_playing}>
-                  <span> Not sure of which course to take?</span>
-                  <VideoIcon color="#8e8e8e" />
+          {isLeadForm ? (
+            <Col xs={12} sm={12} md={4} className={styles.lead_form}>
+              <h3>Let’s Get Started</h3>
+              <SignupForm />
+            </Col>
+          ) : (
+            <Col xs={12} sm={12} md={4} className={styles.right_section}>
+              <div className={styles.current_playing}>
+                <span> Not sure of which course to take?</span>
+                {!isMob && <VideoIcon color="#0052cc" />}
+              </div>
+              <div className={styles.up_next_col}>
+                {!isMob && <p>Upnext</p>}
+                <div className={styles.playlist}>
+                  <div className={styles.next_playing}>
+                    <span> Not sure of which course to take?</span>
+                    <VideoIcon color="#8e8e8e" />
+                  </div>
+                  <div className={styles.next_playing}>
+                    <span> Not sure of which course to take?</span>
+                    <VideoIcon color="#8e8e8e" />
+                  </div>
+                  <div className={styles.next_playing}>
+                    <span> Not sure of which course to take?</span>
+                    <VideoIcon color="#8e8e8e" />
+                  </div>
                 </div>
               </div>
-            </div>
-          </Col>
+            </Col>
+          )}
         </Row>
       </Modal.Body>
     </Modal>

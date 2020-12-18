@@ -70,7 +70,7 @@ const SignupForm = (props: any) => {
         Edureka’s <a href="">Terms & Conditions</a> and{" "}
         <a href="">Privacy Policy</a>.
       </div>
-      <div className={styles.tc_privacy_div}>
+      {/* <div className={styles.tc_privacy_div}>
         <Form.Group className={styles.check_form_group}>
           <Form.Check
             type="checkbox"
@@ -86,7 +86,7 @@ const SignupForm = (props: any) => {
             </Form.Check.Label>
           </Form.Check>
         </Form.Group>
-      </div>
+      </div> */}
       <Button type="submit" className={styles.submit} variant="primary">
         SIGNUP
       </Button>
