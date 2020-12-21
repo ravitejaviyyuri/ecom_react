@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import _ from "lodash";
+import {throttle} from "lodash";
 import SubMenuLinks from "./SubMenuLinks.component";
 import Dropdown from "./Dropdown.component";
 import styles from "./searchtabs.module.scss";
@@ -28,7 +28,7 @@ const MenuLinks = (props: any) => {
   const [dropdownStatus, setDropdownStatus] = useState(false);
 
   useEffect(() => {
-    const throttledUpdate = _.throttle(update, 1000);
+    const throttledUpdate = throttle(update, 1000);
     setClientWidth(ref.current.clientWidth);
     window.addEventListener("resize", throttledUpdate);
     return () => {
