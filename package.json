@@ -5,14 +5,19 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "analyze": "cross-env ANALYZE=true next build",
+    "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^10.0.3",
     "@types/react-scroll": "^1.8.2",
     "@types/react-select": "^3.0.26",
     "algoliasearch": "^4.8.3",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
+    "cross-env": "^7.0.3",
     "http-status-codes": "^2.1.4",
     "lodash": "^4.17.20",
     "next": "^10.0.1",
