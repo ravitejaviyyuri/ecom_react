@@ -1,11 +1,18 @@
-import React from "react";
+import React,{useContext} from "react";
 import Button from "react-bootstrap/Button";
 import MultilevelSidebar from "react-multilevel-sidebar";
 import "react-multilevel-sidebar/src/Sidebar.css";
 import { CrossIcon } from "../../../icons/crossicon";
 import styles from "./submenuleft.module.scss";
+import UPDATE_USER_STATE  from '../../../../../store/user/action';
+import {initState as initialState} from "../../../../../store/user/context";
+import {AppContext} from '../../../../../store';
+import {cookie_const} from '../../../../../utils/constants';
+import {deleteCookie} from '../../../../../utils/cookie';
 
 const SubMenuleft = (props: any) => {
+  const {state, dispatch} = useContext(AppContext);
+
   let options = [
     {
       title: "",
@@ -177,7 +184,14 @@ const SubMenuleft = (props: any) => {
             <Button
               className={styles.signup_btn}
               onClick={() => {
-                props.setLoginSignup(true, "signup");
+                //props.setLogoutSignup(true, "signup");
+                console.log("logoutmenu");
+                dispatch({ type: UPDATE_USER_STATE.type,
+                 action: UPDATE_USER_STATE.action.UPDATE_LOGOUT,
+                data: initialState})
+                deleteCookie(cookie_const.COOKIE_BRAIN4CE);
+                deleteCookie(cookie_const.COOKIE_USER_EMAIL);
+                deleteCookie(cookie_const.COOKIE_USER_PHONE);
               }}
             >
               Logout

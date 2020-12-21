@@ -77,7 +77,7 @@ const CoursePage = ({ data, errors }: Props) => {
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       <ClpLayout countries={data.countries} searchtabs={data.searchtabs}>
-        {console.log(data.searchtabs)}
+        {console.log(data.countries)}
         <Breadcrumb />
         <CourseTitle />
         <VideoInfo />
