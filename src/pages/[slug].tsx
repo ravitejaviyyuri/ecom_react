@@ -178,7 +178,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           searchtabs: tabdata,
         }
       },
-      revalidate: 3000
+      revalidate: 1
     }
   } catch (err) {
     // Pass error to the page via props
