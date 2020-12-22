@@ -81,7 +81,7 @@ const VideoInfo = () => {
               </p>
               <p className={styles.work}>Big Data professionals work at</p>
               <div className={styles.comp_img}>
-                <Image
+                {/* <Image
                   className={styles.company_logo}
                   src="/microsoft.svg"
                   width="98"
@@ -116,7 +116,7 @@ const VideoInfo = () => {
                   loading="lazy"
                   layout="fixed"
                   alt="citi-logo"
-                />
+                /> */}
               </div>
               <Button>
                 <span>
