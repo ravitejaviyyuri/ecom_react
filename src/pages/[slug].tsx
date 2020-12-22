@@ -81,40 +81,40 @@ const CoursePage = ({ data, errors }: Props) => {
     // <AppContext.Provider value={{ state, dispatch }}>
       <ClpLayout countries={data.countries} searchtabs={data.searchtabs}>
         {/* {console.log(data.searchtabs)} */}
-        {/* <Breadcrumb />
+        <Breadcrumb />
         <CourseTitle />
         <VideoInfo />
-        <LearningByEdureka
+        {/* <LearningByEdureka
           course_section={data.course.course_sections.clp_360_deg_section}
-        />
-        <KnowYourCourse
+        /> */}
+        {/* <KnowYourCourse
           knowYourCourse={
             data.course.course_sections.clp_get_to_know_your_course
           }
           getaGlimpse={data.course.course_sections.clp_get_a_glimpse}
           courseOverview={data.course.course_sections.clp_course_overview}
-        />
-        <BatchComponent
+        /> */}
+        {/* <BatchComponent
           batches={data.batches}
           price={data.course.course_price}
           currencies={data.currencies}
           countries={data.countries}
-        />
-        <Curriculum
+        /> */}
+        {/* <Curriculum
           course_section={data.course.course_sections.clp_curriuculum_section}
-        />
-        <Projects course_section={data.course.course_sections.clp_project} />
-        <Certification />
-        <EdurekaAdvantage
+        /> */}
+        {/* <Projects course_section={data.course.course_sections.clp_project} /> */}
+        {/* <Certification /> */}
+        {/* <EdurekaAdvantage
           course_sections={data.course.course_sections.clp_edureka_advantage}
-        />
-        <Reviews
+        /> */}
+        {/* <Reviews
           rating_section={data.course.course_sections.clp_rating_section}
           review_section={data.course.reviews}
-        />
-        <FAQ course_sections={data.course.course_sections.clp_faq} />
-        <ICE course_sections={data.course.course_sections.clp_ice} />
-        <OtherCityLink /> */}
+        /> */}
+        {/* <FAQ course_sections={data.course.course_sections.clp_faq} /> */}
+        {/* <ICE course_sections={data.course.course_sections.clp_ice} /> */}
+        <OtherCityLink />
       </ClpLayout>
     // </AppContext.Provider>
   );
