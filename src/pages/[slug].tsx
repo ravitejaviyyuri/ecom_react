@@ -94,12 +94,12 @@ const CoursePage = ({ data, errors }: Props) => {
           getaGlimpse={data.course.course_sections.clp_get_a_glimpse}
           courseOverview={data.course.course_sections.clp_course_overview}
         /> */}
-        {/* <BatchComponent
+        <BatchComponent
           batches={data.batches}
           price={data.course.course_price}
           currencies={data.currencies}
           countries={data.countries}
-        /> */}
+        />
         {/* <Curriculum
           course_section={data.course.course_sections.clp_curriuculum_section}
         /> */}

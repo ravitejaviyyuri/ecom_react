@@ -39,10 +39,10 @@ const BatchComponent = ({batches ,price, currencies, countries}: Props) => {
    const setPrice =  (obj:any) => {
        
         for (const key in price) {
-          console.log(price[key].currency_id );
+          // console.log(price[key].currency_id );
           if (price[key].currency_id == obj.currency_id) {
             coursePrice = price[key].value;
-            console.log(coursePrice);
+            // console.log(coursePrice);
             break;
           }
         }
