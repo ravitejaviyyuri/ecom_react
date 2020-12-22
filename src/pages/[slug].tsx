@@ -100,9 +100,9 @@ const CoursePage = ({ data, errors }: Props) => {
           currencies={data.currencies}
           countries={data.countries}
         />
-        {/* <Curriculum
+        <Curriculum
           course_section={data.course.course_sections.clp_curriuculum_section}
-        /> */}
+        />
         {/* <Projects course_section={data.course.course_sections.clp_project} /> */}
         {/* <Certification /> */}
         {/* <EdurekaAdvantage

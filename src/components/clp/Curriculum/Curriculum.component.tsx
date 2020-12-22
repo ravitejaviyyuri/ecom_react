@@ -235,11 +235,11 @@ const Curriculum = ({course_section}:any) => {
       } else {
         setMob(false);
       }
-      console.log(formattedData);
+      // console.log(formattedData);
     }
   }, []);
-console.log("curriculum");
-console.log(JSON.parse(course_section.section_details[0].subsection_content).handsOn);
+// console.log("curriculum");
+// console.log(JSON.parse(course_section.section_details[0].subsection_content).handsOn);
   return (
     <section
     id="curriculum"
