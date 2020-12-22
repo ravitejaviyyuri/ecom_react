@@ -54,31 +54,31 @@ const CoursePage = ({ data, errors }: Props) => {
     );
   }
 
-  // const initialState = useContext(AppContext);
-  // const [state, dispatch] = useReducer(AppReducer, initialState.state);
+  const initialState = useContext(AppContext);
+  const [state, dispatch] = useReducer(AppReducer, initialState.state);
 
-  // useEffect(() => {
-  //   if (checkCookie(cookie_const.COOKIE_BRAIN4CE)) {
-  //     const data = verifyCookie(accessCookie(cookie_const.COOKIE_BRAIN4CE));
-  //     data.then((res: any) => {
-  //       const loginStatus = { islogin: true };
-  //       if (res.status_code == 200) {
-  //         console.log(res);
-  //         dispatch({
-  //           type: UPDATE_USER_STATE.type,
-  //           action: UPDATE_USER_STATE.action.UPDATE_LOGIN,
-  //           data: { userData: res.data, loginStatus: loginStatus },
-  //         });
-  //       }
-  //     });
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (checkCookie(cookie_const.COOKIE_BRAIN4CE)) {
+      const data = verifyCookie(accessCookie(cookie_const.COOKIE_BRAIN4CE));
+      data.then((res: any) => {
+        const loginStatus = { islogin: true };
+        if (res.status_code == 200) {
+          console.log(res);
+          dispatch({
+            type: UPDATE_USER_STATE.type,
+            action: UPDATE_USER_STATE.action.UPDATE_LOGIN,
+            data: { userData: res.data, loginStatus: loginStatus },
+          });
+        }
+      });
+    }
+  }, []);
 
   return (
     //     <> 
     //     I am a static page for {data.course.display_title} 
     // </>
-    // <AppContext.Provider value={{ state, dispatch }}>
+     <AppContext.Provider value={{ state, dispatch }}>
       <ClpLayout countries={data.countries} searchtabs={data.searchtabs}>
         {/* {console.log(data.searchtabs)} */}
         <Breadcrumb />
@@ -116,7 +116,7 @@ const CoursePage = ({ data, errors }: Props) => {
         {/* <ICE course_sections={data.course.course_sections.clp_ice} /> */}
         <OtherCityLink />
       </ClpLayout>
-    // </AppContext.Provider>
+     </AppContext.Provider>
   );
 };
 
