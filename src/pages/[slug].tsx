@@ -75,47 +75,47 @@ const CoursePage = ({ data, errors }: Props) => {
   // }, []);
 
   return (
-        <> 
-        I am a static page for {data.course.display_title} 
-    </>
+    //     <> 
+    //     I am a static page for {data.course.display_title} 
+    // </>
     // <AppContext.Provider value={{ state, dispatch }}>
-    //   <ClpLayout countries={data.countries} searchtabs={data.searchtabs}>
-    //     {console.log(data.searchtabs)}
-    //     <Breadcrumb />
-    //     <CourseTitle />
-    //     <VideoInfo />
-    //     <LearningByEdureka
-    //       course_section={data.course.course_sections.clp_360_deg_section}
-    //     />
-    //     <KnowYourCourse
-    //       knowYourCourse={
-    //         data.course.course_sections.clp_get_to_know_your_course
-    //       }
-    //       getaGlimpse={data.course.course_sections.clp_get_a_glimpse}
-    //       courseOverview={data.course.course_sections.clp_course_overview}
-    //     />
-    //     <BatchComponent
-    //       batches={data.batches}
-    //       price={data.course.course_price}
-    //       currencies={data.currencies}
-    //       countries={data.countries}
-    //     />
-    //     <Curriculum
-    //       course_section={data.course.course_sections.clp_curriuculum_section}
-    //     />
-    //     <Projects course_section={data.course.course_sections.clp_project} />
-    //     <Certification />
-    //     <EdurekaAdvantage
-    //       course_sections={data.course.course_sections.clp_edureka_advantage}
-    //     />
-    //     <Reviews
-    //       rating_section={data.course.course_sections.clp_rating_section}
-    //       review_section={data.course.reviews}
-    //     />
-    //     <FAQ course_sections={data.course.course_sections.clp_faq} />
-    //     <ICE course_sections={data.course.course_sections.clp_ice} />
-    //     <OtherCityLink />
-    //   </ClpLayout>
+      <ClpLayout countries={data.countries} searchtabs={data.searchtabs}>
+        {/* {console.log(data.searchtabs)} */}
+        <Breadcrumb />
+        <CourseTitle />
+        <VideoInfo />
+        <LearningByEdureka
+          course_section={data.course.course_sections.clp_360_deg_section}
+        />
+        <KnowYourCourse
+          knowYourCourse={
+            data.course.course_sections.clp_get_to_know_your_course
+          }
+          getaGlimpse={data.course.course_sections.clp_get_a_glimpse}
+          courseOverview={data.course.course_sections.clp_course_overview}
+        />
+        <BatchComponent
+          batches={data.batches}
+          price={data.course.course_price}
+          currencies={data.currencies}
+          countries={data.countries}
+        />
+        <Curriculum
+          course_section={data.course.course_sections.clp_curriuculum_section}
+        />
+        <Projects course_section={data.course.course_sections.clp_project} />
+        <Certification />
+        <EdurekaAdvantage
+          course_sections={data.course.course_sections.clp_edureka_advantage}
+        />
+        <Reviews
+          rating_section={data.course.course_sections.clp_rating_section}
+          review_section={data.course.reviews}
+        />
+        <FAQ course_sections={data.course.course_sections.clp_faq} />
+        <ICE course_sections={data.course.course_sections.clp_ice} />
+        <OtherCityLink />
+      </ClpLayout>
     // </AppContext.Provider>
   );
 };
