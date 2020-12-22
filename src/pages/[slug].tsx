@@ -81,7 +81,7 @@ const CoursePage = ({ data, errors }: Props) => {
     // <AppContext.Provider value={{ state, dispatch }}>
       <ClpLayout countries={data.countries} searchtabs={data.searchtabs}>
         {/* {console.log(data.searchtabs)} */}
-        <Breadcrumb />
+        {/* <Breadcrumb />
         <CourseTitle />
         <VideoInfo />
         <LearningByEdureka
@@ -114,7 +114,7 @@ const CoursePage = ({ data, errors }: Props) => {
         />
         <FAQ course_sections={data.course.course_sections.clp_faq} />
         <ICE course_sections={data.course.course_sections.clp_ice} />
-        <OtherCityLink />
+        <OtherCityLink /> */}
       </ClpLayout>
     // </AppContext.Provider>
   );
@@ -181,7 +181,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           searchtabs: tabdata,
         }
       },
-      revalidate: 1
+      revalidate: 100000
     }
   } catch (err) {
     // Pass error to the page via props
