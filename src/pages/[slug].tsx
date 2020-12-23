@@ -31,6 +31,7 @@ import KnowYourCourse from "../components/clp/know_your_course/KnowYourCourse.co
 import { sectionsMapping } from "../utils/section_mapping";
 import ScrollSpy from "../components/clp/ScrollSpy/ScrollSpy.component";
 import { searchMapping } from "../utils/search_mappings";
+import {server} from "../config/index";
 //import {AuthProvider, } from '../components/shared/context/Auth.context';
 
 type Props = {
@@ -76,14 +77,16 @@ const CoursePage = ({ data, errors }: Props) => {
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
-      <ClpLayout countries={data.countries} searchtabs={data.searchtabs}>
-        {console.log(data.countries)}
+      <ClpLayout countries={data.countries} searchtabs={data.searchtabs} categories={data.course.allcategories}>
+        {console.log(process.env.NODE_ENV)}
+        {console.log(server)};
+        {console.log(data.course)}
         <Breadcrumb />
         <CourseTitle />
         <VideoInfo />
-        <LearningByEdureka
+        {/* <LearningByEdureka
           course_section={data.course.course_sections.clp_360_deg_section}
-        />
+        /> */}
         <KnowYourCourse
           knowYourCourse={
             data.course.course_sections.clp_get_to_know_your_course
