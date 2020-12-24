@@ -16,6 +16,7 @@ function MenuLeftSlide(props: any) {
             showSidebar={props.showSidebar}
             setLoginSignup={props.setLoginSignup}
             isLoggedIn={props.isLoggedIn}
+            categories={props.categories}
           />
         </div>
       </nav>

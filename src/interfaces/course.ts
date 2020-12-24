@@ -8,6 +8,7 @@ export interface Course {
     description_text: string;
     description: string;
     is_selfpaced: string;
+    allcategories:any;
     is_master: number;
     rating: number;
     isLive: string;

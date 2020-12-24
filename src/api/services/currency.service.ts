@@ -5,7 +5,8 @@ import {Currency} from './../../interfaces/currency'
  */
 const getCurrencies = async () => {
   try {
-   let response = await makeServerGet("https://uat-utilities.edureka.in/currencies");
+  // let response = await makeServerGet("https://uat-utilities.edureka.in/currencies");
+   let response = await makeServerGet("http://utilities.dev-edureka.co/currencies");
    return response.data;
   } 
   catch (err) {

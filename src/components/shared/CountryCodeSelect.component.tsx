@@ -1,7 +1,10 @@
-import React from "react";
+import React,{useState,useContext, useEffect} from "react";
 import Select, { components } from "react-select";
 import styles from "./countrycodeselect.module.scss";
 import { DownFilledArrow } from "./icons/downfilledarrow";
+import {Country} from "../../interfaces/country"
+import {AppContext} from '../../store';
+import UPDATE_USER_STATE from '../../store/user/action';
 
 const customStyles = {
   option: (provided: any, state: { isSelected: any }) => ({
@@ -45,13 +48,13 @@ const customStyles = {
   }),
 };
 
-const options = [
-  { value: "india", label: "IN" },
-  { value: "us", label: "US" },
-  { value: "uk", label: "UK" },
-];
+// const options = [
+//   { value: "india", label: "IN" },
+//   { value: "us", label: "US" },
+//   { value: "uk", label: "UK" },
+// ];
 
-const DropdownIndicator = (props: any) => {
+const DropdownIndicator = (props:any) => {
   return (
     <components.DropdownIndicator {...props}>
       <DownFilledArrow color="#192f60" />
@@ -59,9 +62,27 @@ const DropdownIndicator = (props: any) => {
   );
 };
 
-const CountryCodeSelect = (props: any) => {
+type Props={
+  options:any;
+  className:string;
+}
+
+const CountryCodeSelect = ({className,options}: Props) => {
+
+  const{state,dispatch} = useContext(AppContext);
+  const[code,setCode] = useState("+");
+  
+  const onChangeHandler = (option: any) =>{
+    let arr = option.value.split("#");
+    let val = {country:arr[0],currency:arr[1]}
+    setCode(arr[2]);
+    dispatch({ type: UPDATE_USER_STATE.type,
+      action: UPDATE_USER_STATE.action.UPDATE_COUNTRY,
+      data: val})
+  }
+
   return (
-    <div className={`${styles.country_select} ${props.className}`}>
+    <div className={`${styles.country_select} ${className}`}>
       <div>
         <Select
           instanceId="country-code-select"
@@ -72,9 +93,10 @@ const CountryCodeSelect = (props: any) => {
             IndicatorSeparator: () => null,
             DropdownIndicator,
           }}
+          onChange={onChangeHandler}
         />
       </div>
-      <span>+91</span>
+        <span>{code}</span>
     </div>
   );
 };

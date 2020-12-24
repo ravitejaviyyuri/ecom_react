@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React,{useContext,useEffect} from "react";
 import { AppContext } from '../../../store';
 import UPDATE_USER_STATE from '../../../store/user/action';
 import Button from "react-bootstrap/Button";
@@ -8,10 +8,19 @@ import styles from "./form.module.scss";
 import {userSignup} from "../../../api/services/signup.service"
 import {createCookie} from "../../../utils/cookie";
 import {cookie_const} from "../../../utils/constants";
-
+import {Country} from "../../../interfaces/country";
 const SignupForm = (props: any) => {
-
+    var options:any = [];
     const {state, dispatch} = useContext(AppContext);
+    useEffect(()=>{
+     
+        if(props.countries != undefined){   
+          props.countries.forEach((country: Country) => {
+          options.push(Object.create({ "value":country.country_name+"#"+country.currency+"#"+country.phone_code, "label": country.currency+" - "+country.country_name}));
+          //console.log(Object.create({ "value":country.country_name+"#"+country.currency+"#"+country.phone_code, "label": country.country_name+"#"+country.currency}).label)
+         })
+      }
+  }, )
     let message = ""
     const onSubmitHandler = (event:any) =>{
       event.preventDefault();
@@ -33,8 +42,6 @@ const SignupForm = (props: any) => {
             createCookie(cookie_const.COOKIE_USER_EMAIL,res.userData.emailAddress);
             createCookie( cookie_const.COOKIE_USER_PHONE,res.userData.mobileNo);
             //createCookie( cookie_const.COOKIR_USER_COUNTRY_CODE,res.userData.);
-          
-
           }else{
             console.log("error");
             message = "InValid Email or Mobile Number";
@@ -42,8 +49,6 @@ const SignupForm = (props: any) => {
         })
 
       }
-
-
   return (
     <Form onSubmit={onSubmitHandler} className={styles.form}>
       <Form.Group controlId="signupFormEmail">
@@ -57,7 +62,7 @@ const SignupForm = (props: any) => {
       </Form.Group>
       <Form.Group controlId="signupFormPhone" className="position-relative">
         <Form.Label className={styles.label}>Phone Number</Form.Label>
-        <CountryCodeSelect className={styles.code_select} />
+        <CountryCodeSelect className={styles.code_select} options={options}/> 
         <Form.Control
           className={`${styles.input} ${styles.phone_input}`}
           type="tel"
