@@ -72,7 +72,7 @@ const SampleCertitficateModal = (props: any) => {
                 className="position-relative"
               >
                 <Form.Label className={styles.label}>Phone Number</Form.Label>
-                <CountryCodeSelect className={styles.code_select} />
+                <CountryCodeSelect className={styles.code_select} options = "" />
                 <Form.Control
                   className={`${styles.input} ${styles.phone_input}`}
                   type="tel"
