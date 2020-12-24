@@ -22,7 +22,7 @@ const LoginSignup = (props: any) => {
         {props.type === "login" ? (
           <LoginForm setLogin={props.handleType} handleClose={props.handleClose} />
         ) : (
-          <SignupForm setLogin={props.handleType} handleClose={props.handleClose} countries={props.countries}/>
+          <SignupForm setLogin={props.handleType} handleClose={props.handleClose} options={props.options}/>
         )}
       </Modal.Body>
     </Modal>
