@@ -82,7 +82,7 @@ const CoursePage = ({ data, errors }: Props) => {
         {console.log(process.env.NODE_ENV)}
         {console.log(server)};
         {console.log(data.course)}
-        {data.localeData}
+        {JSON.stringify(data.localeData)}
         <Breadcrumb />
         <CourseTitle />
         <VideoInfo />
