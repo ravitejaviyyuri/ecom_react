@@ -43,6 +43,6 @@ if(process.env.NODE_ENV == "production"){
 }else{
     env_urls = uat_urls;
 }
-
+env_urls = uat_urls; //test remove this line later on
 
 export const server:any = env_urls;
