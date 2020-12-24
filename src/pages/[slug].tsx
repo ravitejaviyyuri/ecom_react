@@ -42,6 +42,7 @@ type Props = {
     countries: Country[];
     reviews: String[];
     searchtabs: any;
+    localeData:any;
   };
   errors?: string;
 };
@@ -81,6 +82,7 @@ const CoursePage = ({ data, errors }: Props) => {
         {console.log(process.env.NODE_ENV)}
         {console.log(server)};
         {console.log(data.course)}
+        {data.localeData}
         <Breadcrumb />
         <CourseTitle />
         <VideoInfo />
@@ -157,7 +159,7 @@ const CoursePage = ({ data, errors }: Props) => {
 // };
 
 //ISR code
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params,locale }) => {
   try {
     const slug = params?.slug;
 
@@ -179,6 +181,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           currencies:currencies,
           countries: countries,
           searchtabs: tabdata,
+          localeData:locale,
         }
       },
       revalidate: 100000
