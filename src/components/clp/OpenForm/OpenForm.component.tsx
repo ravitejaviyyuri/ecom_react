@@ -16,7 +16,7 @@ const OpenForm = () => {
             className={`position-relative ${styles.form_group}`}
           >
             <Form.Label className={styles.label}>Phone Number</Form.Label>
-            <CountryCodeSelect className={styles.code_select} />
+            <CountryCodeSelect className={styles.code_select} options=""/>
             <Form.Control
               className={`${styles.input} ${styles.phone_input}`}
               type="tel"
