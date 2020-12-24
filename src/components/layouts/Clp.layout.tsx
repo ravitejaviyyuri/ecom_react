@@ -10,9 +10,10 @@ import ExitIntentPopup from "../clp/ExitIntent/ExitIntent.component";
 import StartLearning from "../clp/StartLearningPopup/StartLearning.component";
 import HelpChooseCourse from "../clp/HelpChooseCourse/HelpChooseCourse.component";
 import {Country} from "../../interfaces/country";
+import Loader from "../shared/Loader/Loader.component";
 
 function ClpLayout(props: any) {
-
+  const [isLoader, setLoader] = useState(false);
   const [isMob, setMob] = useState(false);
   const [showExitIntent, setExitIntent] = useState(false);
   const [showLoginSignup, setLoginSignup] = useState(false);
@@ -37,6 +38,7 @@ function ClpLayout(props: any) {
 
   return (
     <div className="top_margin_fix_header">
+      {isLoader && <Loader />}
       <Head>
         <title>Edureka - Devpops</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
