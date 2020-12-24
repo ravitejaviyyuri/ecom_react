@@ -84,9 +84,9 @@ const CoursePage = ({ data, errors }: Props) => {
         <Breadcrumb />
         <CourseTitle />
         <VideoInfo />
-        {/* <LearningByEdureka
+        <LearningByEdureka
           course_section={data.course.course_sections.clp_360_deg_section}
-        /> */}
+        />
         {/* <KnowYourCourse
           knowYourCourse={
             data.course.course_sections.clp_get_to_know_your_course
