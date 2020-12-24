@@ -159,9 +159,9 @@ const CoursePage = ({ data, errors }: Props) => {
 // };
 
 //ISR code
-export const getStaticProps: GetStaticProps = async ({ params,locale }) => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
-    const slug = params?.slug;
+    const slug =ctx.params?.slug;
 
     const course: Course = await getCourse(String(slug))
     course.course_sections = sectionsMapping(course.course_sections);
@@ -181,7 +181,7 @@ export const getStaticProps: GetStaticProps = async ({ params,locale }) => {
           currencies:currencies,
           countries: countries,
           searchtabs: tabdata,
-          localeData:locale,
+          localeData:ctx,
         }
       },
       revalidate: 100000
