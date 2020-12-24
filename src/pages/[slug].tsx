@@ -84,9 +84,9 @@ const CoursePage = ({ data, errors }: Props) => {
         <Breadcrumb />
         <CourseTitle />
         <VideoInfo />
-        {/* <LearningByEdureka
+        <LearningByEdureka
           course_section={data.course.course_sections.clp_360_deg_section}
-        /> */}
+        />
         <KnowYourCourse
           knowYourCourse={
             data.course.course_sections.clp_get_to_know_your_course
@@ -100,20 +100,20 @@ const CoursePage = ({ data, errors }: Props) => {
           currencies={data.currencies}
           countries={data.countries}
         />
-        {/* <Curriculum
+        <Curriculum
           course_section={data.course.course_sections.clp_curriuculum_section}
-        /> */}
-        {/* <Projects course_section={data.course.course_sections.clp_project} /> */}
-        {/* <Certification /> */}
-        {/* <EdurekaAdvantage
+        />
+        <Projects course_section={data.course.course_sections.clp_project} /> */}
+        <Certification />
+        <EdurekaAdvantage
           course_sections={data.course.course_sections.clp_edureka_advantage}
-        /> */}
-        {/* <Reviews
+        />
+        <Reviews
           rating_section={data.course.course_sections.clp_rating_section}
           review_section={data.course.reviews}
-        /> */}
-        {/* <FAQ course_sections={data.course.course_sections.clp_faq} /> */}
-        {/* <ICE course_sections={data.course.course_sections.clp_ice} /> */}
+        />
+        <FAQ course_sections={data.course.course_sections.clp_faq} />
+        <ICE course_sections={data.course.course_sections.clp_ice} />
         <OtherCityLink />
       </ClpLayout>
      </AppContext.Provider>
