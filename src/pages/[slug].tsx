@@ -199,8 +199,8 @@ export const getStaticPaths: GetStaticPaths<{slug:string}> = async () => {
 
     // Pass data to the page via props
     return {
-     paths:[{params:{slug:"devops-certification-training",locale: 'en-US'}},
-            {params:{slug:"devops-certification-training",locale: 'en-IN'}}
+     paths:[{params:{slug:"devops-certification-training"},locale: 'en-US'},
+            {params:{slug:"devops-certification-training"},locale: 'en-IN'}
             ],
      fallback:false,
     };
