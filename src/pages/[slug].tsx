@@ -32,6 +32,7 @@ import { sectionsMapping } from "../utils/section_mapping";
 import ScrollSpy from "../components/clp/ScrollSpy/ScrollSpy.component";
 import { searchMapping } from "../utils/search_mappings";
 import {server} from "../config/index";
+
 //import {AuthProvider, } from '../components/shared/context/Auth.context';
 
 type Props = {
@@ -42,7 +43,6 @@ type Props = {
     countries: Country[];
     reviews: String[];
     searchtabs: any;
-    localeData:any;
   };
   errors?: string;
 };
@@ -75,14 +75,15 @@ const CoursePage = ({ data, errors }: Props) => {
       });
     }
   }, []);
+ 
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       <ClpLayout countries={data.countries} searchtabs={data.searchtabs} categories={data.course.allcategories}>
         {console.log(process.env.NODE_ENV)}
-        {console.log(server)};
+        {console.log(server)}
         {console.log(data.course)}
-        {JSON.stringify(data.localeData)}
+        
         <Breadcrumb />
         <CourseTitle />
         <VideoInfo />
@@ -159,9 +160,9 @@ const CoursePage = ({ data, errors }: Props) => {
 // };
 
 //ISR code
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async ({params}) => {
   try {
-    const slug =ctx.params?.slug;
+    const slug =params?.slug;
 
     const course: Course = await getCourse(String(slug))
     course.course_sections = sectionsMapping(course.course_sections);
@@ -181,7 +182,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
           currencies:currencies,
           countries: countries,
           searchtabs: tabdata,
-          localeData:ctx,
         }
       },
       revalidate: 100000
@@ -199,9 +199,7 @@ export const getStaticPaths: GetStaticPaths<{slug:string}> = async () => {
 
     // Pass data to the page via props
     return {
-     paths:[{params:{slug:"devops-certification-training"},locale: 'en-US'},
-            {params:{slug:"devops-certification-training"},locale: 'en-IN'},
-            {params:{slug:"devops-certification-training"},locale: 'fr'}
+     paths:[{params:{slug:"devops-certification-training"}}
             ],
      fallback:false,
     };
