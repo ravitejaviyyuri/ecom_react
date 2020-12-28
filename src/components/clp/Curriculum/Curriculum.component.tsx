@@ -191,7 +191,7 @@ type Props = {
   course_section: any
 }
 
-const Curriculum = ({course_section}:any) => {
+const Curriculum = ({curicullumData}:any) => {
   const [isMob, setMob] = useState(false);
   const [showExpand, setShowExpand] = useState(false);
   const [expand, setExpand] = useState(false);
@@ -207,25 +207,25 @@ const Curriculum = ({course_section}:any) => {
     setExpand(!expand);
   };
 
-  const curicullumData = course_section.section_details;
-  const formattedData:any = curicullumData.map((value:any)=>{
-    const title = value.subsection_title;
-    const parsedValue = JSON.parse(value.subsection_content);
-    const noofassignments = parsedValue.numberOfAssingments;
-    const nooftopics = parsedValue.numberOfTopics;
-    const handson = parsedValue.handsOn;
-    const skills = parsedValue.skillsTolearn;
-    const topics = parsedValue.topics;
-    return{
-      title,
-      noofassignments,
-      nooftopics,
-      skills,
-      handson,
-      topics
-    }
+  // const curicullumData = course_section.section_details;
+  // const formattedData:any = curicullumData.map((value:any)=>{
+  //   const title = value.subsection_title;
+  //   const parsedValue = JSON.parse(value.subsection_content);
+  //   const noofassignments = parsedValue.numberOfAssingments;
+  //   const nooftopics = parsedValue.numberOfTopics;
+  //   const handson = parsedValue.handsOn;
+  //   const skills = parsedValue.skillsTolearn;
+  //   const topics = parsedValue.topics;
+  //   return{
+  //     title,
+  //     noofassignments,
+  //     nooftopics,
+  //     skills,
+  //     handson,
+  //     topics
+  //   }
 
-  });
+  // });
   
 
   useEffect(() => {
@@ -260,7 +260,7 @@ const Curriculum = ({course_section}:any) => {
           </div>
           <Col xs={12} className={styles.curriculum_accor_col}>
             <CurriculumAccordion
-              curriculum={formattedData}
+              curriculum={curicullumData}
               handleShowDownloadSyllabus={handleShowDownloadSyllabus}
               handleShowWatchVideo={handleShowWatchVideo}
               setShowExpand={setShowExpand}

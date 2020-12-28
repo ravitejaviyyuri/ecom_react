@@ -29,9 +29,10 @@ import VideoInfo from "../components/clp/video_info/VideoInfo.component";
 import LearningByEdureka from "../components/clp/learning_by_edureka/LearnEdu.component";
 import KnowYourCourse from "../components/clp/know_your_course/KnowYourCourse.component";
 import { sectionsMapping } from "../utils/section_mapping";
-import ScrollSpy from "../components/clp/ScrollSpy/ScrollSpy.component";
+
 import { searchMapping } from "../utils/search_mappings";
 import {server} from "../config/index";
+import {formatCLP360DegSection, formatCLPGetAGlimpse, formatCLPCourseOverview, formatCLPCurriculum} from "../utils/format_sections";
 
 //import {AuthProvider, } from '../components/shared/context/Auth.context';
 
@@ -171,6 +172,12 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     const batches = await getBatches(course.id);
     const searchData = await searchTabs();
     const tabdata = searchMapping(searchData);
+    course.course_sections.clp_360_deg_section = formatCLP360DegSection(course.course_sections.clp_360_deg_section.section_details);
+    course.course_sections.clp_get_a_glimpse = formatCLPGetAGlimpse(course.course_sections.clp_get_a_glimpse.section_details);
+    course.course_sections.clp_course_overview = formatCLPCourseOverview(course.course_sections.clp_course_overview.section_details);
+    course.course_sections.clp_curriuculum_section = formatCLPCurriculum(course.course_sections.clp_curriuculum_section.section_details);
+
+
 
 
     // Pass data to the page via props

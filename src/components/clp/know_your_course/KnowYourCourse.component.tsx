@@ -25,57 +25,57 @@ const titlekwmore = [
 
 const KnowYourCourse = ({knowYourCourse, getaGlimpse, courseOverview}:any) => {
 
-  knowYourCourse = knowYourCourse.section_details;
-  getaGlimpse = getaGlimpse.section_details;
-  courseOverview = courseOverview.section_details;
+  // knowYourCourse = knowYourCourse.section_details;
+  // getaGlimpse = getaGlimpse.section_details;
+  // courseOverview = courseOverview.section_details;
 
-  const formattedKnowYourCourse: any = knowYourCourse.map((value: any) => {
-    const title = value.subsection_title;
-    const parsedValue = JSON.parse(value.subsection_content);
-    const cardImageName = parsedValue.get_to_know_image;
-    const question = parsedValue.get_to_know_question;
-    const answer = parsedValue.get_to_know_answer;
-    return {
-      title,
-      cardImageName,
-      question,
-      answer
-    }
-  });
+  // const formattedKnowYourCourse: any = knowYourCourse.map((value: any) => {
+  //   const title = value.subsection_title;
+  //   const parsedValue = JSON.parse(value.subsection_content);
+  //   const cardImageName = parsedValue.get_to_know_image;
+  //   const question = parsedValue.get_to_know_question;
+  //   const answer = parsedValue.get_to_know_answer;
+  //   return {
+  //     title,
+  //     cardImageName,
+  //     question,
+  //     answer
+  //   }
+  // });
 
-  const formattedGetaGlimpse: any = getaGlimpse.map((value: any) => {
-    const title = value.subsection_title;
-    const parsedValue = JSON.parse(value.subsection_content);
-    const cardImageName = parsedValue.get_glimpse_image;
-    const keyStat = parsedValue.get_glimpse_key_stat;
-    const keyStatDescription = parsedValue.get_glimpse_key_stat_desc;
-    return {
-      title,
-      cardImageName,
-      keyStat,
-      keyStatDescription
-    }
-  });
+  // const formattedGetaGlimpse: any = getaGlimpse.map((value: any) => {
+  //   const title = value.subsection_title;
+  //   const parsedValue = JSON.parse(value.subsection_content);
+  //   const cardImageName = parsedValue.get_glimpse_image;
+  //   const keyStat = parsedValue.get_glimpse_key_stat;
+  //   const keyStatDescription = parsedValue.get_glimpse_key_stat_desc;
+  //   return {
+  //     title,
+  //     cardImageName,
+  //     keyStat,
+  //     keyStatDescription
+  //   }
+  // });
 
-  let formattedCourseOverview: any = courseOverview.map((value: any) => {
-    const title = value.subsection_title;
-    const parsedValue = JSON.parse(value.subsection_content);
-    const courseDuration = parsedValue.course_duration;
-    const noOfLiveClasses = parsedValue.no_of_live_classes;
-    const noOfAssignments = parsedValue.number_of_assingments;
-    const noOfProjects = parsedValue.number_of_projects;
-    const nameOfCertificate = parsedValue.name_of_certificate;
-    return {
-      title,
-      courseDuration,
-      noOfLiveClasses,
-      noOfAssignments,
-      noOfProjects,
-      nameOfCertificate
-    }
-  });
+  // let formattedCourseOverview: any = courseOverview.map((value: any) => {
+  //   const title = value.subsection_title;
+  //   const parsedValue = JSON.parse(value.subsection_content);
+  //   const courseDuration = parsedValue.course_duration;
+  //   const noOfLiveClasses = parsedValue.no_of_live_classes;
+  //   const noOfAssignments = parsedValue.number_of_assingments;
+  //   const noOfProjects = parsedValue.number_of_projects;
+  //   const nameOfCertificate = parsedValue.name_of_certificate;
+  //   return {
+  //     title,
+  //     courseDuration,
+  //     noOfLiveClasses,
+  //     noOfAssignments,
+  //     noOfProjects,
+  //     nameOfCertificate
+  //   }
+  // });
  
-  formattedCourseOverview = Object.assign({}, ...formattedCourseOverview);
+  // formattedCourseOverview = Object.assign({}, ...formattedCourseOverview);
 
   let leftitems: string[] = [];
   let rightitems: string[] = [];
@@ -197,7 +197,7 @@ const KnowYourCourse = ({knowYourCourse, getaGlimpse, courseOverview}:any) => {
             <div className={styles.absolute_bx}>
               <div className={styles.title}>Glimpse of future</div>
               <Row className={styles.glim_row}>
-                {formattedGetaGlimpse.map((value: any, index: any) => {
+                {getaGlimpse.map((value: any, index: any) => {
                   return (
                     <Col key={String(index)} className={styles.glim_bx}>
                       <div className={styles.heading}>
@@ -219,11 +219,11 @@ const KnowYourCourse = ({knowYourCourse, getaGlimpse, courseOverview}:any) => {
           <ul>
             <li>
               <ScheduleIcon color="#5e98ee" />
-              <span>{formattedCourseOverview.courseDuration}</span>
+              <span>{courseOverview.courseDuration}</span>
             </li>
             <li>
               <LiveClassIcon color="#5e98ee" />
-              <span>{formattedCourseOverview.noOfLiveClasses}</span>
+              <span>{courseOverview.noOfLiveClasses}</span>
             </li>
             <li>
               <TestIcon color="#5e98ee" />
@@ -231,15 +231,15 @@ const KnowYourCourse = ({knowYourCourse, getaGlimpse, courseOverview}:any) => {
             </li>
             <li>
               <AssignmentIcon color="#5e98ee" />
-              <span>{formattedCourseOverview.noOfAssignments}</span>
+              <span>{courseOverview.noOfAssignments}</span>
             </li>
             <li>
               <ProjectIcon color="#5e98ee" />
-              <span>{formattedCourseOverview.noOfProjects}</span>
+              <span>{courseOverview.noOfProjects}</span>
             </li>
             <li>
               <CertificateIcon color="#5e98ee" />
-              <span>{formattedCourseOverview.nameOfCertificate}</span>
+              <span>{courseOverview.nameOfCertificate}</span>
             </li>
           </ul>
         </div>

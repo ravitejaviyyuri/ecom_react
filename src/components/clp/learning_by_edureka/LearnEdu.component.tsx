@@ -7,20 +7,20 @@ import Card from "react-bootstrap/Card";
 import styles from "./learnedu.module.scss";
 import { TickCircleIcon } from "../../shared/icons/tickcircleicon";
 
-const LearningByEdureka = ({course_section}:any) => {
+const LearningByEdureka = ({edureka360degSection}:any) => {
 
-  const edureka360degSection = course_section.section_details;
-  const formattedData: any = edureka360degSection.map((value: any) => {
-    const title = value.subsection_title;
-    const parsedValue = JSON.parse(value.subsection_content);
-    const cardImageName = parsedValue.card_image_name;
-    const dataPoints = JSON.parse(parsedValue.data);
-    return {
-      title,
-      cardImageName,
-      dataPoints
-    }
-  });
+  // const edureka360degSection = course_section.section_details;
+  // const formattedData: any = edureka360degSection.map((value: any) => {
+  //   const title = value.subsection_title;
+  //   const parsedValue = JSON.parse(value.subsection_content);
+  //   const cardImageName = parsedValue.card_image_name;
+  //   const dataPoints = JSON.parse(parsedValue.data);
+  //   return {
+  //     title,
+  //     cardImageName,
+  //     dataPoints
+  //   }
+  // });
   return (
     <section id="approach" className={styles.LearningEdu_section}>
       <Container>
@@ -28,7 +28,7 @@ const LearningByEdureka = ({course_section}:any) => {
           The Future of Learning is Here - 360° Learning by Edureka
         </div>
         <Row>
-          {formattedData.map((card: any, index:any) => {
+          {edureka360degSection.map((card: any, index:any) => {
             card.cardImageName = "/" + card.cardImageName;
             return (
               <Col key={String(index)}>
