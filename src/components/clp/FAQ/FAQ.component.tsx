@@ -26,18 +26,18 @@ const FAQ = ({course_sections}: Props) => {
       }
     }
   }, []);
-  var course_specific: any;
-  var general_queries: any;
-  course_sections.section_details.map((value: any, index: Number) => {
-    let value_content  = JSON.parse(value.subsection_content);
-        if(value_content.querytype == "course_specific"){
-          course_specific = value_content.course_specific;
-        }
-        if(value_content.querytype == "general_queries") {
-          console.log("eneral_queries");
-            general_queries = value_content.general_queries;
-        }
-  })
+  // var course_specific: any;
+  // var general_queries: any;
+  // course_sections.section_details.map((value: any, index: Number) => {
+  //   let value_content  = JSON.parse(value.subsection_content);
+  //       if(value_content.querytype == "course_specific"){
+  //         course_specific = value_content.course_specific;
+  //       }
+  //       if(value_content.querytype == "general_queries") {
+  //         console.log("eneral_queries");
+  //           general_queries = value_content.general_queries;
+  //       }
+  // })
   return (
     <section id="faqs" className={styles.faq_section}>
       <Container>
@@ -54,12 +54,12 @@ const FAQ = ({course_sections}: Props) => {
                     <div className={styles.selector_container}>
                       <Nav.Item>
                         <Nav.Link className={styles.nav_link} eventKey="first">
-                          Course Specific
+                          {course_sections.specific_title}
                         </Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
                         <Nav.Link className={styles.nav_link} eventKey="second">
-                          General Queries
+                         {course_sections.general_title}
                         </Nav.Link>
                       </Nav.Item>
                     </div>
@@ -68,10 +68,10 @@ const FAQ = ({course_sections}: Props) => {
                 <Col sm={12} className={styles.tab_col}>
                   <Tab.Content className={styles.tab_content}>
                     <Tab.Pane eventKey="first">
-                      <Accordion faq={course_specific} />
+                      <Accordion faq={course_sections.course_specific} />
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
-                      <Accordion faq={general_queries} />
+                      <Accordion faq={course_sections.general_queries} />
                     </Tab.Pane>
                   </Tab.Content>
                 </Col>

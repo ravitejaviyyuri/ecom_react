@@ -77,3 +77,70 @@ export function formatCLPCurriculum(curicullumData: any) {
     });
     return formattedData;
 }
+
+
+export function formatCLPEdurekaAdvantage(advantageData: any){
+    type advanatge = { title: any;
+        other: any;
+        edureka: any;
+     };
+     let section_data:any = {};
+      let advantages_arr: advanatge = {title: "", other: "", edureka:""};
+       advantageData.section_details.map((data: any) => {
+           console.log(data);
+          var  subsection_data = JSON.parse(data.subsection_content);
+          subsection_data.map((section: any, index: number)=>{
+              if(index == 0){
+                advantages_arr.title = section;
+              }else if(index == 1){
+               advantages_arr.other = section;
+             }else if(index == 2){
+               advantages_arr.edureka = section;
+             }
+          })
+       })
+       section_data["section_title"] = advantageData.section_title;
+       section_data["advantages_arr"] = advantages_arr;
+       return section_data;
+}
+
+
+export function formatCLPRatings(rating_section: any){
+    let platform_ratings: any;
+    rating_section.section_details.forEach((data: any, index: Number) => {
+      if(index == 0 )
+         platform_ratings = data.subsection_content;
+    })
+    let ratings = JSON.parse(platform_ratings);
+
+    return ratings;
+}
+
+export function formatCLPIce(course_sections:any){
+    let section:any = {};
+     let value_content: any;
+    let list_items = course_sections.section_details.map((value: any) => {
+        value_content  = JSON.parse(value.subsection_content);
+    })
+    section["value_content"] = value_content;
+    section["section_title"] = course_sections.section_title;
+    return section;
+}
+
+export function formatCLPFaq(course_sections:any){
+    let obj:any = {specific_title:"",general_title:"",course_specific:"",general_queries:""};
+    // var course_specific: any;
+    // var general_queries: any;
+    course_sections.section_details.map((value: any, index: Number) => {
+      let value_content  = JSON.parse(value.subsection_content);
+          if(value_content.querytype == "course_specific"){
+            obj["specific_title"] =  value.subsection_title; 
+            obj["course_specific"] = value_content.course_specific;
+          }
+          if(value_content.querytype == "general_queries") {
+            obj["general_title"] =  value.subsection_title; 
+            obj["general_queries"] = value_content.general_queries;
+          }
+    })
+    return obj;
+}

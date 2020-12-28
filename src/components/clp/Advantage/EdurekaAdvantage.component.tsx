@@ -35,21 +35,22 @@ const EdurekaAdvantage = ({course_sections}: Props) => {
    other: any;
    edureka: any;
 };
- let advantages_arr: advanatge = {title: "", other: "", edureka:""};
-  course_sections.section_details.map((data: any) => {
-      console.log(data);
-     var  subsection_data = JSON.parse(data.subsection_content);
-     subsection_data.map((section: any, index: number)=>{
-         if(index == 0){
-           advantages_arr.title = section;
-         }else if(index == 1){
-          advantages_arr.other = section;
-        }else if(index == 2){
-          advantages_arr.edureka = section;
-        }
-     })
-  })
-  console.log(advantages_arr);
+const advantages_arr:advanatge= course_sections.advantages_arr;
+//  let advantages_arr: advanatge = {title: "", other: "", edureka:""};
+//   course_sections.section_details.map((data: any) => {
+//       console.log(data);
+//      var  subsection_data = JSON.parse(data.subsection_content);
+//      subsection_data.map((section: any, index: number)=>{
+//          if(index == 0){
+//            advantages_arr.title = section;
+//          }else if(index == 1){
+//           advantages_arr.other = section;
+//         }else if(index == 2){
+//           advantages_arr.edureka = section;
+//         }
+//      })
+//   })
+//  console.log(advantages_arr);
   return (
     <section className={styles.advantage_section}>
       <Container className={styles.container}>

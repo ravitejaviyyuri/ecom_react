@@ -9,10 +9,9 @@ type Props = {
   course_sections: any
 }
 const ICE = ({course_sections}: Props) => {
-  var  value_content: any;
-  let list_items = course_sections.section_details.map((value: any) => {
-     value_content  = JSON.parse(value.subsection_content);
-     let items = value_content.points.map((point: any, index: number) =>{
+  // let list_items = course_sections.section_details.map((value: any) => {
+  //    value_content  = JSON.parse(value.subsection_content);
+     let items = course_sections.value_content.points.map((point: any, index: number) =>{
       return (<li key ={index} >
       <div>
         <TickCircleIcon color="#36b37e" />
@@ -21,8 +20,8 @@ const ICE = ({course_sections}: Props) => {
     </li>)
     
      })
-     return items;
-  })
+  //    return items;
+  // }
  
   return (
     <section className={styles.ice_section}>
@@ -33,10 +32,10 @@ const ICE = ({course_sections}: Props) => {
               <Col className={styles.details_section}>
                 <div className={styles.heading}>{course_sections.section_title}</div>
                 <div className={styles.info}>
-                  {value_content.icedescription}
+                  {course_sections.value_content.icedescription}
                 </div>
                 <ul className={styles.list}>
-                  {list_items}
+                  {items}
                 </ul>
               </Col>
               <Col className={styles.img_section}>

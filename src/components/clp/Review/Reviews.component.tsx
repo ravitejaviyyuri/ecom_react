@@ -19,12 +19,12 @@ const Reviews = ({rating_section, review_section}: Props) => {
   const handleClick = (tab: string) => {
     setActive(tab);
   };
-  let platform_ratings: any;
-  rating_section.section_details.forEach((data: any, index: Number) => {
-    if(index == 0 )
-       platform_ratings = data.subsection_content;
-  })
-  let ratings = JSON.parse(platform_ratings);
+  // let platform_ratings: any;
+  // rating_section.section_details.forEach((data: any, index: Number) => {
+  //   if(index == 0 )
+  //      platform_ratings = data.subsection_content;
+  // })
+  // let ratings = JSON.parse(platform_ratings);
    return (
     <section className={styles.review_section}>
       <Container>
@@ -80,7 +80,7 @@ const Reviews = ({rating_section, review_section}: Props) => {
             </Tab.Container>
           </Col>
           <Col xs={12}>
-            <Ratings  ratings={ratings}/>
+            <Ratings  ratings={rating_section}/>
           </Col>
         </Row>
       </Container>

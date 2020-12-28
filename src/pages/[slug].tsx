@@ -34,7 +34,7 @@ import { searchMapping } from "../utils/search_mappings";
 import {allcategoriesMapping} from "../utils/allcategories_mapping";
 import {countryCodeMapping} from '../utils/countrycode_mapping';
 import {server} from "../config/index";
-import {formatCLP360DegSection, formatCLPGetAGlimpse, formatCLPCourseOverview, formatCLPCurriculum} from "../utils/format_sections";
+import {formatCLP360DegSection, formatCLPGetAGlimpse, formatCLPCourseOverview, formatCLPCurriculum, formatCLPEdurekaAdvantage,formatCLPRatings,formatCLPIce, formatCLPFaq} from "../utils/format_sections";
 
 //import {AuthProvider, } from '../components/shared/context/Auth.context';
 
@@ -85,13 +85,13 @@ const CoursePage = ({ data, errors }: Props) => {
     <AppContext.Provider value={{ state, dispatch }}>
       <ClpLayout countries={data.countries} options={data.countryCodeOptions.options} searchtabs={data.searchtabs} categories={data.course.allcategories.categories}>
       
-        {console.log(data.course.allcategories)}
+        {console.log(data.course.course_sections)}
         <Breadcrumb />
         <CourseTitle />
         <VideoInfo />
-        <LearningByEdureka
+        {/* <LearningByEdureka
           edureka360degSection={data.course.course_sections.clp_360_deg_section}
-        />
+        /> */}
         <KnowYourCourse
           knowYourCourse={
             data.course.course_sections.clp_get_to_know_your_course
@@ -179,9 +179,10 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     course.course_sections.clp_get_a_glimpse = formatCLPGetAGlimpse(course.course_sections.clp_get_a_glimpse.section_details);
     course.course_sections.clp_course_overview = formatCLPCourseOverview(course.course_sections.clp_course_overview.section_details);
     course.course_sections.clp_curriuculum_section = formatCLPCurriculum(course.course_sections.clp_curriuculum_section.section_details);
-
-
-
+    course.course_sections.clp_edureka_advantage = formatCLPEdurekaAdvantage(course.course_sections.clp_edureka_advantage);
+    course.course_sections.clp_rating_section = formatCLPRatings(course.course_sections.clp_rating_section);
+    course.course_sections.clp_ice = formatCLPIce(course.course_sections.clp_ice);
+    course.course_sections.clp_faq = formatCLPFaq(course.course_sections.clp_faq);
 
     // Pass data to the page via props
     return {
