@@ -89,7 +89,7 @@ const CoursePage = ({ data, errors }: Props) => {
         <CourseTitle />
         <VideoInfo />
         <LearningByEdureka
-          course_section={data.course.course_sections.clp_360_deg_section}
+          edureka360degSection={data.course.course_sections.clp_360_deg_section}
         />
         <KnowYourCourse
           knowYourCourse={
@@ -105,7 +105,7 @@ const CoursePage = ({ data, errors }: Props) => {
           countries={data.countries}
         />
         <Curriculum
-          course_section={data.course.course_sections.clp_curriuculum_section}
+          curicullumData={data.course.course_sections.clp_curriuculum_section}
         />
         <Projects course_section={data.course.course_sections.clp_project} /> 
         <Certification />
