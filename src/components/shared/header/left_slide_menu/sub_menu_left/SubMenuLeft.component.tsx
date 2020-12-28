@@ -11,72 +11,9 @@ import {cookie_const} from '../../../../../utils/constants';
 import {deleteCookie} from '../../../../../utils/cookie';
 import { forEach } from "lodash";
 
-interface SubChildren{
-  id?:number;
-  name?:string;
-  to?:string;
-}
-// interface SubChildren{
-//   id?:number;
-//   name?:string;
-//   to?:string;
-// }
-interface Content{
-  content?:(SubChildren);
-}
-
-interface MiddleChildren{
-  id?:number;
-  name?:string;
-  children?:(Content)[];
-}
-
-interface Children  {
-    title?:string;
-    content?:(MiddleChildren)[];
-}
-
-// interface Children  {
-//   title?:string;
-//   content?:(SubChildren)[];
-// }
 
 const SubMenuleft = (props: any) => {
   const {state, dispatch} = useContext(AppContext);
-
-  let allChildren:(Children)[] = [];
-  const num = 2;
-  props.categories.forEach((category:any, index:number)=>{
-    var optChildren:Children={};
-
-    var optMiddleChildren:MiddleChildren={};
-    optMiddleChildren.id = index + num;
-    optMiddleChildren.name= category.name;
-
-     optChildren.title= category.name;
-     let optChild:SubChildren;
-     let contentobj:Content = {};
-
-     let content_arr:any = [];
-
-     category.subCategory.forEach((subcategory: any,indexsub:number)=>{
-       indexsub = indexsub + 1;
-       indexsub = indexsub + index;
-        optChild={
-          id:indexsub,
-          name:subcategory.display_title,
-          to:"/"+subcategory.slug,
-        }
-         content_arr.push(optChild)
-    })  
-    contentobj.content = content_arr
-    // let arr = [];
-    //  arr.push(contentobj);
-     optMiddleChildren.children = [contentobj];
-     optChildren.content=[optMiddleChildren];
-     allChildren.push(optChildren);
-  })
-  console.log(allChildren);
 
   let options = [
     {
@@ -86,33 +23,7 @@ const SubMenuleft = (props: any) => {
         {
           id: 1,
           name: "Categories",
-          children: allChildren,//[
-            // {
-            //   title: "JavaScript",
-            //   content: [
-            //     {
-            //       id: 2,
-            //       name: "functions",
-            //       children: [
-            //         {
-            //           content: [
-            //             {
-            //               id: 3,
-            //               name: "functions",
-            //               to: "#",
-            //             },
-            //             {
-            //               id: 4,
-            //               name: "functfghjions",
-            //               to: "#",
-            //             },
-            //           ],
-            //         },
-            //       ],
-            //     },
-            //   ],
-            // },
-          //],
+          children:props.categories
         },
       ],
     },
