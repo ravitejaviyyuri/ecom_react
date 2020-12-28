@@ -10,17 +10,17 @@ import {createCookie} from "../../../utils/cookie";
 import {cookie_const} from "../../../utils/constants";
 import {Country} from "../../../interfaces/country";
 const SignupForm = (props: any) => {
-    var options:any = [];
+  //  var options:any = [];
     const {state, dispatch} = useContext(AppContext);
-    useEffect(()=>{
+  //   useEffect(()=>{
      
-        if(props.countries != undefined){   
-          props.countries.forEach((country: Country) => {
-          options.push(Object.create({ "value":country.country_name+"#"+country.currency+"#"+country.phone_code, "label": country.currency+" - "+country.country_name}));
-          //console.log(Object.create({ "value":country.country_name+"#"+country.currency+"#"+country.phone_code, "label": country.country_name+"#"+country.currency}).label)
-         })
-      }
-  }, )
+  //       if(props.countries != undefined){   
+  //         props.countries.forEach((country: Country) => {
+  //         options.push(Object.create({ "value":country.country_name+"#"+country.currency+"#"+country.phone_code, "label": country.currency+" - "+country.country_name}));
+  //         //console.log(Object.create({ "value":country.country_name+"#"+country.currency+"#"+country.phone_code, "label": country.country_name+"#"+country.currency}).label)
+  //        })
+  //     }
+  // }, )
     let message = ""
     const onSubmitHandler = (event:any) =>{
       event.preventDefault();
@@ -62,7 +62,7 @@ const SignupForm = (props: any) => {
       </Form.Group>
       <Form.Group controlId="signupFormPhone" className="position-relative">
         <Form.Label className={styles.label}>Phone Number</Form.Label>
-        <CountryCodeSelect className={styles.code_select} options={options}/> 
+        <CountryCodeSelect className={styles.code_select} options={props.options}/> 
         <Form.Control
           className={`${styles.input} ${styles.phone_input}`}
           type="tel"

@@ -31,6 +31,8 @@ import KnowYourCourse from "../components/clp/know_your_course/KnowYourCourse.co
 import { sectionsMapping } from "../utils/section_mapping";
 
 import { searchMapping } from "../utils/search_mappings";
+import {allcategoriesMapping} from "../utils/allcategories_mapping";
+import {countryCodeMapping} from '../utils/countrycode_mapping';
 import {server} from "../config/index";
 import {formatCLP360DegSection, formatCLPGetAGlimpse, formatCLPCourseOverview, formatCLPCurriculum} from "../utils/format_sections";
 
@@ -44,6 +46,7 @@ type Props = {
     countries: Country[];
     reviews: String[];
     searchtabs: any;
+    countryCodeOptions:any;
   };
   errors?: string;
 };
@@ -80,11 +83,9 @@ const CoursePage = ({ data, errors }: Props) => {
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
-      <ClpLayout countries={data.countries} searchtabs={data.searchtabs} categories={data.course.allcategories}>
-        {console.log(process.env.NODE_ENV)}
-        {console.log(server)}
-        {console.log(data.course)}
-        
+      <ClpLayout countries={data.countries} options={data.countryCodeOptions.options} searchtabs={data.searchtabs} categories={data.course.allcategories.categories}>
+      
+        {console.log(data.course.allcategories)}
         <Breadcrumb />
         <CourseTitle />
         <VideoInfo />
@@ -167,7 +168,9 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 
     const course: Course = await getCourse(String(slug))
     course.course_sections = sectionsMapping(course.course_sections);
+    course.allcategories = allcategoriesMapping(course.allcategories);
     const countries = await getCountries();
+    const countryCodeOptions =  countryCodeMapping(countries);
     const currencies = await getCurrencies();
     const batches = await getBatches(course.id);
     const searchData = await searchTabs();
@@ -189,6 +192,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
           currencies:currencies,
           countries: countries,
           searchtabs: tabdata,
+          countryCodeOptions:countryCodeOptions,
         }
       },
       revalidate: 100000

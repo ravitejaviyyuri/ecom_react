@@ -51,7 +51,7 @@ function ClpLayout(props: any) {
           setLoginSignup(false);
         }}
         handleType={setLogin}
-        countries={props.countries}
+        options={props.options}
       />
       {!isMob ? <ContactUs /> : null}
       {props.children}
