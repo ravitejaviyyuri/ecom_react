@@ -106,7 +106,7 @@ const Footer = ({countries}: Props) => {
             are the registered trademarks of MongoDB, Inc.
           </Col>
           <Col xs={12} sm={12} md={4} className={styles.country_section}>
-            <CountrySelect   countries={countries}/>
+            {/* <CountrySelect   countries={countries}/> */}
           </Col>
         </Row>
         <Row className={styles.copyright_section}>
