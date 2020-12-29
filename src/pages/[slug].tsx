@@ -85,7 +85,6 @@ const CoursePage = ({ data, errors }: Props) => {
     <AppContext.Provider value={{ state, dispatch }}>
       <ClpLayout countries={data.countries} countryopt = {data.countryCodeOptions.countryopt} options={data.countryCodeOptions.options} searchtabs={data.searchtabs} categories={data.course.allcategories.categories}>
       
-        {console.log(data.course.course_sections)}
         <Breadcrumb />
         <CourseTitle />
         <VideoInfo />
@@ -108,7 +107,7 @@ const CoursePage = ({ data, errors }: Props) => {
         <Curriculum
           curicullumData={data.course.course_sections.clp_curriuculum_section}
         />
-        {/* <Projects course_section={data.course.course_sections.clp_project} />  */}
+        <Projects course_section={data.course.course_sections.clp_project} /> 
         <Certification />
         <EdurekaAdvantage
           course_sections={data.course.course_sections.clp_edureka_advantage}
