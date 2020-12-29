@@ -195,7 +195,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
           countryCodeOptions:countryCodeOptions,
         }
       },
-      revalidate: 100000
+      revalidate: 1
     }
   } catch (err) {
     // Pass error to the page via props
