@@ -9,7 +9,7 @@ import UPDATE_USER_STATE from '../../../store/user/action';
 
 
 type Props = {
-  countries: Country[];
+  countries:any;
 }
 
 const customStyles = {
@@ -54,10 +54,12 @@ const DropdownIndicator = (props: any) => {
 const CountrySelect = ({countries}: Props) => {
 
 const {state, dispatch} = useContext(AppContext);
+console.log("options");
+console.log(countries);
 
-const options = countries.map((country: Country) => 
-     Object.create({ "value":country.country_name+"#"+country.currency, "label": country.country_name})
-)
+// const options = countries.map((country: Country) => 
+//      Object.create({ "value":country.country_name+"#"+country.currency, "label": country.country_name})
+// )
 const onChangeHandler = (option: any) =>{
   let arr = option.value.split("#");
   let val = {country:arr[0],currency:arr[1]}
@@ -71,7 +73,7 @@ const onChangeHandler = (option: any) =>{
       <span className={styles.label}>Country</span>
       <Select
         instanceId="country-select"
-        options={options}
+        options={countries}
         styles={customStyles}
         isSearchable={true}
         onChange = {onChangeHandler}

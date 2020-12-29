@@ -20,7 +20,7 @@ import { YoutubeIcon } from "../icons/youtubeicon";
 import {Country} from '../../../interfaces/country';
 
  type Props = {
-   countries: Country[];
+   countries: any;
  }
 
 const Footer = ({countries}: Props) => {

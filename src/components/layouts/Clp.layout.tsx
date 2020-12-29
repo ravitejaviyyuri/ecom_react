@@ -73,7 +73,7 @@ function ClpLayout(props: any) {
           setHelpCourse(false);
         }}
       />
-      <Footer countries={props.countries} />
+      <Footer countries={props.countryopt} />
       {isMob ? <ResponsiveFooter /> : <DUQ />}
     </div>
   );

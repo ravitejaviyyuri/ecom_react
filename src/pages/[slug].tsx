@@ -83,7 +83,7 @@ const CoursePage = ({ data, errors }: Props) => {
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
-      <ClpLayout countries={data.countries} options={data.countryCodeOptions.options} searchtabs={data.searchtabs} categories={data.course.allcategories.categories}>
+      <ClpLayout countries={data.countries} countryopt = {data.countryCodeOptions.countryopt} options={data.countryCodeOptions.options} searchtabs={data.searchtabs} categories={data.course.allcategories.categories}>
       
         {console.log(data.course.course_sections)}
         <Breadcrumb />
