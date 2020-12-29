@@ -108,7 +108,7 @@ const CoursePage = ({ data, errors }: Props) => {
         <Curriculum
           curicullumData={data.course.course_sections.clp_curriuculum_section}
         />
-        <Projects course_section={data.course.course_sections.clp_project} /> 
+        {/* <Projects course_section={data.course.course_sections.clp_project} />  */}
         <Certification />
         <EdurekaAdvantage
           course_sections={data.course.course_sections.clp_edureka_advantage}
