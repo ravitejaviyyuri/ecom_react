@@ -110,13 +110,13 @@ const CoursePage = ({ data, errors }: Props) => {
         />
         {/* <Projects course_section={data.course.course_sections.clp_project} />  */}
         <Certification />
-        <EdurekaAdvantage
+        {/* <EdurekaAdvantage
           course_sections={data.course.course_sections.clp_edureka_advantage}
-        />
-        <Reviews
+        /> */}
+        {/* <Reviews
           rating_section={data.course.course_sections.clp_rating_section}
           review_section={data.course.reviews}
-        />
+        /> */}
         <FAQ course_sections={data.course.course_sections.clp_faq} />
         <ICE course_sections={data.course.course_sections.clp_ice} />
         <OtherCityLink />
