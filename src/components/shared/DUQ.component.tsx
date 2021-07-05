@@ -39,23 +39,26 @@ const DUQ = (props: any) => {
               isOpen ? styles.closed : styles.open
             }`}
           >
-            <DownChevronIcon color="#ffffff" />
+            <DownChevronIcon color="#27b8cc" />
           </span>
         </div>
         <CSSTransition unmountOnExit in={isOpen} timeout={400} appear>
           <div className={styles.body}>
             <div className={styles.top_section}>
-              <div className={styles.phone_icon}>
-                <PhoneIcon color="#192f60" />
-              </div>
-              <div className={styles.contact_info}>
-                <span className={styles.number}>08040423753</span>
+                <img src="/24x7-available.png" alt="image" />
                 <span className={styles.info}>
                   Available 24x7 for your queries
                 </span>
-              </div>
             </div>
             <Form className={styles.form}>
+              <Form.Group controlId="duqFormTextarea">
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  placeholder="Type your query here*"
+                  className={styles.input}
+                />
+              </Form.Group>
               <Form.Group
                 controlId="duqFormPhoneNumber"
                 className="position-relative"
@@ -76,18 +79,14 @@ const DUQ = (props: any) => {
                   placeholder="eg@saga.gmail.com"
                 />
               </Form.Group>
-              <Form.Group controlId="duqFormTextarea">
-                <Form.Control
-                  as="textarea"
-                  rows={3}
-                  placeholder="Type your query here*"
-                  className={styles.input}
-                />
-              </Form.Group>
               <Button className={styles.submit} variant="primary">
                 SUBMIT QUERY
               </Button>
             </Form>
+            <div className={styles.talktous}>
+              <span>Or, talk to a course Counsellor</span>
+              <a href="callto:+14072345678">Call +1 407 2345678</a>
+            </div>
           </div>
         </CSSTransition>
       </div>

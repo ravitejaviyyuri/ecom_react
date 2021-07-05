@@ -2,10 +2,9 @@ import React,{useEffect, useState} from "react";
 import Modal from "react-bootstrap/Modal";
 import styles from "./searchoverlay.module.scss";
 import SearchInput from "./search_tabs/SearchInput.component";
-import MenuLinks from "./search_tabs/SearchTabs.component";
+import Searchfilterdata from "./search_tabs/SearchFilterData.component";
 import { CrossIcon } from "../../shared/icons/crossicon";
 import algoliasearch from 'algoliasearch/lite';
-import instantsearch from 'algoliasearch/lite';
 
 const SearchOverlay = (props: any) => {
   const [isResult, setResult] = useState(false);
@@ -40,7 +39,7 @@ const SearchOverlay = (props: any) => {
           <CrossIcon color="#000000" />
         </div>
         <SearchInput  setSearchInput= {setSearchInput} hits={data} isResult = {isResult} />
-        <MenuLinks  searchtabs={props.searchtabs}  />
+        <Searchfilterdata />
       </Modal.Body>
     </Modal>
   );

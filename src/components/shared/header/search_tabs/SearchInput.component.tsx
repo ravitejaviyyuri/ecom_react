@@ -28,7 +28,7 @@ const SearchInput = (props: any) => {
             placeholder="Enter Course, Category or keyword"
           />
           <span className={styles.search_icon}>
-            <SearchIcon color="#ffffff" />
+            <SearchIcon color="#5a6484" />
           </span>
           {props.isResult && <SearchResult hits={props.hits}/>}
         </div>
