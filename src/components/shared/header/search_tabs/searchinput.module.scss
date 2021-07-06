@@ -1,6 +1,7 @@
 .search_bx {
   background-color: #f4f5f7;
-  padding-top: 50px;
+  padding-top: 38px;
+  padding-left: 111px;
   @media only screen and (max-width: 767px) and (min-width: 300px) {
     padding-top: 75px;
   }
@@ -12,8 +13,9 @@
   background-color: #ffffff;
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: 50%;
   position: relative;
+  height: 50px;
   @media only screen and (max-width: 767px) and (min-width: 300px) {
     width: 100%;
   }
@@ -21,7 +23,7 @@
 
 .input {
   border: none;
-  height: 50px;
+  height: 46px;
   background-color: transparent;
   color: #5a6484;
   font-size: 20px;

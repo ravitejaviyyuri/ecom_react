@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Container from "react-bootstrap/Container";
 import { SearchIcon } from "../../icons/searchicon";
 import styles from "./searchinput.module.scss";
 import SearchResult from "./SearchResult.component";
@@ -18,7 +17,7 @@ const SearchInput = (props: any) => {
 
   return (
     <div className={styles.search_bx}>
-      <Container>
+      
         <div className={styles.input_bx}>
           <input
              name="search"
@@ -32,7 +31,7 @@ const SearchInput = (props: any) => {
           </span>
           {props.isResult && <SearchResult hits={props.hits}/>}
         </div>
-      </Container>
+  
     </div>
   );
 };

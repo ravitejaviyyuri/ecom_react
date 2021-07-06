@@ -1,0 +1,261 @@
+.search_field_data {
+    padding-left: 115px;
+    padding-top: 30px;
+    padding-right: 40px;
+}
+.bx_search_result{
+    margin-bottom: 40px;
+    .title{
+        font-size: 16px;
+        font-weight: 600;
+        color: #5a6484;
+        line-height: 1.38;
+        margin-bottom: 20px;
+    }
+    .pop_search_ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            margin-bottom: 10px;
+            a {
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 1.38;
+                color: #0857cd;
+                text-decoration: none;
+            }
+        }
+    }
+    .pop_course_cat_ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 350px;
+        li {
+            display: inline-block;
+            a {
+                height: 40px;
+                padding: 10px 20px 10px 20px;
+                border-radius: 20px;
+                border: solid 1px #192f60;
+                background-color: #ffffff;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 1.36;
+                text-align: left;
+                color: #192f60;
+                display: inline-block;
+                margin-left: 15px;
+                margin-bottom: 15px;
+                text-decoration: none;
+            }
+        }
+    }
+    .view_all_course {
+        a {
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.33;
+            display: inline-block;
+            color: #0857cd;
+            text-decoration: none;
+        }
+    }
+}
+.search_pop_course{
+    a {
+        text-decoration: none;
+    }
+}
+.search_pop_course_bx {
+    height: 180px;
+    padding: 16px 23.6px 14px 26px;
+    border-radius: 6px;
+    box-shadow: 0 0 20px 0 rgb(0 12 105 / 6%);
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    .tag {
+        font-size: 12px;
+        font-weight: bold;
+        height: 19px;
+        width: 100%;
+        display: inline-block;
+    }
+    .live_tag {
+        color: #ed3e3e;
+    }
+    .pgp_tag {
+        color: #edb778;
+    }
+    .master_tag {
+        color: #b56c46;
+    }
+    h4 {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.2;
+        color: #192f60;
+        overflow: hidden;
+        height: 48px;
+        display: flex;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+    }
+    .learners_count {
+        font-size: 12px;
+        font-weight: 600;
+        color: #5a6484;
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .know_more {
+        text-align: right;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.54;
+        color: #0052cc;
+        display: inline-block;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 130px;
+        position: absolute;
+        bottom: 30px;
+        right: 34px;
+    }
+}
+.search_field_nodata {
+    padding-left: 115px;
+    padding-top: 30px;
+    padding-right: 40px;
+    .usersearch_input {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 2.06;
+        color: #192f60;
+        margin-bottom: 20px;
+    }
+    .titile {
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1.5;
+        color: #192f60;
+        margin-bottom: 30px;
+    }
+    form {
+        padding: 23px 32px 23px;
+        box-shadow: 0 3px 10px 0 rgb(0 12 105 / 6%);
+        background-color: #ffffff;
+        width: 340px;
+        .title {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.88;
+            color: #192f60;
+            margin-bottom: 13px;
+        }
+            input {
+                border-radius: 3px;
+                border: solid 0.7px #9ba5ba;
+                height: 42px;
+                font-size: 14px;
+                color: #9ba5ba;
+                width: 100%;
+                margin-top: -1px;
+                margin-left: -1px;
+            }
+            input.phone_input{
+                padding-left: 85px;
+            }
+            textarea {
+                border-radius: 3px;
+                border: solid 0.7px #9ba5ba;
+                height: 80px;
+                font-size: 14px;
+                color: #9ba5ba;
+                width: 100%;
+                padding: 10px;
+            }
+            label{
+                font-size: 13px;
+                font-weight: normal;
+                line-height: 1.23;
+                color: #3a5075;
+                margin-bottom: 6px;
+            }
+            button{
+                width: 100%;
+            }
+    }
+    .form_field_num {
+        display: flex;
+        .or_text {
+            width: 60px;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.88;
+            text-align: center;
+            color: #192f60;
+            padding-top: 70px;
+        }
+        .num_call_text {
+            width: 340px;
+            height: 162px;
+            padding: 23px 7px 48px 42px;
+            box-shadow: 0 3px 10px 0 rgb(0 12 105 / 6%);
+            background-color: #ffffff;
+            .title {
+                font-size: 16px;
+                font-weight: bold;
+                line-height: 1.88;
+                color: #192f60;
+            }
+            .num_ico {
+                display: flex;
+                align-items: center;
+                margin-top: 15px;
+                i {
+                    width: 38px;
+                    height: 38px;
+                    border-radius: 6px;
+                    border: solid 1px #192f60;
+                    background-color: #ffffff;
+                    color: #192f60;
+                    max-width: 38px;
+                    min-width: 38px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 10px;
+                    font-size: 20px;
+                }
+                span.num {
+                    display: inline-block;
+                    width: 100%;
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #192f60;
+                    position: relative;
+                    top: 5px;
+                    a {
+                        text-decoration: none;
+                        color: #192f60;
+                    }
+                }
+                span.text {
+                    display: inline-block;
+                    width: 100%;
+                    font-size: 12px;
+                    font-weight: normal;
+                    color: #5a6484;
+                    position: relative;
+                    top: -5px;
+                }
+            }
+        }
+    }
+}

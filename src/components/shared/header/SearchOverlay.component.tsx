@@ -3,7 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import styles from "./searchoverlay.module.scss";
 import SearchInput from "./search_tabs/SearchInput.component";
 import Searchfilterdata from "./search_tabs/SearchFilterData.component";
-import { CrossIcon } from "../../shared/icons/crossicon";
+import { ArrowLeftIcon } from "../../shared/icons/arrowleft";
 import algoliasearch from 'algoliasearch/lite';
 
 const SearchOverlay = (props: any) => {
@@ -36,7 +36,7 @@ const SearchOverlay = (props: any) => {
     >
       <Modal.Body className={styles.modalsearch_body}>
         <div className={styles.close_btn} onClick={props.handleClose}>
-          <CrossIcon color="#000000" />
+          <ArrowLeftIcon color="#192f60" />
         </div>
         <SearchInput  setSearchInput= {setSearchInput} hits={data} isResult = {isResult} />
         <Searchfilterdata />
