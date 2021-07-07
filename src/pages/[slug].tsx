@@ -88,7 +88,7 @@ const CoursePage = ({ data, errors }: Props) => {
         <Breadcrumb />
         <CourseTitle />
         <VideoInfo />
-        <LearningByEdureka
+        {/*<LearningByEdureka
           edureka360degSection={data.course.course_sections.clp_360_deg_section}
         />
         <KnowYourCourse
@@ -106,7 +106,7 @@ const CoursePage = ({ data, errors }: Props) => {
         />
         <Curriculum
           curicullumData={data.course.course_sections.clp_curriuculum_section}
-        />
+        /> */}
         {/* <Projects course_section={data.course.course_sections.clp_project} />  */}
         <Certification />
         {/* <EdurekaAdvantage
@@ -159,63 +159,102 @@ const CoursePage = ({ data, errors }: Props) => {
 //     return { props: { errors: err.message } };
 //   }
 // };
-
-//ISR code
-export const getStaticProps: GetStaticProps = async ({params}) => {
+export const getServerSideProps: GetServerSideProps = async ({params}) => {
   try {
     const slug =params?.slug;
 
     const course: Course = await getCourse(String(slug))
-    course.course_sections = sectionsMapping(course.course_sections);
+    // course.course_sections = sectionsMapping(course.course_sections);
     course.allcategories = allcategoriesMapping(course.allcategories);
     const countries = await getCountries();
     const countryCodeOptions =  countryCodeMapping(countries);
-    const currencies = await getCurrencies();
-    const batches = await getBatches(course.id);
+    // const currencies = await getCurrencies();
+    // const batches = await getBatches(course.id);
     const searchData = await searchTabs();
     const tabdata = searchMapping(searchData);
-    course.course_sections.clp_360_deg_section = formatCLP360DegSection(course.course_sections.clp_360_deg_section.section_details);
-    course.course_sections.clp_get_a_glimpse = formatCLPGetAGlimpse(course.course_sections.clp_get_a_glimpse.section_details);
-    course.course_sections.clp_course_overview = formatCLPCourseOverview(course.course_sections.clp_course_overview.section_details);
-    course.course_sections.clp_curriuculum_section = formatCLPCurriculum(course.course_sections.clp_curriuculum_section.section_details);
-    course.course_sections.clp_edureka_advantage = formatCLPEdurekaAdvantage(course.course_sections.clp_edureka_advantage);
-    course.course_sections.clp_rating_section = formatCLPRatings(course.course_sections.clp_rating_section);
-    course.course_sections.clp_ice = formatCLPIce(course.course_sections.clp_ice);
-    course.course_sections.clp_faq = formatCLPFaq(course.course_sections.clp_faq);
+    // course.course_sections.clp_360_deg_section = formatCLP360DegSection(course.course_sections.clp_360_deg_section.section_details);
+    // course.course_sections.clp_get_a_glimpse = formatCLPGetAGlimpse(course.course_sections.clp_get_a_glimpse.section_details);
+    // course.course_sections.clp_course_overview = formatCLPCourseOverview(course.course_sections.clp_course_overview.section_details);
+    // course.course_sections.clp_curriuculum_section = formatCLPCurriculum(course.course_sections.clp_curriuculum_section.section_details);
+    // course.course_sections.clp_edureka_advantage = formatCLPEdurekaAdvantage(course.course_sections.clp_edureka_advantage);
+    // course.course_sections.clp_rating_section = formatCLPRatings(course.course_sections.clp_rating_section);
+    // course.course_sections.clp_ice = formatCLPIce(course.course_sections.clp_ice);
+    // course.course_sections.clp_faq = formatCLPFaq(course.course_sections.clp_faq);
 
     // Pass data to the page via props
     return {
       props: {
         data: {
           course: course,
-          batches: batches,
-          currencies:currencies,
+          // batches: batches,
+          // currencies:currencies,
           countries: countries,
           searchtabs: tabdata,
           countryCodeOptions:countryCodeOptions,
         }
-      },
-      revalidate: 1
+      }
     }
   } catch (err) {
     // Pass error to the page via props
     return { props: { errors: err.message } }
   }
 }
+//ISR code
+// export const getStaticProps: GetStaticProps = async ({params}) => {
+//   try {
+//     const slug =params?.slug;
 
-export const getStaticPaths: GetStaticPaths<{slug:string}> = async () => {
+//     const course: Course = await getCourse(String(slug))
+//     course.course_sections = sectionsMapping(course.course_sections);
+//     course.allcategories = allcategoriesMapping(course.allcategories);
+//     const countries = await getCountries();
+//     const countryCodeOptions =  countryCodeMapping(countries);
+//     const currencies = await getCurrencies();
+//     const batches = await getBatches(course.id);
+//     const searchData = await searchTabs();
+//     const tabdata = searchMapping(searchData);
+//     course.course_sections.clp_360_deg_section = formatCLP360DegSection(course.course_sections.clp_360_deg_section.section_details);
+//     course.course_sections.clp_get_a_glimpse = formatCLPGetAGlimpse(course.course_sections.clp_get_a_glimpse.section_details);
+//     course.course_sections.clp_course_overview = formatCLPCourseOverview(course.course_sections.clp_course_overview.section_details);
+//     course.course_sections.clp_curriuculum_section = formatCLPCurriculum(course.course_sections.clp_curriuculum_section.section_details);
+//     course.course_sections.clp_edureka_advantage = formatCLPEdurekaAdvantage(course.course_sections.clp_edureka_advantage);
+//     course.course_sections.clp_rating_section = formatCLPRatings(course.course_sections.clp_rating_section);
+//     course.course_sections.clp_ice = formatCLPIce(course.course_sections.clp_ice);
+//     course.course_sections.clp_faq = formatCLPFaq(course.course_sections.clp_faq);
+
+//     // Pass data to the page via props
+//     return {
+//       props: {
+//         data: {
+//           course: course,
+//           batches: batches,
+//           currencies:currencies,
+//           countries: countries,
+//           searchtabs: tabdata,
+//           countryCodeOptions:countryCodeOptions,
+//         }
+//       },
+//       revalidate: 1
+//     }
+//   } catch (err) {
+//     // Pass error to the page via props
+//     return { props: { errors: err.message } }
+//   }
+// }
+
+// export const getStaticPaths: GetStaticPaths<{slug:string}> = async () => {
   
   
 
 
-    // Pass data to the page via props
-    return {
-     paths:[{params:{slug:"devops-certification-training"}}
-            ],
-     fallback:false,
-    };
+//     // Pass data to the page via props
+//     return {
+//      paths:[{params:{slug:"devops-certification-training"}}
+//             ],
+//      fallback:false,
+//     };
   
-}
+// }
 
 
 export default CoursePage;
