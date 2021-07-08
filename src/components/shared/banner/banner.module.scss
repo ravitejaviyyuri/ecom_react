@@ -1,0 +1,78 @@
+.top_strip_banner_contact{
+    height: 40px;
+    background: #192f60;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: 11px 48px;
+    display: flex;
+    justify-content: space-between;
+    .contact_view_bx{
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        font-size: 15px;
+        svg{
+            margin-right: 7px;
+        }
+    }
+    span{
+        display: inline-block;
+        img{
+            display: inline-block;
+            margin: 0 8px 0 10px;
+        }
+        a{
+            color: #ffffff;
+            margin-right: 5px;
+        }
+        i{
+            svg{
+                width: 9px;
+                height: 9px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.offer_view_bx{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    span{
+        display: inline-block;
+        color: #ffd381;
+        font-size: 13px;
+    }
+    .endsin{
+        padding-left: 5px;
+        margin-left: 5px;
+        border-left: 1px solid #ffd381;
+    }
+    .grabnow{
+        color: #ffd381;
+        font-size: 13px;
+        text-decoration: underline;
+        margin-left: 5px;
+    }
+}
+.red{
+    color: red;
+}
+@media only screen and (max-width: 767px) and (min-width: 300px) {
+    .top_strip_banner_contact{
+        padding: 10px 15px;
+        height: auto;
+        position: inherit;
+        .contact_view_bx{
+            display: none;
+        }
+    }
+    .offer_view_bx{
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+}
