@@ -1,0 +1,24 @@
+.countdown_wrapper{
+    display: inline-block;
+    .time_section_width{
+        min-width: 28px;
+        text-align: center;
+    }
+    .time_section{
+        display: inline-block;
+        color: #fff;
+        font-size: 13px;
+        margin: 0 2px;
+        .time{
+            display: inline-block;
+        }
+        .time_text{
+            display: inline-block;
+            font-size: 13px;
+            margin-left: 3px;
+        }
+        .dot{
+            display: inline-block;
+        }
+    }
+}

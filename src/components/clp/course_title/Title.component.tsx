@@ -11,11 +11,12 @@ const CourseTitle = () => {
 
   return (
     <section className={styles.title_section}>
-      <Container>
+      <Container> 
         <div className={styles.mix_section}>
-          <div className={styles.heading}>
-            <h1>Big Data Hadoop Certification Training</h1>
-            <span>LIVE CLASSES</span>
+          <div className={styles.tag_course_type}>
+              <span className={styles.bestseller}>Bestseller</span>
+              <span className={styles.livetraning}>Live Training</span>
+              <span className={styles.selfpaced}>Self Paced</span>
           </div>
           <div className={styles.contact_share}>
             <div className={styles.conatct_bx}>
@@ -35,6 +36,11 @@ const CourseTitle = () => {
             >
               <ShareIcon />
             </div>
+          </div>
+        </div>
+        <div className={styles.mix_section}>
+          <div className={styles.heading}>
+            <h1>Big Data Hadoop Certification Training</h1>
           </div>
         </div>
       </Container>

@@ -3,11 +3,34 @@
     font-size: 15px;
     font-weight: 500;
     color: #192f60 !important;
-    margin-left: 30px;
+    margin-left: 14px;
   }
   .login_in {
     width: 69px;
     height: 38px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    border: solid 1px #192f60;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.53;
+    color: #192f60;
+    padding: 0;
+    margin: 0 0px 0 20px;
+    box-shadow: none;
+    &:hover,&:focus,&:active{
+      background-color: #ffffff !important;
+      border: solid 1px #192f60;
+      color: #192f60 !important;
+      outline: none;
+      box-shadow: none !important;
+    }
+  }
+  .sign_up {
+    width: 84px;
+    height: 38px;
+    margin: 1px 0 0 20px;
+    padding: 9px 11px 8px 17px;
     border-radius: 3px;
     background-color: #f1f2f5;
     font-size: 15px;
@@ -15,25 +38,48 @@
     line-height: 1.53;
     color: #192f60;
     padding: 0;
-    margin: 0 20px 0 35px;
-    border: none;
-    box-shadow: none;
-  }
-  .sign_up {
-    width: 84px;
-    height: 38px;
-    margin: 2px 0 0 20px;
-    padding: 9px 11px 8px 17px;
-    border-radius: 3px;
-    background-color: #0052cc;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.53;
-    color: #ffffff;
-    padding: 0;
     margin-left: 20px;
     border: none;
     box-shadow: none;
+    &:hover,&:focus,&:active{
+      background-color: #f1f2f5 !important;
+      color: #192f60 !important;
+      outline: none;
+      box-shadow: none !important;
+    }
+  }
+  .offering_drop{
+    button{
+      border-radius: 3px;
+      background-color: #f0f6ff;
+      border: none;
+      margin: 1px 0 0px 13px;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.53;
+      color: #192f60;
+      height: 39px;
+      &::after{
+        display: none;
+      }
+      &:hover,&:focus,&:active{
+        background-color: #f0f6ff !important;
+        color: #192f60 !important;
+        outline: none;
+        box-shadow: none !important;
+      }
+    }
+    .offering_list_drop{
+      top: 56px;
+      border-radius: 6px;
+      box-shadow: 0 0 20px 0 rgba(0, 12, 105, 0.06);
+      border: solid 1px #eaeaea;
+      background-color: #ffffff;
+      a{
+        color: #192f60;
+        font-size: 15px;
+      }
+    }
   }
   .community_drop {
     button {

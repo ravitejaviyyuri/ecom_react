@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React, { useState, useEffect } from "react";
 import LoginSignup from "../shared/LoginSignup/LoginSignup.component";
+import Bannernew from "../shared/banner/Banner.component";
 import HeaderNavbar from "../shared/header/Navbar.component";
 import Footer from "../shared/Footer/Footer.component";
 import DUQ from "../shared/DUQ.component";
@@ -43,6 +44,7 @@ function ClpLayout(props: any) {
         <title>Edureka - Devpops</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
+      <Bannernew></Bannernew>
       <HeaderNavbar setLoginSignup={handleLoginSignup}  searchtabs={props.searchtabs} categories={props.categories}/>
       <LoginSignup
         show={showLoginSignup}
