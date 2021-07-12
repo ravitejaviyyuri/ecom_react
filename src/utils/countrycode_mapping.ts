@@ -7,7 +7,7 @@ export const countryCodeMapping = (countries:(Country)[]) =>{
         obj['countryopt'] = [];
       countries.forEach((country: Country) => {
         obj['options'].push({ "value":country.country_name+"#"+country.currency+"#"+country.phone_code, "label": country.currency+" - "+country.country_name});
-        obj['countryopt'].push({ "value":country.country_name+"#"+country.currency, "label": country.country_name});
+        obj['countryopt'].push({ "value":country.country_name+"#"+country.currency+"#"+country.phone_code+"#"+country.country_code, "label": country.country_name, "country_code" : country.country_code});
       //console.log(Object.create({ "value":country.country_name+"#"+country.currency+"#"+country.phone_code, "label": country.country_name+"#"+country.currency}).label)
      })
      console.log("hell");

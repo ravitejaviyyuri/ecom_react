@@ -1,3 +1,6 @@
+import BaseCourseInfo from '../course/base_course_info';
+import TokenInfo from '../token/i_token';
+
 interface UserDetails {
     sessionId: string,
     userId: string,
@@ -8,7 +11,9 @@ interface UserDetails {
     mobileNo: string,
     profilePicUrl: string,
     currencyPrefrence: string,
-    country:string
+    country:string,
+    countryCode: string,
+    mobileCode : string,
 }
 
 interface LoginStatus {
@@ -23,6 +28,8 @@ interface UserInfo {
 
 interface UserState{
     userInfo: UserInfo;
+    baseCourseInfo : BaseCourseInfo;
+    tokenInfo : TokenInfo;
 }
 
 export const initState : UserState = {
@@ -37,12 +44,26 @@ export const initState : UserState = {
             mobileNo:  "",
             profilePicUrl:  "",
             currencyPrefrence:  "INR",
-            country: "India"
+            country: "India",
+            countryCode: "IN",
+            mobileCode : "+1"
         },
         loginStatus: {
             islogin: false
         }
+    },
+    baseCourseInfo : {
+        id: "100",
+        slug: "No-course"
+    },
+    tokenInfo : {
+        time : 0,
+        token : ''
     }
 }
 
 export default UserState;
+
+
+
+// console.log(initialState.state.userState.userInfo.userDetails.mobileNo);

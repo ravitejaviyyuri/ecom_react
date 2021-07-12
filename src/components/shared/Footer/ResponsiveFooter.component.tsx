@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import styles from "./responsivefooter.module.scss";
 import DUQ from "../DUQ.component";
 
-const ResponsiveFooter = () => {
+const ResponsiveFooter = (props : any) => {
   const [showDUQ, setDUQ] = useState(false);
 
   const handleDUQ = () => {
@@ -24,7 +24,7 @@ const ResponsiveFooter = () => {
         appear
         unmountOnExit
       >
-        <DUQ setDUQ={setDUQ} />
+        <DUQ setDUQ={setDUQ} countries={props.countries} />
       </CSSTransition>
     </section>
   );

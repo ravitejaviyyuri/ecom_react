@@ -56,14 +56,34 @@ const UserReducer = (state: AppState, action: Dispatch) => {
               userDetails:{
                 ...state.userState.userInfo.userDetails,
                 currencyPrefrence:action.data.currency,
-                country:action.data.country
+                country:action.data.country,
+                countryCode: action.data.countryCode,
+                mobileCode : action.data.mobileCode
               },
               ...state.userState.userInfo.loginStatus
           },
         },
       };
     }
-
+    case USER_ACTION.action.BASIC_AUTO_POPULATE_INFO: {
+      
+      console.log(action.data.val)
+        return {
+            ...state,
+        userState: {
+          ...state.userState,
+          userInfo: {
+            ...state.userState.userInfo,
+              userDetails:{
+                ...state.userState.userInfo.userDetails,
+                emailAddress:action.data.email,
+                mobileNo:action.data.phone,
+              },
+              ...state.userState.userInfo.loginStatus
+          },
+        },
+      };
+    }
 
     default:
         return state;

@@ -65,21 +65,46 @@ const DropdownIndicator = (props:any) => {
 type Props={
   options:any;
   className:string;
+  //onChange : () 
+  onChange(data: any): void;
+  phoneCode : string;
+  countryCode : string;
+  country : string;
 }
 
-const CountryCodeSelect = ({className,options}: Props) => {
+
+
+const CountryCodeSelect = ({className,options,onChange,phoneCode,countryCode,country}: Props) => {
 
   const{state,dispatch} = useContext(AppContext);
-  const[code,setCode] = useState("+");
-  
+  //const[code,setCode] = useState("+");
+
   const onChangeHandler = (option: any) =>{
     let arr = option.value.split("#");
-    let val = {country:arr[0],currency:arr[1]}
-    setCode(arr[2]);
+    console.log(arr[2]);
+    let val = {
+        country:arr[0],
+        currency:arr[1],
+        countryCode: arr[3],
+        mobileCode : arr[2]
+      }
+    onChange({target :{name : 'code', value : arr[2]}});
+    onChange({target :{name : 'countryCode', value : arr[3]}});
+    onChange({target :{name : 'country', value : arr[0]}});
     dispatch({ type: UPDATE_USER_STATE.type,
       action: UPDATE_USER_STATE.action.UPDATE_COUNTRY,
       data: val})
   }
+
+  const formatOptionLabel = ({ value, label, country_code } : any, {context} : any) => {
+    let displayValue = context == "menu" ? label : country_code;
+    return (
+      <div>
+      <div>{displayValue}</div>
+      </div>
+    );
+  }
+    
 
   return (
     <div className={`${styles.country_select} ${className}`}>
@@ -88,7 +113,8 @@ const CountryCodeSelect = ({className,options}: Props) => {
           instanceId="country-code-select"
           options={options}
           styles={customStyles}
-          defaultValue={{ label: "IN", value: "india" }}
+          defaultValue={{ label: country, value: country, country_code:countryCode }}
+          formatOptionLabel = {formatOptionLabel}
           components={{
             IndicatorSeparator: () => null,
             DropdownIndicator,
@@ -96,9 +122,10 @@ const CountryCodeSelect = ({className,options}: Props) => {
           onChange={onChangeHandler}
         />
       </div>
-        <span>{code}</span>
+        <span>{phoneCode}</span> 
     </div>
   );
 };
 
 export default CountryCodeSelect;
+

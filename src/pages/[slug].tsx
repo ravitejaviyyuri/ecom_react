@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext, useReducer } from "react";
 import UPDATE_USER_STATE from "../store/user/action";
+import COURSE_ACTION from "../store/course/action";
+import TOKEN_ACTION from "../store/token/action";
 import { AppContext, AppReducer } from "../store";
 import { createCookie, accessCookie, checkCookie } from "../utils/cookie";
 import { cookie_const } from "../utils/constants";
@@ -10,6 +12,7 @@ import { getCourse } from "../api/services/course.service";
 import { getBatches } from "../api/services/batch.service";
 import { getCurrencies } from "../api/services/currency.service";
 import { getCountries } from "../api/services/country.service";
+import { getCsrfToken } from "../api/services/csrftoken.service";
 import { Course, CourseSections } from "../interfaces/course";
 import { Currency } from "../interfaces/currency";
 import { Country } from "../interfaces/country";
@@ -47,6 +50,7 @@ type Props = {
     reviews: String[];
     searchtabs: any;
     countryCodeOptions:any;
+    csrfToken : any;
   };
   errors?: string;
 };
@@ -59,7 +63,6 @@ const CoursePage = ({ data, errors }: Props) => {
       </div>
     );
   }
-
   const initialState = useContext(AppContext);
   const [state, dispatch] = useReducer(AppReducer, initialState.state);
 
@@ -78,10 +81,24 @@ const CoursePage = ({ data, errors }: Props) => {
         }
       });
     }
+    if(data.course.id && data.course.slug){
+      dispatch({
+        type: COURSE_ACTION.type,
+        action: COURSE_ACTION.action.ADD_SLUG_AND_ID,
+        data: { id: data.course.id, slug: data.course.slug},
+      });
+    }
+    if(data.csrfToken.time && data.csrfToken.token){
+      dispatch({
+        type: TOKEN_ACTION.type,
+        action: TOKEN_ACTION.action.UPDATE_TOKEN_INFO,
+        data: { time: data.csrfToken.time, token: data.csrfToken.token},
+      });
+    }
   }, []);
  
-
-  return (
+  //return JSON.stringify(data.course);
+  return ( 
     <AppContext.Provider value={{ state, dispatch }}>
       <ClpLayout countries={data.countries} countryopt = {data.countryCodeOptions.countryopt} options={data.countryCodeOptions.options} searchtabs={data.searchtabs} categories={data.course.allcategories.categories}>
       
@@ -182,6 +199,10 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
     // course.course_sections.clp_faq = formatCLPFaq(course.course_sections.clp_faq);
 
     // Pass data to the page via props
+    const token = await getCsrfToken({
+      time:  Math.floor(Date.now() / 1000)
+    });
+
     return {
       props: {
         data: {
@@ -191,6 +212,7 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
           countries: countries,
           searchtabs: tabdata,
           countryCodeOptions:countryCodeOptions,
+          csrfToken : token,
         }
       }
     }
