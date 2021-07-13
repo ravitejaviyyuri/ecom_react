@@ -10,7 +10,7 @@ module.exports = {
         production : {
           "user" : 'ubuntu',
           "host" : 'localhost',
-          "ref"  : 'feature/duq_comp',
+          "ref"  : 'origin/feature/duq_comp',
           "repo" : 'git@github.com:ravitejaviyyuri/ecom_react.git',
           "path" : '/home/ubuntu/ecom_react',
           "pre-deploy-local": '',
