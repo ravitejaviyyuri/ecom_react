@@ -9,8 +9,8 @@ module.exports = {
       deploy : {
         production : {
           "user" : 'ubuntu',
-          "host" : '107.21.225.214',
-          "ref"  : 'origin/master',
+          "host" : 'localhost',
+          "ref"  : 'feature/duq_comp',
           "repo" : 'git@bitbucket.org:edureka/ecom_react.git',
           "path" : '/home/ubuntu/pm2-apps/ecom-react',
           "pre-deploy-local": '',
