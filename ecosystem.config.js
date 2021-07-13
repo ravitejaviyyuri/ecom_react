@@ -15,7 +15,11 @@ module.exports = {
           "path" : '/home/ubuntu/ecom_react',
           "pre-deploy-local": '',
           "post-deploy" : 'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --name ECOM-NEXT',
-          "pre-setup": ''
+          "pre-setup": '',
+	env: {
+	NODE_ENV: 'development',
+	PORT: 1234
+		}
         }
       }
     };
