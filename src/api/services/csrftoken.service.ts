@@ -9,7 +9,7 @@ const getCsrfToken = async (data : any) => {
    let response = await makeServerPost(`${server.ECOM_API_URL}/rapi_tokens`,data);
  //  let response = await makeServerGet("http://utilities.dev-edureka.co/countries");
    console.log(response);
-   return response;
+   return response.data;
   } 
   catch (err) {
     throw err;
