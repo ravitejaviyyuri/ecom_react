@@ -7,7 +7,7 @@ module.exports = {
       }],
     
       deploy : {
-        myEnv : {
+        production : {
           "user" : 'ubuntu',
           "host" : 'localhost',
           "ref"  : 'origin/feature/duq_comp',
