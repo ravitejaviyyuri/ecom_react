@@ -12,7 +12,7 @@ module.exports = {
           "host" : 'localhost',
           "ref"  : 'origin/feature/duq_comp',
           "repo" : 'git@github.com:ravitejaviyyuri/ecom_react.git',
-          "path" : '/home/ubuntu/ecom_react',
+          "path" : '/home/ubuntu/pm2-apps/ecom_react',
           "pre-deploy-local": '',
           "post-deploy" : 'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --name ECOM-NEXT',
           "pre-setup": '',
