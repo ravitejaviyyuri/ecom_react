@@ -17,7 +17,7 @@ module.exports = {
           "post-deploy" : 'npm install && npm run build && pm2 startOrRestart ecosystem.config.js --name ECOM-NEXT',
           "pre-setup": '',
 	env: {
-	NODE_ENV: 'development',
+	NODE_ENV: 'production',
 	PORT: 1234
 		}
         }
